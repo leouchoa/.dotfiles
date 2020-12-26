@@ -1,7 +1,14 @@
 # dotfiles
 Personal Dotfiles
 
-Configurações de Dotfiles. No momento, ainda há muito que fazer. 
+Configurações de Dotfiles. O que tem aqui são:
+
+- atalhos (aliases)
+- configuração da aparência do terminal
+- configuração do vim
+
+
+**Cuidado** para não copiar a colar tudo pois essas configurações são para a distro *debian*! Se quiser usar somente os atalhos, olhe o arquivo [.aliases](https://github.com/leouchoa/dotfiles/blob/master/.aliases).
 
 # Porque esta página é útil?
 
