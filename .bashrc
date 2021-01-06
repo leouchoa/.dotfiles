@@ -112,11 +112,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 4.2.0 installer
-export PATH="/home/leouchoa/anaconda3/bin:$PATH"
-
 # Loading .bash_profile
 [ -n "$PS1" ] && source ~/.bash_profile;
 
+# loading fzf (command-line fuzzy finder)
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
