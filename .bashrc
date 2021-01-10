@@ -117,5 +117,9 @@ fi
 
 # loading fzf (command-line fuzzy finder)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#run tmux on every login shell
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#  exec tmux
+#fi
 
 
