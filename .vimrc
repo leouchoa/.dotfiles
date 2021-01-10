@@ -1,3 +1,9 @@
+call plug#begin()
+Plug 'davidhalter/jedi-vim'
+Plug 'jalvesaq/Nvim-R'
+Plug 'tpope/vim-commentary'
+call plug#end()
+
 syntax on
 set number " display line number 
 set tabstop=2 " tab width
