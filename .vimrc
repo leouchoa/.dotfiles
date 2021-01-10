@@ -13,5 +13,6 @@ set hlsearch " highlights search text
 set wildmode=list:longest,full " WILD autocompletions
 set splitbelow splitright
 
+:vnoremap <C-c> "+y # visual mode copy mapped from "+y to <C-c> (ctrl + c)
 
 
