@@ -3,3 +3,5 @@ for file in ~/.{bash_prompt,aliases}; do
 done;
 unset file;
 
+#https://unix.stackexchange.com/a/38475
+case $- in *i*) . ~/.bashrc;; esac
