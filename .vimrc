@@ -14,6 +14,6 @@ set wildmode=list:longest,full " WILD autocompletions
 set splitbelow splitright
 
 :vnoremap <C-c> "+y # copy register mapped from "+y to <C-c> (ctrl + c)
-map <C-p> "+p #paste from + register mapped to <C-p>
+:map <C-v> "+p #paste from + register mapped to <C-v>
 
 
