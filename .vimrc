@@ -13,7 +13,7 @@ set hlsearch " highlights search text
 set wildmode=list:longest,full " WILD autocompletions
 set splitbelow splitright
 
-:vnoremap <C-c> "+y # copy register mapped from "+y to <C-c> (ctrl + c)
-:map <C-v> "+p #paste from + register mapped to <C-v>
+vnoremap <C-c> "+y #copy register mapped from "+y to <C-c> (ctrl + c)
+map <C-v> "+P #paste from + register mapped to <C-v>
 
 
