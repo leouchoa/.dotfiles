@@ -122,4 +122,10 @@ fi
 #  exec tmux
 #fi
 
+# ------------ Custom functions ------------
+
+function fd_gp() {
+  find . -exec grep -H $1 {} \;
+}
+
 
