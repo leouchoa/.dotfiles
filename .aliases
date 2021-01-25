@@ -65,7 +65,7 @@ alias atualizar='sudo apt-get update && sudo apt-get -y upgrade'
 alias free='free -h'
 alias my_wget='wget -r -np -nd'
 alias c='clear'
-alias fd_gp="find . -exec grep '$1' -H '$1' {} \;"
+
 
 
 
