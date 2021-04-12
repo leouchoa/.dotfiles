@@ -65,6 +65,7 @@ alias atualizar='sudo apt-get update && sudo apt-get -y upgrade'
 alias free='free -h'
 alias my_wget='wget -r -np -nd'
 alias c='clear'
+alias kill_session_jobs='kill -9 `jobs -p`'
 
 
 
