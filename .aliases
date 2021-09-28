@@ -53,6 +53,7 @@ alias gtfa='git fetch --all'
 alias git-pull-all='find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
 alias gd='git diff HEAD^..HEAD' #best command ever. Found it here https://www.techiedelight.com/find-differences-between-two-commits-git/
 alias gds='git diff --staged'
+alias g-='git checkout -' #checkout to last branch
 
 # Overall
 alias clean='rm -rf ~/.Trash/*; rm -rf ~/Downloads/*'
