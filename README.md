@@ -6,7 +6,7 @@
   - [Como configurar os arquivos.](https://github.com/leouchoa/dotfiles#como-configurar-os-arquivos)
   - [Links úteis](https://github.com/leouchoa/dotfiles#links-%C3%BAteis)
 - [Tmux](https://github.com/leouchoa/dotfiles#Tmux)
-  - [Instalação]()
+  - [Instalação](https://github.com/leouchoa/dotfiles#instala%C3%A7%C3%A3o)
   - [Como usar](https://github.com/leouchoa/dotfiles#Como-usar)
   - [Comandos](https://github.com/leouchoa/dotfiles#Comandos)
 
@@ -93,9 +93,10 @@ Na moral [esse vídeo resolve boa parte do que eu uso no dia-a-dia](https://www.
 
 ### Comandos
 
-- `control-a %`: abre nova divisória à esquerda
+- `control-a %`: abre nova divisória (painel) à esquerda
 - `control-a c`: abre nova janela
 - `control-a ,`: renomear janela
 - `control-a n`: muda para próxima janela
 - `control-a ;`: muda para último janela utilizada
 - `control-a w`: lista as janelas abertas
+- `control-a ARROW_KEY_HERE`: navegação entre paineis
