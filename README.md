@@ -9,6 +9,7 @@
   - [Instalação](https://github.com/leouchoa/dotfiles#instala%C3%A7%C3%A3o)
   - [Como usar](https://github.com/leouchoa/dotfiles#Como-usar)
   - [Comandos](https://github.com/leouchoa/dotfiles#Comandos)
+  - [Exemplo pra Cloud](https://github.com/leouchoa/dotfiles#Exemplo-pra-Cloud)
 
 # dotfiles
 Personal Dotfiles
@@ -100,3 +101,38 @@ Na moral [esse vídeo resolve boa parte do que eu uso no dia-a-dia](https://www.
 - `control-a ;`: muda para último janela utilizada
 - `control-a w`: lista as janelas abertas
 - `control-a ARROW_KEY_HERE`: navegação entre paineis
+
+#### Exemplo pra Cloud
+
+Eu faço modelos e muitas vezes rodo eles na núvem. Só que eles demoram. 
+
+Suponha que você também faz e que seus modelos também demoram pra ficar pronto. Qual a chance de você virar a madrugada olhando pra tela do note? Nenhuma né? Pois é. 
+
+Dá pra resolver isso facilmente ao rodar o comando em background assim:
+
+```
+python faz_modelo_demorado.py &
+```
+
+ou se você quiser fazer mais chique com [redirecionamento](https://linuxize.com/post/bash-redirect-stderr-stdout/), assim:
+```
+python faz_modelo_demorado.py > saidas.txt 2>&1
+```
+
+Com tmux também dá pra fazer. É meio overkill e tem mais passos, mas é mais flexível. Passo-a-passo é:
+
+1. crie uma nova seção
+2. roda o modelo na nova seção
+3. sai (detach) da nova seção
+4. faz qualquer coisa
+5. volta de manhã cedo no outro dia e abre a seção criada ontem.
+
+Em código:
+
+0. loga na máquina `ssh blablabla`
+1. nova seção: `tmux new -s nova_secao`
+2. roda modelo: `python faz_modelo_demorado.py > saidas.txt 2>&1`
+3. sai da nova seção: aperta `control-b d`
+4. 🎶🏋️‍♀️🍴🎶
+5. Putz esqueci o nome da seção! Use: `tmux list-sessions`
+6. `tmux attach -t nova_secao`
