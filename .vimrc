@@ -7,6 +7,7 @@ call plug#end()
 
 syntax on
 set number " display line number 
+set relativenumber "set relative line numbers
 set tabstop=2 " tab width
 " set expandtab " tab will be converted to spaces. Commenting that otherwise can't use makefiles
 set hlsearch " highlights search text
