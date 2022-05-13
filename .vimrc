@@ -1,7 +1,5 @@
 " vim pluggins are installed with vim-plug https://github.com/junegunn/vim-plug
 call plug#begin()
-Plug 'davidhalter/jedi-vim'
-Plug 'jalvesaq/Nvim-R'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
