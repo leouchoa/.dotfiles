@@ -17,4 +17,6 @@ set splitbelow splitright
 vnoremap <C-c> "+y #copy register mapped from "+y to <C-c> (ctrl + c)
 map <C-v> "+P #paste from + register mapped to <C-v>
 
-
+# just switching the up/down arrow key orders
+noremap j k # up is going to be k
+noremap k j # down is going to j
