@@ -136,3 +136,8 @@ Em código:
 4. 🎶🏋️‍♀️🍴🎶
 5. Putz esqueci o nome da seção! Use: `tmux list-sessions`
 6. `tmux attach -t nova_secao`
+
+
+# Oh-my-zsh
+
+
