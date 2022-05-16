@@ -5,7 +5,6 @@ call plug#end()
 
 syntax on
 set number " display line number 
-set relativenumber "set relative line numbers
 set tabstop=2 " tab width
 " set expandtab " tab will be converted to spaces. Commenting that otherwise can't use makefiles
 set hlsearch " highlights search text
@@ -16,3 +15,9 @@ vnoremap <C-c> "+y #copy register mapped from "+y to <C-c> (ctrl + c)
 map <C-v> "+P #paste from + register mapped to <C-v>
 
 map w b # map w to be b
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
