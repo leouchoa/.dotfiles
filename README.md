@@ -137,7 +137,8 @@ Em código:
 5. Putz esqueci o nome da seção! Use: `tmux list-sessions`
 6. `tmux attach -t nova_secao`
 
+# Configs on Mac
 
-# Oh-my-zsh
+## Oh-my-zsh
 
 
