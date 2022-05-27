@@ -1,34 +1,27 @@
-[user]
-	name = Leonardo Uchoa
-	email = leonardouchoa.pedreira@gmail.com
-
-#------------
-
-[gui]
-	editor = nano
-
-#------------
-
 [core]
-	editor = nano
+        editor = nvim
+[core]
+        pager = delta
 
-#------------
+[interactive]
+        diffFilter = delta --color-only --features=interactive
 
+[delta]
+        features = decorations
+        line-numbers = true
+        side-by-side = true
 
-[diff]
-	tool = meld
+[delta "interactive"]
+        keep-plus-minus-markers = false
 
-[difftool]
-	prompt = false
-[difftool "meld"]
-	cmd = meld "$LOCAL" "$REMOTE"
-
-#------------
+[delta "decorations"]
+        commit-decoration-style = blue ol
+        commit-style = raw
+        file-style = omit
+        hunk-header-decoration-style = blue box
+        hunk-header-file-style = red
+        hunk-header-line-number-style = "#067a00"
+        hunk-header-style = file line-number syntax
 
 [merge]
-    tool = meld
-[mergetool "meld"]
-    # Choose one of these 2 lines (not both!) explained below.
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-
+        conflictstyle = diff3
