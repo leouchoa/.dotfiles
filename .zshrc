@@ -118,3 +118,6 @@ fi
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Config z
+# See this video:  https://youtu.be/qbNn5zJLZU0
