@@ -35,13 +35,21 @@ alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 alias gl3="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)' --all"
 
 
-# Overall
+# Directory moving
 alias ..='cd ..'
+alias c-="cd - "
+alias c='clear'
+
+# Apps
+alias qwe="nvim"
+alias kk="bat"
 alias xc='xclip -selection clipboard'
+
+
+# Misc
 alias diff='colordiff'
 alias free='free -h'
 alias my_wget='wget -r -np -nd'
-alias c='clear'
 alias kill_session_jobs='kill -9 `jobs -p`'
 alias untargz='tar -xvzf'
 
@@ -49,10 +57,8 @@ alias untargz='tar -xvzf'
 # ls
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 
-alias ls=' exa --group-directories-first'
+alias ls=' exa -l -g --icons --group-directories-first'
 alias la=' ls -a'
 alias ll=' ls --git -l'
 alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
-
-
