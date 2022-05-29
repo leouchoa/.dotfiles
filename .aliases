@@ -36,8 +36,6 @@ alias gl3="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 
 
 # Overall
-alias la='ls -A'
-alias ls='ls -l'
 alias ..='cd ..'
 alias xc='xclip -selection clipboard'
 alias diff='colordiff'
