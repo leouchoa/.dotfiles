@@ -57,8 +57,11 @@ alias untargz='tar -xvzf'
 # ls
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 
-alias ls=' exa -l -g --icons --group-directories-first'
+alias ls=' exa -l -g --git --icons --group-directories-first'
 alias la=' ls -a'
-alias ll=' ls --git -l'
-alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
-alias ltt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
+alias ld='ls -D'
+alias lt=' ls --tree -L 2 -I ${TREE_IGNORE}'
+alias ltt=' ls --tree -L 3 -I ${TREE_IGNORE}'
+alias ldt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias ldtt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
+
