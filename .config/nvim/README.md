@@ -10,3 +10,7 @@ Remember to update `lua/user/cmp.lua` with your lsp completions. Usually it mean
 - sources 
 - vim_item.menu
  
+
+## Todo
+
+- Configure other telescope binds [ref](https://youtu.be/OhnLevLpGB4?t=407)
