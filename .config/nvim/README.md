@@ -3,14 +3,17 @@
 This config is nearly identical to the [LunarVim](https://github.com/LunarVim/Neovim-from-scratch) project.
 
 
-## Completions
+## Things to do When configuring new nvim
 
-Remember to update `lua/user/cmp.lua` with your lsp completions. Usually it means updating:
+1. Remember to update `lua/user/cmp.lua` with your lsp completions. Usually it means updating:
+  - sources 
+  - vim_item.menu
 
-- sources 
-- vim_item.menu
- 
+2. Run `TSInstall language` to download syntax highlighting. For options please consult the lsp [homepage](https://github.com/nvim-treesitter/nvim-treesitter). Usually I install:
+
+- json, yaml, toml, python, markdown (when it becomes available)
 
 ## Todo
 
 - Configure other telescope binds [ref](https://youtu.be/OhnLevLpGB4?t=407)
+- Configure more lsp commands
