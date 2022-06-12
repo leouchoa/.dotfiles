@@ -141,7 +141,7 @@ Em código:
 
 ## Oh-my-zsh
 
-# Import Tools I Usually use
+# Tools I Usually use
 
 - [zshell](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e)
 - [neovim](https://neovim.io)
@@ -156,6 +156,7 @@ Em código:
 - [nerdfont](https://www.nerdfonts.com)
 - [exa](https://the.exa.website)
 - [procs](https://github.com/dalance/procs)
+- [z](https://github.com/rupa/z)
 
 # What I might try
 
