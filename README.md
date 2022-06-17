@@ -157,6 +157,7 @@ Em código:
 - [exa](https://the.exa.website)
 - [procs](https://github.com/dalance/procs)
 - [z](https://github.com/rupa/z)
+- [lazygit](https://github.com/jesseduffield/lazygit)
 
 # What I might try
 
