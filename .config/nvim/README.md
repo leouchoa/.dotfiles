@@ -20,3 +20,4 @@ This config is nearly identical to the [LunarVim](https://github.com/LunarVim/Ne
 - Make a list of the most used commands
 - Configure null-ls format-on-save or even [set a keybind to save](https://youtu.be/b7OguLuaYvE?t=1130)
 - Configure `toggleterm` (basically create and bind other terminal-related function)
+- Configure [`easymotion`](https://github.com/easymotion/vim-easymotion)
