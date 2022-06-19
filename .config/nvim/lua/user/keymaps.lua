@@ -70,9 +70,22 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
 -- Telescope --
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+keymap("n", "<leader>fc", "<cmd>Telescope command_history<cr>", opts)
+keymap("n", "<leader>fC", "<cmd>Telescope commands<cr>", opts)
+keymap("n", "<leader>fs", "<cmd>Telescope search_history<cr>", opts)
+keymap("n", "<leader>fm", "<cmd>Telescope marks<cr>", opts)
+keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", opts)
+keymap("n", "<leader>fr", "<cmd>Telescope registers<cr>", opts)
+keymap("n", "<leader>fv", "<cmd>Telescope vim_options<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope git_commits<cr>", opts)
+keymap("n", "<leader>fG", "<cmd>Telescope git_status<cr>", opts)
+
 
 -- NvimTree --
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
