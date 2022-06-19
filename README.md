@@ -137,9 +137,7 @@ Em código:
 5. Putz esqueci o nome da seção! Use: `tmux list-sessions`
 6. `tmux attach -t nova_secao`
 
-# Configs on Mac
 
-## Oh-my-zsh
 
 # Tools I Usually use
 
@@ -163,3 +161,10 @@ Em código:
 
 - [starship](https://starship.rs)
 - Some youtuber window manager
+
+
+# To-do 
+
+- Remake this README
+- Organize things with [gnu stow](https://www.youtube.com/watch?v=90xMTKml9O0)
+- configure zsh instead of using oh-my-zsh
