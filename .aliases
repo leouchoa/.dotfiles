@@ -44,7 +44,7 @@ alias c='clear'
 alias qwe="nvim"
 alias kk="bat"
 alias xc='xclip -selection clipboard'
-
+alias lg="lazygit"
 
 # Misc
 alias diff='colordiff'
