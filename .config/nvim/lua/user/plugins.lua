@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "easymotion/vim-easymotion"
+  use "vimwiki/vimwiki"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
