@@ -57,6 +57,8 @@ return packer.startup(function(use)
   use "tpope/vim-dadbod"
   use "kristijanhusak/vim-dadbod-ui"
   use "kristijanhusak/vim-dadbod-completion"
+  use "lewis6991/impatient.nvim"
+  use "dstein64/vim-startuptime"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
