@@ -11,7 +11,14 @@ configs.setup {
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = {'org'},
+  },
+  ensure_installed = {
+    'python',
+    'json',
+    'yaml',
+    'vim',
+    'org',
   },
   context_commentstring = {
     enable = true,
@@ -19,3 +26,4 @@ configs.setup {
   },
 
 }
+

@@ -53,14 +53,17 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "easymotion/vim-easymotion"
-  use "vimwiki/vimwiki"
+  -- use "vimwiki/vimwiki"
   use "tpope/vim-dadbod"
   use "kristijanhusak/vim-dadbod-ui"
   use "kristijanhusak/vim-dadbod-completion"
   use "lewis6991/impatient.nvim"
   use "dstein64/vim-startuptime"
-
   use "lukas-reineke/indent-blankline.nvim"
+  use {'nvim-orgmode/orgmode', config = function()
+          require('orgmode').setup{}
+  end
+  }
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
