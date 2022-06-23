@@ -54,10 +54,13 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "easymotion/vim-easymotion"
   use "vimwiki/vimwiki"
+  use "tpope/vim-dadbod"
+  use "kristijanhusak/vim-dadbod-ui"
+  use "kristijanhusak/vim-dadbod-completion"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
 
   -- cmp plugins
