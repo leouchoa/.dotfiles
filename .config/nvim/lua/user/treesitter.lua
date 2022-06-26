@@ -18,6 +18,7 @@ configs.setup {
     'json',
     'yaml',
     'vim',
+    'dockerfile',
     'org',
   },
   context_commentstring = {
