@@ -88,9 +88,18 @@ keymap("n", "<leader>fm", "<cmd>Telescope marks<cr>", opts)
 keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", opts)
 keymap("n", "<leader>fr", "<cmd>Telescope registers<cr>", opts)
 keymap("n", "<leader>fv", "<cmd>Telescope vim_options<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope git_commits<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope git_bcommits<cr>", opts)
 keymap("n", "<leader>fG", "<cmd>Telescope git_status<cr>", opts)
 
 
 -- NvimTree --
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- dap --
+--
+keymap("n", "<F8>","<cmd>DapToggleBreakpoint<cr>", opts)
+-- keymap("n", "F8",":lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<F9>","<cmd>DapStepOut<cr>", opts)
+keymap("n", "<F10>","<cmd>DapStepOver<cr>", opts)
+keymap("n", "<F11>","<cmd>DapStepInto<cr>", opts)
+keymap("n", "<F12>","<cmd>DapContinue<cr>", opts)

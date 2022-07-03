@@ -77,6 +77,8 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completion support
   use "hrsh7th/cmp-nvim-lua" -- lsp completion support for lua
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
