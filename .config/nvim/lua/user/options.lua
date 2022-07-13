@@ -3,7 +3,7 @@ local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0,                        -- so that `` is visible in markdown files
+  -- conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
   hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
@@ -35,6 +35,7 @@ local options = {
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   foldmethod = "indent",
   foldlevel = 99,                          -- fixes fold bugs in plugins like telescope
+  conceallevel = 2,                        -- the text concealing option. See :h conceallevel for more info
 }
 
 vim.opt.shortmess:append "c"
