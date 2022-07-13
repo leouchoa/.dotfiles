@@ -54,9 +54,6 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "easymotion/vim-easymotion"
   -- use "vimwiki/vimwiki"
-  use "tpope/vim-dadbod"
-  use "kristijanhusak/vim-dadbod-ui"
-  use "kristijanhusak/vim-dadbod-completion"
   use "lewis6991/impatient.nvim"
   use "dstein64/vim-startuptime"
   use "lukas-reineke/indent-blankline.nvim"
@@ -64,6 +61,10 @@ return packer.startup(function(use)
           require('orgmode').setup{}
   end
   }
+  -- use "kylechui/nvim-surround" -- check this out!
+  -- use "glepnir/dashboard-nvim"
+
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
@@ -78,6 +79,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp" -- lsp completion support
   use "hrsh7th/cmp-nvim-lua" -- lsp completion support for lua
   use "mfussenegger/nvim-dap"
+  -- use "mfussenegger/nvim-dap-python"
   use "rcarriga/nvim-dap-ui"
 
   -- snippets
@@ -104,6 +106,10 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
 
+  -- Dadbod
+  use "tpope/vim-dadbod"
+  use "kristijanhusak/vim-dadbod-ui"
+  use "kristijanhusak/vim-dadbod-completion"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
