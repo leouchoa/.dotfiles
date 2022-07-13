@@ -88,8 +88,9 @@ keymap("n", "<leader>fm", "<cmd>Telescope marks<cr>", opts)
 keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", opts)
 keymap("n", "<leader>fr", "<cmd>Telescope registers<cr>", opts)
 keymap("n", "<leader>fv", "<cmd>Telescope vim_options<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope git_bcommits<cr>", opts)
-keymap("n", "<leader>fG", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fG", "<cmd>Telescope git_bcommits<cr>", opts)
+keymap("n", "<leader>,", "<cmd>Telescope buffers<cr>", opts)
 
 
 -- NvimTree --
