@@ -2,6 +2,14 @@
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 -- nested options are documented by accessing them with `.` (eg: `:help nvim-tree.view.mappings.list`).
 require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+------------- project-nvim configuration specs START ---------------
+  respect_buf_cwd = true,
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true
+  },
+------------- project-nvim configuration specs END ---------------
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = false,
@@ -13,9 +21,9 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   open_on_setup_file = false,
   open_on_tab = false,
   sort_by = "name",
-  update_cwd = false,
+  -- update_cwd = false,
   reload_on_bufenter = false,
-  respect_buf_cwd = false,
+  -- respect_buf_cwd = false,
   view = {
     adaptive_size = false,
     centralize_selection = false,
@@ -93,11 +101,11 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     enable = true,
     auto_open = true,
   },
-  update_focused_file = {
-    enable = false,
-    update_cwd = false,
-    ignore_list = {},
-  },
+  -- update_focused_file = {
+  --   enable = false,
+  --   update_cwd = false,
+  --   ignore_list = {},
+  -- },
   ignore_ft_on_setup = {},
   system_open = {
     cmd = "",
