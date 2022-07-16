@@ -64,6 +64,7 @@ return packer.startup(function(use)
   -- use "kylechui/nvim-surround" -- check this out!
 
   use "ahmedkhalf/project.nvim"
+  use "kylechui/nvim-surround" -- check this out!
   -- use "glepnir/dashboard-nvim"
 
 
