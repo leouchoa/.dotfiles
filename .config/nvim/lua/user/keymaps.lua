@@ -43,6 +43,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>v", ":vnew <CR>", opts)
 keymap("n", "<leader>V", ":split <CR>", opts)
 
+-- close current buffer. Attention! It will close it regardless of it being saved or not
+keymap("n", "xc", ":bd!<CR>", opts)
 ---------------------------------- Insert ----------------------------------
 -- Press jk fast to enter
 -- keymap("i", "jk", "<ESC>", opts)
