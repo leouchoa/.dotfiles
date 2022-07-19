@@ -52,7 +52,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
-  use "easymotion/vim-easymotion"
+  -- use "easymotion/vim-easymotion" -- very cool but I'm really using it
   -- use "vimwiki/vimwiki"
   use "lewis6991/impatient.nvim"
   use "dstein64/vim-startuptime"
@@ -61,13 +61,11 @@ return packer.startup(function(use)
           require('orgmode').setup{}
   end
   }
-  -- use "kylechui/nvim-surround" -- check this out!
-
   use "ahmedkhalf/project.nvim"
-  use "kylechui/nvim-surround" -- check this out!
   use "kylechui/nvim-surround"
   -- use "glepnir/dashboard-nvim"
-
+  use "folke/zen-mode.nvim"
+  use "folke/twilight.nvim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out

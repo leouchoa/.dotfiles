@@ -106,3 +106,11 @@ keymap("n", "<F9>","<cmd>DapStepOut<cr>", opts)
 keymap("n", "<F10>","<cmd>DapStepOver<cr>", opts)
 keymap("n", "<F11>","<cmd>DapStepInto<cr>", opts)
 keymap("n", "<F12>","<cmd>DapContinue<cr>", opts)
+
+
+
+
+-- ZenMode and Twilight
+--
+keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
+keymap("n", "<leader>Z", "<cmd>Twilight<cr>", opts)
