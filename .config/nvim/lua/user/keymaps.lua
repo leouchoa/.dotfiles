@@ -93,6 +93,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fG", "<cmd>Telescope git_bcommits<cr>", opts)
 keymap("n", "<leader>,", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fp", "<cmd>Telescope projects<cr>", opts)
+keymap("n", "<leader>ft", "<cmd>TodoTelescope<cr>", opts)
 
 
 -- NvimTree --

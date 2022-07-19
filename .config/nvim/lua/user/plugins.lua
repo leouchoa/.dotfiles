@@ -66,6 +66,7 @@ return packer.startup(function(use)
   -- use "glepnir/dashboard-nvim"
   use "folke/zen-mode.nvim"
   use "folke/twilight.nvim"
+  use "folke/todo-comments.nvim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
