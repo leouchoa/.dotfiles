@@ -104,6 +104,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "nvim-treesitter/nvim-treesitter-textobjects" -- [experimental] Syntax aware text-objects, select, move, swap, and peek support
   use 'JoosepAlviste/nvim-ts-context-commentstring' -- useful when there are embedded languages in certain types of files.
 
 
