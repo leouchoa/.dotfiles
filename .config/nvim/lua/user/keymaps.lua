@@ -115,3 +115,17 @@ keymap("n", "<F12>","<cmd>DapContinue<cr>", opts)
 --
 keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
 keymap("n", "<leader>Z", "<cmd>Twilight<cr>", opts)
+
+
+-- DiffView
+--
+keymap("n", "<leader>do", "<cmd>DiffviewOpen <cr>", opts)
+keymap("n", "<leader>dT", "<cmd> DiffviewToggleFiles <cr>", opts)
+keymap("n", "<leader>dt", "<cmd> DiffviewFocusFiles <cr>", opts)
+keymap("n", "<leader>dc", "<cmd>DiffviewClose <cr>", opts)
+keymap("n", "<leader>df", "<cmd>DiffviewFileHistory % <cr>", opts)
+keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory <cr>", opts)
+keymap("n", "<leader>dc", "<cmd>DiffviewClose <cr>", opts)
+keymap("n", "<leader>dr", "<cmd>DiffviewRefresh <cr>", opts)
+keymap("n", "<leader>dc", "<cmd>DiffviewClose <cr>", opts)
+
