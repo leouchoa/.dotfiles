@@ -68,6 +68,7 @@ return packer.startup(function(use)
   use "folke/twilight.nvim"
   use "folke/todo-comments.nvim"
   use "sindrets/diffview.nvim"
+  use "AckslD/nvim-neoclip.lua"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
