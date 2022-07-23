@@ -8,8 +8,8 @@ end
 local line = vim.fn.line
 
 --  TODO(lewis6991): doesn't work properly
-vim.keymap.set('n', 'M', '<cmd>Gitsigns debug_messages<cr>')
-vim.keymap.set('n', 'm', '<cmd>Gitsigns dump_cache<cr>')
+-- vim.keymap.set('n', 'M', '<cmd>Gitsigns debug_messages<cr>')
+-- vim.keymap.set('n', 'm', '<cmd>Gitsigns dump_cache<cr>')
 
 local function on_attach(bufnr)
   local function map(mode, l, r, opts)
@@ -30,25 +30,25 @@ local function on_attach(bufnr)
     return '<Ignore>'
   end, {expr=true})
 
-  map('n', '<leader>hs', gitsigns.stage_hunk)
-  map('n', '<leader>hr', gitsigns.reset_hunk)
-  map('v', '<leader>hs', function() gitsigns.stage_hunk({line("."), line("v")}) end)
-  map('v', '<leader>hh', function() gitsigns.reset_hunk({line("."), line("v")}) end)
-  map('n', '<leader>hS', gitsigns.stage_buffer)
-  map('n', '<leader>hu', gitsigns.undo_stage_hunk)
-  map('n', '<leader>hR', gitsigns.reset_buffer)
-  map('n', '<leader>hp', gitsigns.preview_hunk)
-  map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
-  map('n', '<leader>hd', gitsigns.diffthis)
-  map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+  map('n', '<leader>ghs', gitsigns.stage_hunk)
+  map('n', '<leader>ghr', gitsigns.reset_hunk)
+  map('v', '<leader>ghs', function() gitsigns.stage_hunk({line("."), line("v")}) end)
+  map('v', '<leader>ghh', function() gitsigns.reset_hunk({line("."), line("v")}) end)
+  map('n', '<leader>ghS', gitsigns.stage_buffer)
+  map('n', '<leader>ghu', gitsigns.undo_stage_hunk)
+  map('n', '<leader>ghR', gitsigns.reset_buffer)
+  map('n', '<leader>ghp', gitsigns.preview_hunk)
+  map('n', '<leader>ghb', function() gitsigns.blame_line{full=true} end)
+  map('n', '<leader>ghd', gitsigns.diffthis)
+  map('n', '<leader>ghD', function() gitsigns.diffthis('~') end)
 
   -- Toggles
-  map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-  map('n', '<leader>td', gitsigns.toggle_deleted)
-  map('n', '<leader>tw', gitsigns.toggle_word_diff)
+  map('n', '<leader>gtb', gitsigns.toggle_current_line_blame)
+  map('n', '<leader>gtd', gitsigns.toggle_deleted)
+  map('n', '<leader>gtw', gitsigns.toggle_word_diff)
 
-  map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-  map('n', '<leader>hq', gitsigns.setqflist)
+  map('n', '<leader>ghQ', function() gitsigns.setqflist('all') end)
+  map('n', '<leader>ghq', gitsigns.setqflist)
 
   map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 end
