@@ -27,10 +27,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<S-Up>", ":resize +2<CR>", opts)
+keymap("n", "<S-Down>", ":resize -2<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -134,10 +134,15 @@ keymap("n", "<leader>dc", "<cmd>DiffviewClose <cr>", opts)
 
 -- Gitlinker
 --
-
 keymap('n', '<leader>glc', '<cmd>lua require"gitlinker".get_buf_range_url("n",{})<cr>', {silent = true})
 keymap('v', '<leader>glc', '<cmd>lua require"gitlinker".get_buf_range_url("v",{})<cr>', {})
 keymap('n', '<leader>glo', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
 keymap('v', '<leader>glo', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 keymap('n', '<leader>glh', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
 keymap('n', '<leader>glH', '<cmd>lua require"gitlinker".get_repo_url()<cr>', {silent = true})
+
+
+-- Neoclip
+--
+keymap("n", "<leader>c", "<cmd>Telescope neoclip <cr>", opts)
+keymap("n", "<leader>C", "<cmd>Telescope macroscope 3 <cr>", opts) -- the 3 means to save the macro on number 3 because its easier to reach
