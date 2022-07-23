@@ -101,3 +101,4 @@ telescope.setup {
 telescope.load_extension('projects')
 telescope.load_extension('neoclip')
 telescope.load_extension('macroscope')
+telescope.load_extension('harpoon')

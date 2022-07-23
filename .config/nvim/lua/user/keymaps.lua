@@ -146,3 +146,22 @@ keymap('n', '<leader>glH', '<cmd>lua require"gitlinker".get_repo_url()<cr>', {si
 --
 keymap("n", "<leader>c", "<cmd>Telescope neoclip <cr>", opts)
 keymap("n", "<leader>C", "<cmd>Telescope macroscope 3 <cr>", opts) -- the 3 means to save the macro on number 3 because its easier to reach
+
+
+
+-- Harpoon
+--
+keymap('n', '<leader>ha', '<cmd>lua require("harpoon.mark").add_file() <cr>', opts)
+keymap('n', '<leader>hm', '<cmd>lua require("harpoon.ui").toggle_quick_menu() <cr>', opts)
+keymap('n', '<leader>hn', '<cmd>lua require("harpoon.ui").nav_nex() <cr>', opts)
+keymap('n', '<leader>hp', '<cmd>lua require("harpoon.ui").nav_prev() <cr>', opts)
+keymap('n', '<leader>h1', '<cmd>lua require("harpoon.ui").nav_file(1) <cr>', opts)
+keymap('n', '<leader>h2', '<cmd>lua require("harpoon.ui").nav_file(2) <cr>', opts)
+keymap('n', '<leader>h3', '<cmd>lua require("harpoon.ui").nav_file(3) <cr>', opts)
+keymap('n', '<leader>h4', '<cmd>lua require("harpoon.ui").nav_file(4) <cr>', opts)
+keymap('n', '<leader>ht1', '<cmd>lua require("harpoon.term").gotoTerminal(1) <cr>', opts)
+keymap('n', '<leader>ht2', '<cmd>lua require("harpoon.term").gotoTerminal(2) <cr>', opts)
+keymap('n', '<leader>hc1', '<cmd>lua require("harpoon.term").sendCommand(1, "ls -La") <cr>', opts)
+-- keymap('n', '<leader>hc1', '<cmd>lua require("harpoon.term").sendCommand(1, "ls -La") <cr>', opts)
+keymap("n", "<leader>ht", "<cmd>Telescope harpoon marks <cr>", opts)
+
