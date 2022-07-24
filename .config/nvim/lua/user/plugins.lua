@@ -70,6 +70,7 @@ return packer.startup(function(use)
   use "sindrets/diffview.nvim"
   use "AckslD/nvim-neoclip.lua"
   use "ruifm/gitlinker.nvim"
+  use "folke/trouble.nvim"
   use "ThePrimeagen/harpoon"
 
   -- Colorschemes
