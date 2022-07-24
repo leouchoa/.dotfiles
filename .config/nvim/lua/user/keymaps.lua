@@ -45,6 +45,8 @@ keymap("n", "<leader>V", ":split <CR>", opts)
 
 -- close current buffer. Attention! It will close it regardless of it being saved or not
 keymap("n", "xc", ":bd!<CR>", opts)
+-- close quickfix list
+keymap("n", "xz", ":close<CR>", opts)
 ---------------------------------- Insert ----------------------------------
 -- Press jk fast to enter
 -- keymap("i", "jk", "<ESC>", opts)
