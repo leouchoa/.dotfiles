@@ -197,3 +197,10 @@ keymap('n', '[t', '<cmd>lua require("neotest").jump.prev({ status = "failed" })<
 keymap('n', ']t', '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>', opts)
 -- config diagnostic with `vim.diagnostic.config()`
 
+
+keymap('n', '<leader>af', '<cmd>Neogen func <CR>', opts)
+keymap('n', '<leader>ac', '<cmd>Neogen class <CR>', opts)
+keymap('n', '<leader>at', '<cmd>Neogen type <CR>', opts)
+keymap('n', '<leader>aF', '<cmd>Neogen file <CR>', opts)
+keymap('n', '[a', '<cmd>lua require("neogen").jump_prev <CR>', opts)
+keymap('n', ']a', '<cmd>lua require("neogen").jump_next <CR>', opts)
