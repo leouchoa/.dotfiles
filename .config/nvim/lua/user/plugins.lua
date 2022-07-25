@@ -72,6 +72,7 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "folke/trouble.nvim"
   use "ThePrimeagen/harpoon"
+  use "folke/which-key.nvim"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
