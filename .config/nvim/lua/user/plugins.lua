@@ -121,6 +121,12 @@ return packer.startup(function(use)
   use "kristijanhusak/vim-dadbod-completion"
 
   use "ruifm/gitlinker.nvim"
+  ------------------------- Neotest -----------------------
+  use {
+    "nvim-neotest/neotest",
+    requires = "antoinemadec/FixCursorHold.nvim" --CursorHold bug fix
+  }
+  use "nvim-neotest/neotest-python"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

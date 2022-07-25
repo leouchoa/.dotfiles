@@ -179,3 +179,21 @@ keymap('n', '<leader>xl', '<cmd>TroubleToggle loclist <cr>', opts)
 keymap('n', '<leader>xr', '<cmd>TroubleToggle lsp_references <cr>', opts)
 keymap('n', '<leader>xc', '<cmd>TroubleClose <cr>', opts)
 keymap('n', '<leader>xt', '<cmd>TodoTrouble <cr>', opts)
+-- neotest
+-- TODO: add more cool keybinds
+-- improve Config spec
+keymap('n', '<leader>tr', '<cmd>lua require("neotest").run.run() <cr>', opts)
+keymap('n', '<leader>tf', '<cmd>lua require("neotest").run.run(vim.fn.expand("%")) <cr>', opts)
+-- improve integration with dap
+keymap('n', '<leader>td', '<cmd>lua require("neotest").run.run({strategy = "dap"}) <cr>', opts)
+keymap('n', '<leader>ts', '<cmd>lua require("neotest").run.stop() <cr>', opts)
+keymap('n', '<leader>ta', '<cmd>lua require("neotest").run.attach() <cr>', opts)
+keymap('n', '<leader>to', '<cmd>lua require("neotest").output.open({ enter = true }) <cr>', opts)
+keymap('n', '<leader>tmo', '<cmd>lua require("neotest").summary.open() <cr>', opts)
+keymap('n', '<leader>tmc', '<cmd>lua require("neotest").summary.close() <cr>', opts)
+keymap('n', '<leader>tmt', '<cmd>lua require("neotest").summary.toggle()<cr>', opts)
+-- keymap('n', '<leader>tml', '<cmd> <cr>', opts) -- config summary.runmarked
+keymap('n', '[t', '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', opts)
+keymap('n', ']t', '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>', opts)
+-- config diagnostic with `vim.diagnostic.config()`
+
