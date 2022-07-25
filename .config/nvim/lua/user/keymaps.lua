@@ -179,6 +179,16 @@ keymap('n', '<leader>xl', '<cmd>TroubleToggle loclist <cr>', opts)
 keymap('n', '<leader>xr', '<cmd>TroubleToggle lsp_references <cr>', opts)
 keymap('n', '<leader>xc', '<cmd>TroubleClose <cr>', opts)
 keymap('n', '<leader>xt', '<cmd>TodoTrouble <cr>', opts)
+
+
+-- Spectre
+--
+keymap('n', '<leader>so', '<cmd>lua require("spectre").open() <cr>', opts)
+keymap('n', '<leader>sa', '<cmd>lua require("spectre").open_visual({select_word=true}) <cr>', opts)
+keymap('n', '<leader>sf', '<cmd>lua require("spectre").open_file_search() <cr>', opts)
+
+
+
 -- neotest
 -- TODO: add more cool keybinds
 -- improve Config spec

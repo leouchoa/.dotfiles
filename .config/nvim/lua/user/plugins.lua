@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use "folke/trouble.nvim"
   use "ThePrimeagen/harpoon"
   use "folke/which-key.nvim"
+  use "nvim-pack/nvim-spectre"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
