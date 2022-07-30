@@ -33,6 +33,9 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  -- TODO: try using treesitter or lsp to better folding. Can be found here:
+  -- https://alpha2phi.medium.com/neovim-for-beginners-code-folding-7574925412ea
+  -- reason: org files are kinda strange when using the default colors
   foldmethod = "indent",
   foldlevel = 99,                          -- fixes fold bugs in plugins like telescope
   conceallevel = 2,                        -- the text concealing option. See :h conceallevel for more info
