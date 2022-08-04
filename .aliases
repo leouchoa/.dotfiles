@@ -42,9 +42,10 @@ alias c='clear'
 
 # Apps
 alias qwe="nvim"
+alias qwed="nvim -d"
 alias kk="bat"
 alias xc='xclip -selection clipboard'
-
+alias lg="lazygit"
 
 # Misc
 alias diff='colordiff'
