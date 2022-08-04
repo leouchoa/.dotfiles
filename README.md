@@ -138,8 +138,8 @@ Em código:
 6. `tmux attach -t nova_secao`
 
 
-
 # Tools I Usually use
+
 
 - [zshell](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e)
 - [neovim](https://neovim.io)
