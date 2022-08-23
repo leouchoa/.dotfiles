@@ -152,7 +152,7 @@ keymap("n", "<leader>C", "<cmd>Telescope macroscope 3 <cr>", opts) -- the 3 mean
 
 
 -- Harpoon
---
+-- TODO: add more keybinds based on use
 keymap('n', '<leader>ha', '<cmd>lua require("harpoon.mark").add_file() <cr>', opts)
 keymap('n', '<leader>hm', '<cmd>lua require("harpoon.ui").toggle_quick_menu() <cr>', opts)
 keymap('n', '<leader>hn', '<cmd>lua require("harpoon.ui").nav_nex() <cr>', opts)
@@ -214,3 +214,22 @@ keymap('n', '<leader>at', '<cmd>Neogen type <CR>', opts)
 keymap('n', '<leader>aF', '<cmd>Neogen file <CR>', opts)
 keymap('n', '[a', '<cmd>lua require("neogen").jump_prev <CR>', opts)
 keymap('n', ']a', '<cmd>lua require("neogen").jump_next <CR>', opts)
+
+
+-- Neogit
+--
+keymap('n', '<leader>gn', '<cmd>Neogit<CR>', opts)
+
+
+
+-- Neorg
+--
+
+-- keymap('n', '<leader>ov', '<cmd>Neorg gtd views<cr>', opts)
+-- keymap('n', '<leader>oc', '<cmd>Neorg gtd capture<cr>', opts)
+-- keymap('n', '<leader>oe', '<cmd>Neorg gtd edit<cr>', opts)
+keymap('n', '<leader>os', '<cmd>NeorgStart<cr><cmd>Neorg workspace gtd<cr>', opts)
+keymap('n', '<leader>ocs', '<cmd>Neorg toc split<cr>', opts)
+keymap('n', '<leader>oci', '<cmd>Neorg toc inline<cr>', opts)
+keymap('n', '<leader>ocq', '<cmd>Neorg toc tocqflist<cr>', opts)
+keymap('n', '<leader>occ', '<cmd>Neorg toc close<cr>', opts)
