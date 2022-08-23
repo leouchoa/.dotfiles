@@ -6,6 +6,7 @@ end
 
 
 project_nvim.setup{
+  -- IMPORTANT !!! READ THOSE LINES
   -- Manual mode doesn't automatically change your root directory, so you have
   -- the option to manually do so using `:ProjectRoot` command.
   manual_mode = true,
@@ -14,13 +15,15 @@ project_nvim.setup{
   -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
   -- order matters: if one is not detected, the other is used as fallback. You
   -- can also delete or rearangne the detection methods.
-  detection_methods = { "lsp", "pattern", ".git", ".nvim", ".org"},
+  detection_methods = { "lsp", "pattern",".nvim"},
 
   -- All the patterns used to detect root dir, when **"pattern"** is in
   -- detection_methods
   patterns = {
+    ".norg",
     ".org",
     ".git",
+    ".nvim",
     -- "_darcs",
     -- ".hg",
     -- ".bzr",
