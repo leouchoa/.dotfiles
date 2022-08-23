@@ -30,5 +30,5 @@ gitlinker.setup({
   -- default mapping to call url generation with action_callback
   -- mappings = "<leader>gy"
   -- disable default mappings so I can set them on my own
-  mappings = nil
+  mappings = nil,
 })
