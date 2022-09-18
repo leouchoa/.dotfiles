@@ -218,7 +218,8 @@ keymap('n', ']a', '<cmd>lua require("neogen").jump_next <CR>', opts)
 
 -- Neogit
 --
-keymap('n', '<leader>gn', '<cmd>Neogit<CR>', opts)
+keymap('n', '<leader>no', '<cmd>Neogit<CR>', opts)
+keymap('n', '<leader>nc', '<cmd>lua require("neogit").open({"commit", kind="split"})<CR>', opts)
 
 
 
