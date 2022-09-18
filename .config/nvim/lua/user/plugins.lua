@@ -74,6 +74,7 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "nvim-pack/nvim-spectre"
   use "danymat/neogen"
+  use "simrat39/rust-tools.nvim"
 
   ------------------- Colorschemes -------------------
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out

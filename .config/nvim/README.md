@@ -11,7 +11,7 @@ This heavily inspired in the [LunarVim](https://github.com/LunarVim/Neovim-from-
 
 2. Run `TSInstall language` to download syntax highlighting. For options please consult the lsp [homepage](https://github.com/nvim-treesitter/nvim-treesitter). Usually I install:
 
-- json, yaml, toml, python, markdown, orgmode 
+- json, yaml, toml, python, markdown, orgmode, rust-analyzer
 
 3. **IMPORTANT:** the `manual_mode` option in the `project` plugin is set to true. Otherwise it will fk up my telescope `find_files`. Because of that, remember that to add a new directory as project you have to use the `:ProjectRoot` command!
 
