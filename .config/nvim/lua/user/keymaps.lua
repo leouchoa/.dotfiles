@@ -153,17 +153,17 @@ keymap("n", "<leader>C", "<cmd>Telescope macroscope 3 <cr>", opts) -- the 3 mean
 
 -- Harpoon
 -- TODO: add more keybinds based on use
-keymap('n', '<leader>ha', '<cmd>lua require("harpoon.mark").add_file() <cr>', opts)
-keymap('n', '<leader>hm', '<cmd>lua require("harpoon.ui").toggle_quick_menu() <cr>', opts)
-keymap('n', '<leader>hn', '<cmd>lua require("harpoon.ui").nav_nex() <cr>', opts)
-keymap('n', '<leader>hp', '<cmd>lua require("harpoon.ui").nav_prev() <cr>', opts)
-keymap('n', '<leader>h1', '<cmd>lua require("harpoon.ui").nav_file(1) <cr>', opts)
-keymap('n', '<leader>h2', '<cmd>lua require("harpoon.ui").nav_file(2) <cr>', opts)
-keymap('n', '<leader>h3', '<cmd>lua require("harpoon.ui").nav_file(3) <cr>', opts)
-keymap('n', '<leader>h4', '<cmd>lua require("harpoon.ui").nav_file(4) <cr>', opts)
-keymap('n', '<leader>ht1', '<cmd>lua require("harpoon.term").gotoTerminal(1) <cr>', opts)
-keymap('n', '<leader>ht2', '<cmd>lua require("harpoon.term").gotoTerminal(2) <cr>', opts)
-keymap('n', '<leader>hc1', '<cmd>lua require("harpoon.term").sendCommand(1, "ls -La") <cr>', opts)
+keymap('n', '<leader>pa', '<cmd>lua require("harpoon.mark").add_file() <cr>', opts)
+keymap('n', '<leader>pm', '<cmd>lua require("harpoon.ui").toggle_quick_menu() <cr>', opts)
+keymap('n', '<leader>pn', '<cmd>lua require("harpoon.ui").nav_nex() <cr>', opts)
+keymap('n', '<leader>pp', '<cmd>lua require("harpoon.ui").nav_prev() <cr>', opts)
+keymap('n', '<leader>p1', '<cmd>lua require("harpoon.ui").nav_file(1) <cr>', opts)
+keymap('n', '<leader>p2', '<cmd>lua require("harpoon.ui").nav_file(2) <cr>', opts)
+keymap('n', '<leader>p3', '<cmd>lua require("harpoon.ui").nav_file(3) <cr>', opts)
+keymap('n', '<leader>p4', '<cmd>lua require("harpoon.ui").nav_file(4) <cr>', opts)
+keymap('n', '<leader>pt1', '<cmd>lua require("harpoon.term").gotoTerminal(1) <cr>', opts)
+keymap('n', '<leader>pt2', '<cmd>lua require("harpoon.term").gotoTerminal(2) <cr>', opts)
+keymap('n', '<leader>pc1', '<cmd>lua require("harpoon.term").sendCommand(1, "ls -La") <cr>', opts)
 -- keymap('n', '<leader>hc1', '<cmd>lua require("harpoon.term").sendCommand(1, "ls -La") <cr>', opts)
 keymap("n", "<leader>ht", "<cmd>Telescope harpoon marks <cr>", opts)
 
