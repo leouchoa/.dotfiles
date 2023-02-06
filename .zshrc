@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  poetry
 	git
 	vi-mode
 	zsh-autosuggestions
@@ -80,9 +81,12 @@ plugins=(
 	copybuffer
 	jsontools
 	macos
+  docker
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -102,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -111,17 +116,74 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 if [ -f ~/.aliases ]; then
-        . ~/.aliases
+	. ~/.aliases
 fi
+
+# ---------- START CUSTOM EXPORTS ----------
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# https://www.dev2qa.com/how-to-use-mysql-on-mac/
+export PATH="/usr/local/mysql/bin:${PATH}"
+
+# ---------- END CUSTOM EXPORTS ----------
+
+# ---------- NODEJS SETTINGS START ----------
+
+local brew_path="/opt/homebrew/bin"
+local brew_opt_path="/opt/homebrew/opt"
+local nvm_path="$HOME/.nvm"
+
+export PATH="${brew_path}:${PATH}"
+export NVM_DIR="${nvm_path}"
+
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# ---------- NODEJS SETTINGS END ---------
+
+
 
 # Enable vi mode
 bindkey -v
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+# ---------- PYENV SETTINGS END ---------
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+# ---------- PYENV SETTINGS END ---------
+
 
 # Config z
-# See this video:  https://youtu.be/qbNn5zJLZU0
+# using `zoxide` instead of original `z` for compatibility with `t-smart-tmux-session-manager`
+# tmux plugin
+# https://github.com/joshmedeski/t-smart-tmux-session-manager
+#
+# ----- old start ------
+# https://youtu.be/qbNn5zJLZU0
+# . /opt/homebrew/etc/profile.d/z.sh
+# ----- old end ------
+eval "$(zoxide init zsh)"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/leonardopedreira/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/leonardopedreira/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        . "/Users/leonardopedreira/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/leonardopedreira/.pyenv/versions/miniconda3-latest/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/Users/leonardopedreira/.local/bin:$PATH"
