@@ -3,6 +3,24 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- figure out new Autocommand because that's not working
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
+
+-- Have packer use a popup window
+require('packer').init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim" -- Have packer manage itself
