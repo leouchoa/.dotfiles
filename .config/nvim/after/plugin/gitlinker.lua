@@ -32,3 +32,12 @@ gitlinker.setup({
   -- disable default mappings so I can set them on my own
   mappings = nil,
 })
+
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+keymap('n', '<leader>glc', '<cmd>lua require"gitlinker".get_buf_range_url("n",{})<cr>', {silent = true})
+keymap('v', '<leader>glc', '<cmd>lua require"gitlinker".get_buf_range_url("v",{})<cr>', {})
+keymap('n', '<leader>glo', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+keymap('v', '<leader>glo', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+keymap('n', '<leader>glh', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+keymap('n', '<leader>glH', '<cmd>lua require"gitlinker".get_repo_url()<cr>', {silent = true})

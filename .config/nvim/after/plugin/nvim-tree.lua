@@ -28,7 +28,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     adaptive_size = false,
     centralize_selection = false,
     width = 30,
-    height = 30,
+    -- height = 30,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
@@ -183,3 +183,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     },
   },
 } -- END_DEFAULT_OPTS
+
+vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle, {})
+--vim.keymap.set("n", "<leader>fa", builtin.git_files, {})
+

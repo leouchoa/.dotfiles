@@ -125,3 +125,15 @@ diffview.setup({
     },
   },
 })
+
+
+vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen <cr>",{})
+vim.keymap.set("n", "<leader>dT", "<cmd>DiffviewToggleFiles <cr>",{})
+vim.keymap.set("n", "<leader>dt", "<cmd>DiffviewFocusFiles <cr>",{})
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose <cr>",{})
+vim.keymap.set("n", "<leader>df", "<cmd>DiffviewFileHistory % <cr>",{})
+vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory <cr>",{})
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose <cr>",{})
+vim.keymap.set("n", "<leader>dr", "<cmd>DiffviewRefresh <cr>",{})
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose <cr>",{})
+

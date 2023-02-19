@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+local builtin = require "telescope.builtin"
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -89,22 +90,45 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
-  extensions = {
-    project = {
-      base_dirs = {
-        '~/code/',
-        {path = '~/code/dotfiles/' },
-        '~/code/fastapi_sqlachemy/',
-        '~/code/fastapi_with_postgres/',
-        '~/code/cheatsheets/',
-      },
-      hidden_files = false,
-      theme = "dropdown",
-    }
-  },
+  -- extensions = {
+    -- project = {
+      -- base_dirs = {
+        -- '~/code/',
+        -- {path = '~/code/dotfiles/' },
+        -- '~/code/fastapi_sqlachemy/',
+        -- '~/code/fastapi_with_postgres/',
+        -- '~/code/cheatsheets/',
+      -- },
+      -- hidden_files = false,
+      -- theme = "dropdown",
+    -- }
+  -- },
 }
 
-telescope.load_extension('projects')
-telescope.load_extension('neoclip')
-telescope.load_extension('macroscope')
-telescope.load_extension('harpoon')
+-- telescope.load_extension('projects')
+-- telescope.load_extension('neoclip')
+-- telescope.load_extension('macroscope')
+-- telescope.load_extension('harpoon')
+
+
+
+
+vim.keymap.set("n", "<leader>fp",function()
+	builtin.grep_string({search = vim.fn.input("Grep > ") });
+end)
+
+vim.keymap.set("n", "<leader>fa", builtin.git_files, {})
+--vim.keymap.set("n", "<leader>fw", builtin.grep_string, {}) -- not good, need to improve a bit
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fc", builtin.command_history, {})
+vim.keymap.set("n", "<leader>fC", builtin.commands, {})
+vim.keymap.set("n", "<leader>fs", builtin.search_history, {})
+vim.keymap.set("n", "<leader>fm", builtin.marks, {})
+vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
+vim.keymap.set("n", "<leader>fr", builtin.registers, {})
+vim.keymap.set("n", "<leader>fv", builtin.vim_options, {})
+vim.keymap.set("n", "<leader>fG", builtin.git_bcommits, {})
+vim.keymap.set("n", "<leader>,",  builtin.buffers, {})
+vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", {})
