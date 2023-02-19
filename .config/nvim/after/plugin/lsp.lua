@@ -19,7 +19,7 @@ lsp.configure('lua-language-server', {
 	}
 })
 
--- lsp.setup_servers({'pyright', 'flake8', 'black'})
+lsp.setup_servers({'pyright', 'yaml-language-server', 'marksman'})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
