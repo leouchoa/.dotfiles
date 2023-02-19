@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use "folke/trouble.nvim"
   use "nvim-pack/nvim-spectre"
   use "TimUntersberger/neogit"
+  use {'nvim-orgmode/orgmode'}
 
   -- Colorscheme
   use({
