@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
   use "kyazdani42/nvim-tree.lua" -- cool file manager 
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  use "lukas-reineke/indent-blankline.nvim"
+  -- use "lukas-reineke/indent-blankline.nvim"
   use "ruifm/gitlinker.nvim"
   use "folke/todo-comments.nvim"
   use "sindrets/diffview.nvim"
