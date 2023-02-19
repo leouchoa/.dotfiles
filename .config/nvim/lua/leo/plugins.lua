@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use "folke/todo-comments.nvim"
   use "sindrets/diffview.nvim"
   use "folke/trouble.nvim"
+  use "nvim-pack/nvim-spectre"
   use "TimUntersberger/neogit"
 
   -- Colorscheme
