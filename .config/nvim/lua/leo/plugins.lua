@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
-  -- Ungrouped Plugins
+  ------------------------- Ungrouped Plugins  -------------------------
   use {
     "nvim-telescope/telescope.nvim",
     requires = "nvim-lua/plenary.nvim"
@@ -33,19 +33,20 @@ return require('packer').startup(function(use)
   use "mbbill/undotree"
   use { "lewis6991/gitsigns.nvim" }
   use "kyazdani42/nvim-web-devicons" -- cool icons
-  use "kyazdani42/nvim-tree.lua" -- cool file manager 
+  use "kyazdani42/nvim-tree.lua" -- cool file manager
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  -- use "lukas-reineke/indent-blankline.nvim"
   use "ruifm/gitlinker.nvim"
   use "folke/todo-comments.nvim"
   use "sindrets/diffview.nvim"
   use "folke/trouble.nvim"
   use "nvim-pack/nvim-spectre"
   use "TimUntersberger/neogit"
-  use {'nvim-orgmode/orgmode'}
+  use { "nvim-orgmode/orgmode" }
+  use { "kylechui/nvim-surround" }
+  use "folke/which-key.nvim"
 
-  -- Colorscheme
+  ------------------------- colorscheme -----------------------
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -56,15 +57,24 @@ return require('packer').startup(function(use)
   })
 
 
-  -- Colorscheme
+  ------------------------- treesitter -----------------------
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   })
   use("nvim-treesitter/nvim-treesitter-textobjects") -- [experimental] Syntax aware text-objects, select, move, swap, and peek support
 
+  ------------------------- Dadbod -----------------------
+  use "tpope/vim-dadbod"
+  use "kristijanhusak/vim-dadbod-ui"
+  use "kristijanhusak/vim-dadbod-completion"
 
-  -- LSP
+  ------------------------- DAP -----------------------
+  use "mfussenegger/nvim-dap"
+  -- use "mfussenegger/nvim-dap-python"
+  use "rcarriga/nvim-dap-ui"
+
+  ------------------------- LSP -----------------------
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -77,6 +87,7 @@ return require('packer').startup(function(use)
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' }, -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { "hrsh7th/cmp-cmdline" }, -- cmdline completions
       { 'hrsh7th/cmp-buffer' }, -- Optional
       { 'hrsh7th/cmp-path' }, -- Optional
       { 'saadparwaiz1/cmp_luasnip' }, -- Optional
@@ -89,4 +100,16 @@ return require('packer').startup(function(use)
   }
 
   use { "jose-elias-alvarez/null-ls.nvim", } -- for formatters and linters
+
+
+  --------------- not being used, but here for reference ---------------
+
+  -- use "AckslD/nvim-neoclip.lua"
+  -- use "lukas-reineke/indent-blankline.nvim"
+  -- use "simrat39/rust-tools.nvim"
+  -- use {
+  --   "renerocksai/telekasten.nvim",
+  --   requires = {"nvim-telescope/telescope.nvim"}
+  -- }
+  --
 end)
