@@ -102,6 +102,7 @@ return require('packer').startup(function(use)
 
   use { "jose-elias-alvarez/null-ls.nvim", } -- for formatters and linters
 
+  use "akinsho/bufferline.nvim"
 
   --------------- not being used, but here for reference ---------------
 
