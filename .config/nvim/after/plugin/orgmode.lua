@@ -15,13 +15,15 @@ configs.setup({
     -- '~/my-orgs/**/*'
   },
   org_todo_keywords = {
-    'TODO(t)', 'PROGRESS(p)', '|', 'FINISHED(f)', 'DELEGATED(d)'
+    'TODO(t)', 'TICKETED(s)', 'WORKING(w)', '|', 'FINISHED(f)', 'DELEGATED(d)'
   },
   win_split_mode = 'vertical',
   org_todo_keyword_faces = {
-    WAITING = ':foreground blue :weight bold',
-    DELEGATED = ':background #FFFFFF :slant italic :underline on',
     TODO = ':background #000000 :foreground red', -- overrides builtin color for `TODO` keyword
+    TICKETED = ':background #000000 :foreground blue :weight bold',
+    WORKING = ':background #000000 :foreground green :weight bold',
+    FINISHED = ':background #FFFFFF :slant italic :underline on',
+    DELEGATED = ':background #FFFFFF :slant italic :underline on',
   },
   org_hide_leading_stars = true,
   org_ellipsis = '...',
@@ -69,6 +71,11 @@ configs.setup({
       description = 'Work todo',
       template = '* TODO %^{Todo topic} :work:%^{tag}:\n  DEADLINE: %T',
       target = '~/gtd/work_todo.org',
+    },
+    s = {
+      description = 'Work-sprints',
+      template = '* TODO %^{Todo topic}\n   - [[%^{ticket link:}][%^{ticket name:}]] :work:sprints:%^{tag}:\n  DEADLINE: %T',
+      target = '~/gtd/work_sprints.org',
     },
     c = {
       description = 'Clipboard',
