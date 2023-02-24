@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
   use { "nvim-orgmode/orgmode" }
   use { "kylechui/nvim-surround" }
   use "folke/which-key.nvim"
+  use "moll/vim-bbye"
 
   ------------------------- colorscheme -----------------------
   use({
