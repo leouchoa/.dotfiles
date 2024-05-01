@@ -1,29 +1,25 @@
-# Neovim dotfiles
+# Neovim Config
 
-This heavily inspired in the [LunarVim](https://github.com/LunarVim/Neovim-from-scratch) project.
+## Asd
 
+## Configuring `pyenv` and `pyright`
 
-## Things to do When configuring new nvim
+To integrate all of `pyright`'s lsp capabilities, you have to create a `pyrightconfig.json` file with the following content:
 
-1. Remember to update `lua/user/cmp.lua` with your lsp completions. Usually it means updating:
-  - sources 
-  - vim_item.menu
+```python
+{
+   "venv" : "python_virtualenv_name",
+   "venvPath" : "/path/to/.pyenv/versions"
+   # "venvPath" : "/Users/mac_user_name/.pyenv/versions" # for mac
+}
 
-2. Run `TSInstall language` to download syntax highlighting. For options please consult the lsp [homepage](https://github.com/nvim-treesitter/nvim-treesitter). Usually I install:
+```
 
-- json, yaml, toml, python, markdown, orgmode, rust-analyzer
+Alternatively you can use the [`pyenv-pyright`](https://github.com/alefpereira/pyenv-pyright) plugin. Here's the TLDR install process for mac:
 
-3. **IMPORTANT:** the `manual_mode` option in the `project` plugin is set to true. Otherwise it will fk up my telescope `find_files`. Because of that, remember that to add a new directory as project you have to use the `:ProjectRoot` command!
+1. `git clone https://github.com/alefpereira/pyenv-pyright.git $(pyenv root)/plugins/pyenv-pyright`
+2. activate the env by running `pyenv local venv_name`
+3. run `pyenv pyright`
 
-## Todo
-
-- Configure other telescope binds [ref](https://youtu.be/OhnLevLpGB4?t=407)
-  - Configure  [lsp keybinds](https://github.com/nvim-telescope/telescope.nvim#neovim-lsp-pickers)
-- Configure more lsp commands
-- Make a list of the most used commands
-- Configure `toggleterm` (basically create and bind other terminal-related function)
-- Try to get signature_help working in python
-  - screenshot the behaviour of <C-k> in `require` function of init.lua 
-  - show that the same does not work when using python scripts with pyright enabled
-- Configure format-on-save 
-
+**Pay attention to this error**: if you're using `conda`-enabled envs, they will probably look like this: `minicondaVERSION-tag/envs/conda_created_venv`. In this case running `pyenv pyright` won't work as the plugin won't be able to local the environment.
+In this case simply create the `pyrightconfig.json` file by hand and add the `minicondaVERSION-tag/envs/conda_created_venv` in the `"venv"` entry.
