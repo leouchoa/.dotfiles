@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
   use { "kylechui/nvim-surround" }
   use "folke/which-key.nvim"
   use "moll/vim-bbye"
+  -- use "kevinhwang91/nvim-bqf" -- TODO: config this
 
   ------------------------- colorscheme -----------------------
   use({
@@ -101,6 +102,13 @@ return require('packer').startup(function(use)
   }
 
   use { "jose-elias-alvarez/null-ls.nvim", } -- for formatters and linters
+
+  ------------------------- winbars/statuslines -----------------------
+  -- TODO: config this later on (use pkg creator as guidelines)
+  -- use {
+  --   "SmiteshP/nvim-navic",
+  --   requires = "neovim/nvim-lspconfig"
+  -- }
 
   use "akinsho/bufferline.nvim"
   use "nvim-lualine/lualine.nvim" -- TODO: make this cooler
