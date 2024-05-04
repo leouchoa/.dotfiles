@@ -48,6 +48,9 @@ keymap("n", "<leader>V", ":split <CR>", opts)
 keymap("n", "xc", ":bd!<CR>", opts)
 -- close quickfix list
 keymap("n", "xz", ":close<CR>", opts)
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+-- needs vim.opt.hlsearch = true
+keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 ---------------------------------- Insert ----------------------------------
 -- Press jk fast to enter
 -- keymap("i", "jk", "<ESC>", opts)
