@@ -1,2 +1,3 @@
-print('hello from lua/leo')
+require("cfg.keymaps")
+require("cfg.options")
 
