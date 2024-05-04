@@ -1,3 +1,5 @@
+# Targets ubuntu, probably not working for macos or anything else
+
 FROM python:3.12-slim
 
 ENV PYTHON_VERSION 3.12
@@ -29,6 +31,11 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
 RUN curl https://pyenv.run | bash 
 
 RUN pyenv install ${PYTHON_VERSION} && pyenv global ${PYTHON_VERSION}
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# attention to switch this to .zshrc when using zsh
+RUN . ~/.bashrc && nvm install node
 
 COPY . .
 
