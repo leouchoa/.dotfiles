@@ -4,6 +4,8 @@ ENV PYTHON_VERSION 3.12
 ENV PYENV_ROOT="$HOME/.pyenv"
 ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 
+WORKDIR /root/
+
 RUN apt-get update && \
   apt-get install -y \ 
   ninja-build gettext libtool libtool-bin \
@@ -21,12 +23,14 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
   tar xf lazygit.tar.gz lazygit && \
   install lazygit /usr/local/bin
 
-RUN git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+# RUN git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 # RUN curl https://pyenv.run | bash | exec "$SHELL"
 RUN curl https://pyenv.run | bash 
 
 RUN pyenv install ${PYTHON_VERSION} && pyenv global ${PYTHON_VERSION}
 
-ENTRYPOINT [ "nvim" , "file.txt"]
+COPY . .
+
+# ENTRYPOINT [ "nvim" , "file.txt"]
 # ENTRYPOINT ["sleep 10000"]
