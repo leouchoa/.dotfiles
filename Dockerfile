@@ -2,6 +2,9 @@
 
 FROM python:3.12-slim
 
+# triggered by z, but essential for many other ones
+ENV PATH="/root/.local/bin/:${PATH}"
+
 # pyenv
 ENV PYTHON_VERSION 3.12
 ENV PYENV_ROOT="$HOME/.pyenv"
@@ -54,6 +57,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
   && nvm install $NODE_VERSION \
   && nvm alias default $NODE_VERSION \
   && nvm use default
+
+RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 COPY . .
 
