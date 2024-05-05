@@ -5,6 +5,9 @@ FROM python:3.12-slim
 ENV PYTHON_VERSION 3.12
 ENV PYENV_ROOT="$HOME/.pyenv"
 ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+# ENV NVM_DIR /usr/local/nvm # or ~/.nvm , depending
+ENV NVM_DIR /root/.nvm
+ENV NODE_VERSION 22.1.0
 
 WORKDIR /root/
 
@@ -16,8 +19,11 @@ RUN apt-get update && \
   gcc build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
-  glibc-source
+  glibc-source \
+  zsh && \
+  chsh -s $(which zsh)
 
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 RUN git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make install
 
@@ -33,10 +39,12 @@ RUN curl https://pyenv.run | bash
 
 RUN pyenv install ${PYTHON_VERSION} && pyenv global ${PYTHON_VERSION}
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
 # attention to switch this to .zshrc when using zsh
-RUN . ~/.bashrc && nvm install node
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
+  && . $NVM_DIR/nvm.sh \
+  && nvm install $NODE_VERSION \
+  && nvm alias default $NODE_VERSION \
+  && nvm use default
 
 COPY . .
 
