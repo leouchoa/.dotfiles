@@ -2,12 +2,15 @@
 
 FROM python:3.12-slim
 
+# pyenv
 ENV PYTHON_VERSION 3.12
 ENV PYENV_ROOT="$HOME/.pyenv"
 ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
-# ENV NVM_DIR /usr/local/nvm # or ~/.nvm , depending
+# Node
 ENV NVM_DIR /root/.nvm
 ENV NODE_VERSION 22.1.0
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+
 
 WORKDIR /root/
 
