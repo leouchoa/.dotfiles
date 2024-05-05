@@ -122,6 +122,6 @@ bindkey -v
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-# Config z
-# See this video:  https://youtu.be/qbNn5zJLZU0
+eval "$(fzf --zsh)"
