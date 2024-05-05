@@ -117,6 +117,7 @@ fi
 # Enable vi mode
 bindkey -v
 
+# requires installation via git clone
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -125,3 +126,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
