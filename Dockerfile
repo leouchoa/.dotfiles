@@ -20,6 +20,8 @@ RUN apt-get update && \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
+  tmux \
+  exa \
   zsh && \
   chsh -s $(which zsh)
 
@@ -49,4 +51,4 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 COPY . .
 
 # ENTRYPOINT [ "nvim" , "file.txt"]
-# ENTRYPOINT ["sleep 10000"]
+ENTRYPOINT ["tmux", "new", "-s", "main"]
