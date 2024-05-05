@@ -15,17 +15,21 @@ RUN apt-get update && \
   apt-get install -y \ 
   ninja-build gettext libtool libtool-bin \
   autoconf automake cmake g++ pkg-config \
-  unzip git dpkg ripgrep xclip \
+  unzip git dpkg xclip \
   gcc build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
+  ripgrep \
   tmux \
   exa \
+  bat \
   zsh && \
   chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 RUN git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make install
 
