@@ -73,13 +73,13 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	vi-mode
-	zsh-autosuggestions
+	# zsh-autosuggestions
 	copypath
 	copyfile
 	web-search
 	copybuffer
 	jsontools
-	macos
+	# macos
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
