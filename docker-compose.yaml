@@ -4,7 +4,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: dotfiles
-    command: sleep 1000000
     volumes:
       # not mounting anything ....
       - ./.config:/root/.config

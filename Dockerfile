@@ -50,5 +50,5 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 
 COPY . .
 
-# ENTRYPOINT [ "nvim" , "file.txt"]
-ENTRYPOINT ["tmux", "new", "-s", "main"]
+ENTRYPOINT ["tmux", "new", "-s"]
+CMD ["main"]
