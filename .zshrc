@@ -73,6 +73,9 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	git
 	vi-mode
+  docker
+  fd
+  docker-compose
 	# zsh-autosuggestions
 	copypath
 	copyfile
@@ -113,6 +116,13 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.aliases ]; then
         . ~/.aliases
 fi
+
+
+# Custom commands
+if [ -f ~/.custom_cmds ]; then
+	. ~/.custom_cmds
+fi
+
 
 # Enable vi mode
 bindkey -v
