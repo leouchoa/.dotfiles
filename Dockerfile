@@ -26,10 +26,13 @@ RUN apt-get update && \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
+  htop \
+  nnn \
   ripgrep \
   tmux \
   exa \
   bat \
+  fd-find \
   zsh && \
   chsh -s $(which zsh)
 
@@ -44,9 +47,8 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
   tar xf lazygit.tar.gz lazygit && \
   install lazygit /usr/local/bin
 
-# RUN git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+RUN curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash 
 
-# RUN curl https://pyenv.run | bash | exec "$SHELL"
 RUN curl https://pyenv.run | bash 
 
 RUN pyenv install ${PYTHON_VERSION} && pyenv global ${PYTHON_VERSION}
@@ -59,6 +61,9 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
   && nvm use default
 
 RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# idk how to solve this problem to install git-delta
+# RUN curl https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -o delta.deb && dpkg -i delta.deb
 
 COPY . .
 
