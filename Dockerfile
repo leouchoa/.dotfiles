@@ -67,5 +67,10 @@ RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install
 
 COPY . .
 
+# Auto-install of tmux plugins not working, gonna install there.
+# For more info, check second-to-last cmd of ~/.config/tmux/tmux.conf
+RUN git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && \
+  bash .config/tmux/plugins/tpm/bin/install_plugins
+
 ENTRYPOINT ["tmux", "new", "-s"]
 CMD ["main"]
