@@ -76,7 +76,8 @@ plugins=(
   docker
   fd
   docker-compose
-	# zsh-autosuggestions
+  fzf-tab
+	zsh-autosuggestions
 	copypath
 	copyfile
 	web-search

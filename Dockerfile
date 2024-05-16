@@ -36,9 +36,12 @@ RUN apt-get update && \
   zsh && \
   chsh -s $(which zsh)
 
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+RUN git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab && \
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 RUN git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make install
 
@@ -62,7 +65,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
 
 RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-# idk how to solve this problem to install git-delta
+# idk how to solve this problem to install git-delta, curl corrupts stuff ....
 # RUN curl https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -o delta.deb && dpkg -i delta.deb
 
 COPY . .
