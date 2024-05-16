@@ -1,9 +1,0 @@
-services:
-  dotfiles:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: dotfiles
-    volumes:
-      # not mounting anything ....
-      - ./.config:/root/.config
