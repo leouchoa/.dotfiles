@@ -131,6 +131,9 @@ bindkey -v
 # requires installation via git clone
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# t-smart-tmux-session-manager
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
