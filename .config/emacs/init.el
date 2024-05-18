@@ -18,7 +18,9 @@
         use-package-expand-minimally t)
   )
  
-(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
+(org-babel-load-file (expand-file-name "~/.config/emacs/config.org"))
+(org-babel-load-file (expand-file-name "~/.config/emacs/sql-connector.org"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

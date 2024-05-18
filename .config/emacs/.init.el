@@ -18,4 +18,4 @@
         use-package-expand-minimally t)
   )
  
-(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
+(org-babel-load-file (expand-file-name "~/.config/emacs/config.org"))
