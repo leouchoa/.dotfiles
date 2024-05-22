@@ -29,11 +29,11 @@ brew "gnu-sed"
 brew "gnu-tar"
 brew "gh"
 brew "pandoc"
+brew "font-hack-nerd-font"
+# cask "font-iosevka"
 
 # 'brew install --cask'
 cask "iterm2"
 cask "keepassxc"
 cask "tunnelblick"
-cask "font-hack-nerd-font"
-# cask "font-iosevka"
 cask "rectangle"
