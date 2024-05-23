@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  # poetry
 	git
 	vi-mode
   docker
@@ -84,6 +85,9 @@ plugins=(
 	copybuffer
 	jsontools
 	# macos
+  kubectl
+  pyenv
+  gh
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
