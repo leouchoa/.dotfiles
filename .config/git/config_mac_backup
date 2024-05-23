@@ -1,0 +1,72 @@
+[core]
+    editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    line-numbers = true
+    side-by-side = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    tool = nvimdiff
+    
+[difftool "nvimdiff"]
+    prompt = true
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[init]
+    defaultBranch = dev
+
+; for mac only
+; https://www.jsdevlife.in/2018/02/macos-git-multi-user-accounts-keychain.html
+; https://stackoverflow.com/questions/24275375/how-can-i-store-keychain-credentials-for-multiple-github-accounts#24277934
+[credential]
+  helper = osxkeychain
+  useHttpPath = true
+
+[includeIf "gitdir:~/work/github/"]
+    path = ~/work/github/.gitconfig
+    ; remember that the correct user.email test to check
+    ; if configuration was correctly loaded is to run:
+    ; `git config user.email`
+    ;
+    ; do not run `git config -l` because its very verbose
+    ; as git will kinda load everything to only then dispatch
+    ; the correct config
+
+
+[includeIf "gitdir:~/code/"]
+    path = ~/code/.gitconfig
+    ; to .gitconfig file looks like this:
+    ; [user]
+    ;   name = Leonardo Uchôa Pedreira
+    ;   email = leonardouchoa.pedreira@gmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[user]
+	name = provide name
+	email = provide user
+[pull]
+	rebase = true
