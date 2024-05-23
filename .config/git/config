@@ -38,3 +38,5 @@
 
 [init]
     defaultBranch = dev
+[pull]
+	rebase = true
