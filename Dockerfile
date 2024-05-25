@@ -26,6 +26,8 @@ RUN apt-get update && \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
+  font-config \
+  wget \
   htop \
   nnn \
   ripgrep \

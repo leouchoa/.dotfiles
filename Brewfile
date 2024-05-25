@@ -29,6 +29,7 @@ brew "gnu-sed"
 brew "gnu-tar"
 brew "gh"
 brew "pandoc"
+brew "fontconfig"
 brew "font-hack-nerd-font"
 # cask "font-iosevka"
 
