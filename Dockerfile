@@ -26,7 +26,7 @@ RUN apt-get update && \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
-  font-config \
+  fontconfig \
   wget \
   htop \
   nnn \
@@ -71,7 +71,6 @@ RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install
 
 # idk how to solve this problem to install git-delta, curl corrupts stuff ....
 # RUN curl https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -o delta.deb && dpkg -i delta.deb
-
 RUN git clone -b stow https://github.com/leouchoa/.dotfiles /root/.dotfiles && \
   stow -d ~/.dotfiles .
 
