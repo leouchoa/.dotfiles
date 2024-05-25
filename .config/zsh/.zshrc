@@ -70,28 +70,6 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  # poetry
-	git
-	vi-mode
-  docker
-  fd
-  docker-compose
-  fzf-tab
-	zsh-autosuggestions
-	copypath
-	copyfile
-	web-search
-	copybuffer
-	jsontools
-	# macos
-  kubectl
-  pyenv
-  gh
-)
-
-ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -118,16 +96,47 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if [ -f ~/.aliases ]; then
-        . ~/.aliases
+plugins=(
+  # poetry
+	git
+	vi-mode
+  docker
+  fd
+  docker-compose
+  fzf-tab
+	zsh-autosuggestions
+	copypath
+	copyfile
+	web-search
+	copybuffer
+	jsontools
+  kubectl
+  pyenv
+  gh
+)
+
+ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
+source $ZSH/oh-my-zsh.sh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "OSTYPE is $OSTYPE, sourcing zsh mac config" 
+    source ~/.config/zsh/zshrc_mac
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "OSTYPE is $OSTYPE, sourcing zsh linux config" 
+    source ~/.config/zsh/zshrc_linux
+else
+    echo "Unsupported operating system."
+    exit 1
 fi
 
+if [ -f ~/.config/aliases ]; then
+        . ~/.config/aliases
+fi
 
 # Custom commands
-if [ -f ~/.custom_cmds ]; then
-	. ~/.custom_cmds
+if [ -f ~/custom_script/custom_cmds ]; then
+	. ~/custom_script/custom_cmds
 fi
-
 
 # Enable vi mode
 bindkey -v
@@ -137,10 +146,6 @@ bindkey -v
 
 # t-smart-tmux-session-manager
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
-# nvm and npm 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

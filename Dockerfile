@@ -26,6 +26,8 @@ RUN apt-get update && \
   curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
   apt-transport-https ca-certificates curl gnupg2 software-properties-common \
   glibc-source \
+  fontconfig \
+  wget \
   htop \
   nnn \
   ripgrep \
@@ -33,6 +35,7 @@ RUN apt-get update && \
   exa \
   bat \
   fd-find \
+  stow \
   zsh && \
   chsh -s $(which zsh)
 
@@ -41,7 +44,8 @@ RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/ins
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 RUN git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab && \
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+  rm ~/.zshrc
 
 RUN git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make install
 
@@ -67,8 +71,8 @@ RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install
 
 # idk how to solve this problem to install git-delta, curl corrupts stuff ....
 # RUN curl https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -o delta.deb && dpkg -i delta.deb
-
-COPY . .
+RUN git clone -b stow https://github.com/leouchoa/.dotfiles /root/.dotfiles && \
+  stow -d ~/.dotfiles .
 
 # Auto-install of tmux plugins not working, gonna install there.
 # For more info, check second-to-last cmd of ~/.config/tmux/tmux.conf
