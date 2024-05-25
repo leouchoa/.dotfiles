@@ -2,9 +2,9 @@
 # https://www.geekbits.io/how-to-install-nerd-fonts-on-linux/
 
 declare -a fonts=(
-	Hack
-	FiraCode
-	Iosevka
+	# Hack
+	# FiraCode
+	# Iosevka
 	JetBrainsMono
 )
 
