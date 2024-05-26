@@ -5,6 +5,14 @@
 ```bash
 git clone https://github.com/leouchoa/.dotfiles.git ~/.dotfiles
 stow -d ~/.dotfiles -t ~ .
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+bash .config/tmux/plugins/tpm/bin/install_plugins
+```
+
+To make your changes take effect, restow your config:
+
+```bash
+stow -R -d ~/.dotfiles -t ~ -v .
 ```
 
 ## Docker
