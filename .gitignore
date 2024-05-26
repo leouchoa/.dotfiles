@@ -1,3 +1,4 @@
 .emacs.d/elpa
 .config/zsh
 .config/tmux/plugins
+.config/nvim/lazy-lock.json
