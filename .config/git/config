@@ -1,7 +1,3 @@
-[user]
-    name = provide_name
-    email = provide_email
-
 [core]
     editor = nvim
     pager = delta
