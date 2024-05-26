@@ -1,0 +1,7 @@
+; for mac only
+; https://www.jsdevlife.in/2018/02/macos-git-multi-user-accounts-keychain.html
+; https://stackoverflow.com/questions/24275375/how-can-i-store-keychain-credentials-for-multiple-github-accounts#24277934
+[credential]
+    helper = osxkeychain
+    useHttpPath = true
+
