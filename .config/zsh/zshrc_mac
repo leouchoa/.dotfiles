@@ -1,5 +1,6 @@
 plugins+=(
   macos
+  brew
 )
 
 
@@ -23,6 +24,8 @@ export NVM_DIR="${nvm_path}"
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # ---------- NODEJS SETTINGS END ---------
 
 export PATH="/Users/leonardopedreira/.local/bin:$PATH"
