@@ -90,6 +90,8 @@ require('lazy').setup({
     config = function()
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      -- maybe:
+      -- https://github.com/folke/trouble.nvim#telescope
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -601,6 +603,7 @@ require('lazy').setup({
   require 'cfg.plugins.bufferline',
   require 'cfg.plugins.ufo',
   require 'cfg.plugins.spectre',
+  require 'cfg.plugins.trouble',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
