@@ -17,7 +17,7 @@ alias gl1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gl3="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)' --all"
 alias gcb='git branch --remotes --sort=committerdate | fzf --header="Checkout to Branch" --preview "git diff {1} --color=always" | xargs git checkout'
-
+alias check_git_email_used='touch testfile && git add testfile && git commit --dry-run -m "Your commit message" > /dev/null 2>&1 && git show --format="%an <%ae>" -s && git restore --staged testfile && rm testfile'
 
 # Directory moving
 alias ..='cd ..'
