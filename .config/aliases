@@ -41,6 +41,7 @@ alias kill_session_jobs='kill -9 `jobs -p`'
 alias untargz='tar -xvzf'
 # alias weather='function _weather() {curl wttr.in/$1;} _weather'
 alias reload='exec zsh'
+alias restow_dotfiles="stow -R -d ~/.dotfiles -t ~ -v ."
 
 
 # ls
