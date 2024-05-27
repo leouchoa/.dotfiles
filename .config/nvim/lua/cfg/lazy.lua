@@ -600,6 +600,7 @@ require('lazy').setup({
   require 'cfg.plugins.nvim-tree',
   require 'cfg.plugins.bufferline',
   require 'cfg.plugins.ufo',
+  require 'cfg.plugins.spectre',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
