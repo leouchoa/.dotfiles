@@ -4,7 +4,7 @@ Neovim plugins config:
 
 - [ ] dap
 - [ ] trouble
-- [ ] nvim ufo
+- [X] nvim ufo
 - [ ] copilot/chatgpt/gen.ai
 - [ ] fugitive/neogit
 - [ ] spectre

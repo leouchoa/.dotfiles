@@ -84,3 +84,4 @@ vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, {})
 -- override those so they popup in a floating window
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.api.nvim_set_keymap('n', 'zp', 'za', { noremap = true })
