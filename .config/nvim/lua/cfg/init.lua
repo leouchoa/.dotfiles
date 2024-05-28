@@ -1,5 +1,5 @@
-require("cfg.options")
-require("cfg.keymaps")
-require("cfg.autocmds")
-require("cfg.lazy")
-
+require 'cfg.options'
+require 'cfg.keymaps'
+require 'cfg.autocmds'
+require 'cfg.lazy'
+require 'cfg.plugins.dap-python'
