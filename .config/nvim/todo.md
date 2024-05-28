@@ -1,5 +1,7 @@
 # TODO
 
+- [ ] [gh-dash](https://dlvhdr.github.io/gh-dash/configuration/)
+
 Neovim plugins config:
 
 - [ ] dap

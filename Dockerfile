@@ -17,6 +17,10 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 WORKDIR /root/
 
+# install `gh` https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+# then:
+# `gh extension install dlvhdr/gh-dash`
+
 RUN apt-get update && \
   apt-get install -y \ 
   ninja-build gettext libtool libtool-bin \
@@ -72,7 +76,7 @@ RUN curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install
 # idk how to solve this problem to install git-delta, curl corrupts stuff ....
 # RUN curl https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -o delta.deb && dpkg -i delta.deb
 RUN git clone -b stow https://github.com/leouchoa/.dotfiles /root/.dotfiles && \
-  stow -d ~/.dotfiles .
+  stow -d .dotfiles -t ~ .
 
 # Auto-install of tmux plugins not working, gonna install there.
 # For more info, check second-to-last cmd of ~/.config/tmux/tmux.conf

@@ -1,0 +1,89 @@
+# For more config ideas:
+# https://github.com/dlvhdr/dotfiles/blob/main/.config/gh-dash/config.yml
+issuesSections:
+- title: My Issues
+  filters: is:open author:@me
+- title: Assigned
+  filters: is:open assignee:@me
+- title: Involved
+  filters: is:open involves:@me -author:@me
+prSections:
+- title: My Pull Requests
+  filters: is:open author:@me
+- title: Needs My Review
+  filters: is:open review-requested:@me
+- title: Involved
+  filters: is:open involves:@me -author:@me
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: issues
+  layout:
+    prs:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  issues: []
+  prs: []
+  # TODO: install octo.nvim and finish this
+  # prs:
+  #   - key: C
+  #     command: >
+  #       tmux split-window -h -c {{.RepoPath}} '
+  #       gh pr checkout {{.PrNumber}} &&
+  #       nvim -c ":Octo pr edit {{.PrNumber}}"
+  #       '
+repoPaths:
+  personal/*: ~/code/*
+  work/*: ~/work/github/*
+  # work/*: ~/work/code/*
+theme:
+  ui:
+    table:
+      showSeparator: true
+  colors:
+    text:
+      primary: "#E2E1ED"
+      secondary: "#666CA6"
+      inverted: "#242347"
+      faint: "#797d9c"
+      warning: "#F23D5C"
+      success: "#3DF294"
+    background:
+      selected: "#292e42"
+    border:
+      primary: "#383B5B"
+      secondary: "#39386B"
+      faint: "#2B2B40"
+  ui:
+    table:
+      showSeparator: true
+pager:
+  diff: delta
+confirmQuit: false

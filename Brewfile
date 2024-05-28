@@ -1,3 +1,7 @@
+# Other Installs:
+# `gh extension install dlvhdr/gh-dash`
+#
+#
 # install all packages by running:
 # > brew bundle --v
 
