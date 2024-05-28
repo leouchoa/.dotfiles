@@ -591,6 +591,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'cfg.plugins.debug',
+  require 'cfg.plugins.dap-python',
   -- require 'cfg.plugins.indent_line',
   require 'cfg.plugins.lint',
   require 'cfg.plugins.autopairs',

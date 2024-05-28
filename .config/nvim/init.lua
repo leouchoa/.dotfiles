@@ -1,2 +1,1 @@
-require("cfg")
-
+require 'cfg'
