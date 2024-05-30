@@ -604,6 +604,7 @@ require('lazy').setup({
   require 'cfg.plugins.ufo',
   require 'cfg.plugins.spectre',
   require 'cfg.plugins.trouble',
+  require 'cfg.plugins.neogit',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

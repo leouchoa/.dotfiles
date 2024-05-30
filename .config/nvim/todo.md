@@ -8,7 +8,7 @@ Neovim plugins config:
 - [X] trouble
 - [X] nvim ufo
 - [ ] copilot/chatgpt/gen.ai
-- [ ] fugitive/neogit
+- [X] neogit
 - [X] spectre
 - [ ] diffview
 - [ ] [Octo](https://github.com/pwntester/octo.nvim)

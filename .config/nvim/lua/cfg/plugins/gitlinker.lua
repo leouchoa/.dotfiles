@@ -4,7 +4,7 @@ return {
   opts = {},
   -- TODO: check correct bindings
   keys = {
-    { '<leader>gy', '<cmd>GitLink<cr>', mode = { 'n', 'v' }, desc = 'Yank git link' },
-    { '<leader>gY', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },
+    { '<leader>y', '<cmd>GitLink<cr>', mode = { 'n', 'v' }, desc = 'Yank git link' },
+    { '<leader>Y', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },
   },
 }
