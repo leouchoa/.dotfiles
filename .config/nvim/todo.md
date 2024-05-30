@@ -11,7 +11,7 @@ Neovim plugins config:
 - [X] neogit
 - [X] spectre
 - [ ] diffview
-- [ ] [Octo](https://github.com/pwntester/octo.nvim)
+- [X] [Octo](https://github.com/pwntester/octo.nvim)
 - [ ] [quarto](https://youtu.be/hp7FFr9oM1k?si=P3FPwoFy9vi1goVj)
   - but make it into a git branch because there's a lot overlaping and new config
 

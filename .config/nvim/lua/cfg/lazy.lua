@@ -486,6 +486,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'cmp-git' },
         },
       }
     end,
@@ -571,7 +572,10 @@ require('lazy').setup({
       require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
-
+      --
+      -- config octo: https://github.com/pwntester/octo.nvim?tab=readme-ov-file
+      -- vim.treesitter.language.register('markdown', 'octo')
+      --
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
       --
@@ -605,6 +609,7 @@ require('lazy').setup({
   require 'cfg.plugins.spectre',
   require 'cfg.plugins.trouble',
   require 'cfg.plugins.neogit',
+  require 'cfg.plugins.octo',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
