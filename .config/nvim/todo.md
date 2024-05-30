@@ -7,7 +7,7 @@ Neovim plugins config:
 - [X] dap for python
 - [X] trouble
 - [X] nvim ufo
-- [ ] copilot/chatgpt/gen.ai
+- [X] copilot/chatgpt/gen.ai
 - [X] neogit
 - [X] spectre
 - [X] diffview
