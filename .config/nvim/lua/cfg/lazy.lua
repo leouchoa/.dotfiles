@@ -285,6 +285,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        basedpyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -301,6 +302,7 @@ require('lazy').setup({
           -- capabilities = {},
           settings = {
             Lua = {
+              hint = { enable = true },
               completion = {
                 callSnippet = 'Replace',
               },
@@ -491,7 +493,7 @@ require('lazy').setup({
       }
     end,
   },
-  --------------------------- COLORSCHEME BEGIN ---------------------------
+  -------------------------- COLORSCHEME BEGIN ---------------------------
   -- {
   --   'folke/tokyonight.nvim',
   --   priority = 1000, -- Make sure to load this before all the other start plugins.
