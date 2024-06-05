@@ -327,6 +327,18 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'basedpyright',
+        'black',
+        'debugpy',
+        'flake8',
+        'isort',
+        -- 'lua-language-server',
+        'markdownlint',
+        'pyright',
+        'typescript-language-server',
+        'eslint-lsp',
+        'prettier',
+        'biome',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -556,7 +568,23 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'python' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'regex',
+        'bash',
+        'vim',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'vimdoc',
+        'python',
+        'javascript',
+        'css',
+        'sql',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
