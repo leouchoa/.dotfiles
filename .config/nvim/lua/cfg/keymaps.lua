@@ -50,10 +50,13 @@ keymap('n', 'xz', ':close<CR>', opts)
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 -- needs vim.opt.hlsearch = true
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
+-- Press qq fast to save file
+-- :update writes the file to disk only when there are changes. So, it could be really helpful especially if the file is huge.
+keymap('n', 'qq', ':update<cr>', opts)
 ---------------------------------- Insert ----------------------------------
--- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
-
+keymap('i', 'qq', '<Esc>:update<cr>gi', opts)
+-- vim.keymap.set({ 'n', 'v' }, 'qq', ':update<cr>', opts)
+-- <Esc>:update<cr>gi
 ---------------------------------- Visual ----------------------------------
 -- Stay in indent mode
 keymap('v', '<', '<gv', opts)
@@ -84,4 +87,5 @@ vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, {})
 -- override those so they popup in a floating window
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- za to fold/unfold is not cool, zp is better
 vim.api.nvim_set_keymap('n', 'zp', 'za', { noremap = true })
