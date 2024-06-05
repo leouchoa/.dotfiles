@@ -154,3 +154,5 @@ eval "$(pyenv virtualenv-init -)"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
+source $HOME/.cargo/env
