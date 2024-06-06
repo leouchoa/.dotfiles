@@ -9,6 +9,7 @@ return {
     require('octo').setup {
       enable_builtin = true,
       default_merge_method = 'commit',
+      ssh_aliases = { ['github.com-work'] = 'github.com' },
     }
   end,
   keys = {
