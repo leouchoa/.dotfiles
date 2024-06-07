@@ -127,6 +127,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = '[F]ind Existing Buffers' })
       vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = '[F]ind Commits' })
       vim.keymap.set('n', '<leader>fH', builtin.command_history, { desc = '[F]ind [C]ommand History' })
+      vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', {})
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -583,7 +584,7 @@ require('lazy').setup({
   -- require 'cfg.plugins.indent_line',
   require 'cfg.plugins.lint',
   require 'cfg.plugins.autopairs',
-  require 'cfg.plugins.neo-tree',
+  -- require 'cfg.plugins.neo-tree',
   require 'cfg.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'cfg.plugins.neo-tree',
   require 'cfg.plugins.gitlinker',
@@ -599,7 +600,10 @@ require('lazy').setup({
   require 'cfg.plugins.gen',
   require 'cfg.plugins.neogen',
   require 'cfg.plugins.treesitter',
-  -- require 'cfg.plugins.noice',
+  require 'cfg.plugins.noice',
+  require 'cfg.plugins.lualine',
+  require 'cfg.plugins.navic',
+  require 'cfg.plugins.incline',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
