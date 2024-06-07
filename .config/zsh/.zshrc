@@ -97,22 +97,24 @@ ZSH_THEME="robbyrussell"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 plugins=(
-  # poetry
-	git
-	vi-mode
-  docker
-  fd
-  docker-compose
-  fzf-tab
-	zsh-autosuggestions
-	copypath
-	copyfile
-	web-search
-	copybuffer
-	jsontools
-  kubectl
-  pyenv
-  gh
+    # poetry
+    git
+    vi-mode
+    docker
+    fd
+    docker-compose
+    fzf-tab
+    zsh-autosuggestions
+    copypath
+    copyfile
+    web-search
+    copybuffer
+    jsontools
+    kubectl
+    pyenv
+    gh
+    # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws
+    aws
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
