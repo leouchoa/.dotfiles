@@ -44,7 +44,7 @@ keymap('n', '<leader>v', ':vnew <CR>', opts)
 keymap('n', '<leader>V', ':split <CR>', opts)
 
 -- close current buffer. Attention! It will close it regardless of it being saved or not
-keymap('n', 'xc', ':bd!<CR>', opts)
+keymap('n', '--', ':bd!<CR>', opts)
 -- close quickfix list
 keymap('n', 'xz', ':close<CR>', opts)
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
