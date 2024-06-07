@@ -604,6 +604,7 @@ require('lazy').setup({
   require 'cfg.plugins.lualine',
   require 'cfg.plugins.navic',
   require 'cfg.plugins.incline',
+  require 'cfg.plugins.toggleterm',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
