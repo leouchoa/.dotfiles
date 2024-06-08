@@ -158,3 +158,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 source $HOME/.cargo/env
+
+# https://unix.stackexchange.com/a/469851
+autoload -U zmv
+
