@@ -432,10 +432,13 @@ require('lazy').setup({
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
+      -- nvim-cmp does not ship with all sources by default. They are split
+      -- into multiple repos for maintenance purposes.
+      -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
     },
     config = function()
       -- See `:help cmp`
@@ -503,11 +506,14 @@ require('lazy').setup({
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
+        -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
         sources = {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'cmp-git' },
+          { name = 'buffer' },
+          { name = 'cmdline' },
         },
       }
     end,
