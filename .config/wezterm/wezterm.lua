@@ -9,12 +9,12 @@ wezterm.on("gui-startup", function()
 end)
 
 return {
-	font_size = 18,
-	-- font = wezterm.font("MonoLisa Nerd Font Mono"),
+	font_size = 17,
+	color_scheme = "iTerm2 Dark Background",
+	-- color_scheme = "Night Owl (Gogh)",
 	scrollback_lines = 10000,
 	font = wezterm.font_with_fallback({
 		{ family = "Hack Nerd Font Mono" },
-		-- { family = "FantasqueSansM Nerd Font", scale = 1.2 },
 	}),
 	-- leader = { key = "CMD", mods = "CTRL", timeout_milliseconds = 1000 },
 }
