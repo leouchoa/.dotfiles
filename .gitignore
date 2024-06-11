@@ -4,3 +4,4 @@
 .config/nvim/lazy-lock.json
 .config/nvim/lua/.DS_Store
 .config/lazygit/state.yml
+.config/karabiner/automatic_backups
