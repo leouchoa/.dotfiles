@@ -590,9 +590,7 @@ require('lazy').setup({
   -- require 'cfg.plugins.indent_line',
   require 'cfg.plugins.lint',
   require 'cfg.plugins.autopairs',
-  -- require 'cfg.plugins.neo-tree',
   require 'cfg.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'cfg.plugins.neo-tree',
   require 'cfg.plugins.gitlinker',
   require 'cfg.plugins.nvim-surround',
   require 'cfg.plugins.nvim-tree',
