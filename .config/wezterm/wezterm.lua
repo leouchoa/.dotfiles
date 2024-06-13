@@ -8,7 +8,7 @@ wezterm.on("gui-startup", function()
 	window:gui_window():maximize()
 end)
 
-return {
+local config = {
 	font_size = 20,
 	color_scheme = "iTerm2 Dark Background",
 	-- color_scheme = "Night Owl (Gogh)",
@@ -54,5 +54,61 @@ return {
 				args = { "/opt/homebrew/bin/lazygit" },
 			}),
 		},
+		{
+			key = "t",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/opt/homebrew/bin/taskwarrior-tui" },
+			}),
+		},
+		{
+			key = "q",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/opt/homebrew/bin/nnn" },
+			}),
+		},
+		{
+			key = "i",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/opt/homebrew/bin/lazydocker" },
+			}),
+		},
+		{
+			key = ";",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/opt/homebrew/bin/gh", "dash" },
+			}),
+		},
+		{
+			key = "b",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewWindow({
+				args = { "/opt/homebrew/bin/htop" },
+			}),
+		},
+		{
+			-- TODO: try to add a callback function to spawn
+			-- it in fullscreen
+			key = "b",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewWindow({
+				args = { "ping", "www.google.com" },
+				position = {
+					x = 500,
+					y = 300,
+				},
+			}),
+		},
 	},
 }
+
+return config
