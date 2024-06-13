@@ -1,11 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
-local keys = require("keys")
-
-local basename = function(s)
-	return string.gsub(s, "(.*[/\\])(.*)", "%2")
-end
+-- local keys = require("keys")
 
 local config = {}
 -- Use config builder object if possible
@@ -33,8 +29,8 @@ config.inactive_pane_hsb = {
 }
 
 -- Keys
-config.leader = { key = "e", mods = "CTRL", timeout_milliseconds = 1000 }
-config.keys = keys
+-- config.leader = { key = "e", mods = "CTRL", timeout_milliseconds = 1000 }
+-- config.keys = keys
 
 -- config.key_tables = {
 -- 	resize_pane = {
