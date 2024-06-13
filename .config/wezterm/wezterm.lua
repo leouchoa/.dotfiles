@@ -1,12 +1,26 @@
 local wezterm = require("wezterm")
 
+local act = wezterm.action
 local mux = wezterm.mux
 -- local act = wezterm.action
 
+-- wezterm.on("mux-startup", function()
+-- 	local tab, pane, window = mux.spawn_window({})
+-- 	window:gui_window():maximize()
+-- end)
+--
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
 	window:gui_window():maximize()
 end)
+
+-- wezterm.on("update-right-status", function(window, pane)
+-- 	local name = window:active_key_table()
+-- 	if name then
+-- 		name = "TABLE: " .. name
+-- 	end
+-- 	window:set_right_status(name or "")
+-- end)
 
 local config = {
 	font_size = 20,
@@ -19,9 +33,19 @@ local config = {
 	}),
 	leader = { key = "e", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
-		-- copy mode
+		-- {
+		-- 	key = "a",
+		-- 	mods = "LEADER",
+		-- 	action = act.ActivateKeyTable({
+		-- 		name = "activate_pane",
+		-- 		timeout_milliseconds = 1000,
+		-- 	}),
+		-- },
 		-------------------------- PANES --------------------------
+		-- copy mode
 		{ key = "y", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
+		-- show command launcher pane
+		{ key = "=", mods = "LEADER", action = wezterm.action.ShowLauncher },
 		-- split panes
 		{
 			key = "-",
@@ -49,23 +73,22 @@ local config = {
 		{
 			key = "g",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewTab({
 				args = { "/opt/homebrew/bin/lazygit" },
 			}),
 		},
-		{
-			key = "t",
-			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
-			action = wezterm.action.SpawnCommandInNewTab({
-				args = { "/opt/homebrew/bin/taskwarrior-tui" },
-			}),
-		},
+		-- {
+		-- 	-- not working idkw
+		-- 	key = "t",
+		-- 	mods = "LEADER",
+		-- 	-- action = wezterm.action.SpawnCommandInNewWindow({
+		-- 	action = wezterm.action.SpawnCommandInNewTab({
+		-- 		args = { "/opt/homebrew/bin/taskwarrior-tui" },
+		-- 	}),
+		-- },
 		{
 			key = "q",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewTab({
 				args = { "/opt/homebrew/bin/nnn" },
 			}),
@@ -73,7 +96,6 @@ local config = {
 		{
 			key = "i",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewTab({
 				args = { "/opt/homebrew/bin/lazydocker" },
 			}),
@@ -81,7 +103,6 @@ local config = {
 		{
 			key = ";",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewTab({
 				args = { "/opt/homebrew/bin/gh", "dash" },
 			}),
@@ -89,7 +110,6 @@ local config = {
 		{
 			key = "b",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewWindow({
 				args = { "/opt/homebrew/bin/htop" },
 			}),
@@ -99,16 +119,73 @@ local config = {
 			-- it in fullscreen
 			key = "b",
 			mods = "LEADER",
-			-- action = wezterm.action.SpawnCommandInNewWindow({
 			action = wezterm.action.SpawnCommandInNewWindow({
 				args = { "ping", "www.google.com" },
-				position = {
-					x = 500,
-					y = 300,
+				-- position = {
+				-- 	x = 500,
+				-- 	y = 300,
+				-- 	-- origin = "ScreenCoordinateSystem",
+				-- },
+			}),
+		},
+		-------------------------- WORKSPACES --------------------------
+		-- {
+		-- 	key = "=",
+		-- 	mods = "LEADER",
+		-- 	action = act.ShowLauncherArgs({
+		-- 		flags = "LAUNCH_MENU_ITEMS",
+		-- 	}),
+		-- },
+		{
+			key = "w",
+			mods = "LEADER",
+			action = act.ShowLauncherArgs({
+				flags = "FUZZY|WORKSPACES",
+			}),
+		},
+		-- The wezterm.action.ShowTabNavigator is an alternative to ShowLauncherArgs
+		-- But I don't like it
+		-- { key = "s", mods = "LEADER", action = wezterm.action.ShowTabNavigator },
+		{
+			key = "s",
+			mods = "LEADER",
+			action = act.ShowLauncherArgs({
+				flags = "FUZZY|TABS",
+			}),
+		},
+		{
+			key = "a",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				name = "scratchpad",
+			}),
+		},
+		{
+			key = "u",
+			mods = "CTRL|SHIFT",
+			action = act.SwitchToWorkspace({
+				name = "monitoring",
+				spawn = {
+					args = { "top" },
 				},
 			}),
 		},
+		-- {
+		-- --already exists with CMD+t
+		-- 	key = "t",
+		-- 	mods = "LEADER",
+		-- 	action = act.SpawnTab("CurrentPaneDomain"),
+		-- },
 	},
 }
+
+-- use leader + number to switch panes
+for i = 1, 9 do
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "LEADER",
+		action = act.ActivateTab(i - 1),
+	})
+end
 
 return config
