@@ -11,6 +11,9 @@ local cfg = {
 	-- 		timeout_milliseconds = 1000,
 	-- 	}),
 	-- },
+	{ key = "S", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
+	{ key = "L", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
+	{ key = "R", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
 	-------------------------- PANES --------------------------
 	-- copy mode
 	{ key = "y", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
@@ -132,12 +135,12 @@ local cfg = {
 	},
 	{
 		key = "u",
-		mods = "CTRL|SHIFT",
+		mods = "LEADER",
 		action = act.SwitchToWorkspace({
 			name = "monitoring",
-			spawn = {
-				args = { "top" },
-			},
+			-- spawn = {
+			-- 	args = { "top" },
+			-- },
 		}),
 	},
 	-- {

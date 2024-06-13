@@ -5,3 +5,4 @@
 .config/nvim/lua/.DS_Store
 .config/lazygit/state.yml
 .config/karabiner/automatic_backups
+.config/wezterm/wezterm-session-manager/
