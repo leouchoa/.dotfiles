@@ -3,7 +3,7 @@ return {
   keys = {
     {
       '<leader>m',
-      ':MaximizerToggle!<CR>',
+      '<cmd>MaximizerToggle<CR>',
       mode = { 'n', 'v' },
       desc = 'Maximizer Toggle',
     },
