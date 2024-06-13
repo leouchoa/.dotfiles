@@ -45,4 +45,14 @@ return {
 		{ key = "k", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Up") },
 		{ key = "l", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Right") },
 		{ key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+		-- spawn menu
+		{
+			key = "g",
+			mods = "LEADER",
+			-- action = wezterm.action.SpawnCommandInNewWindow({
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/opt/homebrew/bin/lazygit" },
+			}),
+		},
+	},
 }
