@@ -53,7 +53,7 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-    vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
+    vim.keymap.set('n', '<leader>fS', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
@@ -61,8 +61,27 @@ return {
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = '[F]ind Existing Buffers' })
     vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = '[F]ind Commits' })
+    --- bcommits signature for quick ref
+    --- builtin.git_bcommits = require_on_exported_call("telescope.builtin.__git").bcommits
+    --- Lists commits for current buffer with diff preview
+    ---   - `<cr>`: checks out the currently selected commit
+    ---   - `<c-v>`: opens a diff in a vertical split
+    ---   - `<c-x>`: opens a diff in a horizontal split
+    ---   - `<c-t>`: opens a diff in a new tab
+    vim.keymap.set('n', '<leader>fC', builtin.git_bcommits, { desc = '[F]ind BCommits' })
+    --- git_status signature for quick ref
+    ---   - `<Tab>`: stages or unstages the currently selected file
+    vim.keymap.set('n', '<leader>fs', builtin.git_status, { desc = 'Lists git status for current directory' })
+    --- git_branches signature for quick ref
+    ---   - `<C-t>`: tracks currently selected branch
+    ---   - `<C-r>`: rebases currently selected branch
+    ---   - `<C-a>`: creates a new branch, with confirmation prompt before creation
+    ---   - `<C-d>`: deletes the currently selected branch, with confirmation prompt before deletion
+    ---   - `<C-y>`: merges the currently selected branch, with confirmation prompt before deletion
+    vim.keymap.set('n', '<leader>fb', builtin.git_branches, { desc = '[F]ind [B]ranches' })
     vim.keymap.set('n', '<leader>fH', builtin.command_history, { desc = '[F]ind [C]ommand History' })
-    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', {})
+    vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = '[F]ind [M]arks' })
+    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', { desc = 'Find [T]rouble' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
