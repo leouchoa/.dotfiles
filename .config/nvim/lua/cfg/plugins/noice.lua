@@ -36,12 +36,10 @@ return {
       },
       messages = {
         enabled = true,
-        view = false, -- default view for messages
-        -- view_error = 'notify', -- view for errors
-        view_error = false, -- view for errors
-        view_warn = false, -- view for warnings
-        -- view_history = 'messages', -- view for :messages
-        view_history = false, -- view for :messages
+        view = 'mini', -- default view for messages
+        view_error = 'mini', -- view for errors
+        view_warn = 'mini', -- view for warnings
+        view_history = 'popup', -- view for :messages
         view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
       },
       notify = {
