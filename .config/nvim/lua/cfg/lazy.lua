@@ -522,6 +522,7 @@ require('lazy').setup({
   require 'cfg.plugins.toggleterm',
   require 'cfg.plugins.maximizer',
   require 'cfg.plugins.telescope',
+  require 'cfg.plugins.harpoon',
   require 'cfg.plugins.oil',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
