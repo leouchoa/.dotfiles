@@ -524,6 +524,7 @@ require('lazy').setup({
   require 'cfg.plugins.telescope',
   require 'cfg.plugins.harpoon',
   require 'cfg.plugins.oil',
+  require 'cfg.plugins.worktree',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
