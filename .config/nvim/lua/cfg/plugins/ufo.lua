@@ -9,7 +9,7 @@ return {
 
     vim.keymap.set('n', 'zf', require('ufo').openAllFolds, { desc = 'Open all folds' })
     vim.keymap.set('n', 'zm', require('ufo').closeAllFolds, { desc = 'Close all folds' })
-    vim.keymap.set('n', 'zk', function()
+    vim.keymap.set('n', 'zl', function()
       local winid = require('ufo').peekFoldedLinesUnderCursor()
       if not winid then
         vim.lsp.buf.hover()
