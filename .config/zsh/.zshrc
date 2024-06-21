@@ -139,6 +139,11 @@ fi
 if [ -f ~/custom_script/custom_cmds ]; then
 	. ~/custom_script/custom_cmds
 fi
+# Alias to attach to the last used tmux session
+alias tt='$XDG_CONFIG_HOME/custom_scripts/tmux_attach_last_session.sh'
+source $XDG_CONFIG_HOME/custom_scripts/global_rg.sh
+
+
 
 # Enable vi mode
 bindkey -v
