@@ -526,6 +526,7 @@ require('lazy').setup({
   require 'cfg.plugins.oil',
   require 'cfg.plugins.worktree',
   require 'cfg.plugins.git_conflict',
+  require 'cfg.plugins.no_neck_pain',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
