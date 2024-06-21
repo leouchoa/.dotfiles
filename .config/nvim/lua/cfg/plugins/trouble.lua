@@ -4,6 +4,11 @@ return {
   cmd = 'Trouble',
   keys = {
     {
+      '<leader>xo',
+      '<cmd>Trouble<cr>',
+      desc = 'Find Trouble Mode',
+    },
+    {
       '<leader>xx',
       '<cmd>Trouble diagnostics toggle<cr>',
       desc = 'Diagnostics (Trouble)',
@@ -12,16 +17,6 @@ return {
       '<leader>xX',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
       desc = 'Buffer Diagnostics (Trouble)',
-    },
-    {
-      '<leader>xd',
-      '<cmd>Trouble document_diagnostics toggle<cr>',
-      desc = 'Document Diagnostics (Trouble)',
-    },
-    {
-      '<leader>xw',
-      '<cmd>Trouble workspace_diagnostics toggle<cr>',
-      desc = 'Workspace Diagnostics (Trouble)',
     },
     {
       '<leader>cs',

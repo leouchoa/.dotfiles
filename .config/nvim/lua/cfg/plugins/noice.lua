@@ -54,4 +54,8 @@ return {
       },
     }
   end,
+  keys = {
+    { '<leader>no', '<cmd>NoiceTelescope<cr>', mode = { 'n', 'v' }, desc = 'NoiceTelescope' },
+    { '<leader>ne', '<cmd>Noice<cr>', mode = { 'n', 'v' }, desc = 'NoiceErrors' },
+  },
 }

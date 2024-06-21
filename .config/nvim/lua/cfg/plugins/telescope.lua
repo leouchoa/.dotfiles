@@ -81,7 +81,7 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.git_branches, { desc = '[F]ind [B]ranches' })
     vim.keymap.set('n', '<leader>fH', builtin.command_history, { desc = '[F]ind [C]ommand History' })
     vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = '[F]ind [M]arks' })
-    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', { desc = 'Find [T]rouble' })
+    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<cr>', { desc = 'Find [T]odo' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
