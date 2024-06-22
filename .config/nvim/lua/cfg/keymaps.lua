@@ -46,6 +46,7 @@ keymap('n', '<leader>V', ':split <CR>', opts)
 -- close current buffer. Attention! It will close it regardless of it being saved or not
 keymap('n', 'vv', ':bd!<CR>', opts)
 keymap('n', '<C-q>', '%', opts)
+keymap('n', '<C-b>', 'ge', opts)
 keymap('n', 'z;', 'zO', opts)
 -- close quickfix list
 keymap('n', 'xz', ':close<CR>', opts)
@@ -70,6 +71,7 @@ keymap('v', '<C-q>', '%', opts)
 keymap('v', '<A-j>', ':m .+1<CR>==', opts)
 keymap('v', '<A-k>', ':m .-2<CR>==', opts)
 keymap('v', 'p', '"_dP', opts)
+keymap('v', '<C-b>', 'ge', opts)
 
 ---------------------------------- Visual Block ----------------------------------
 -- Move text up and down
@@ -77,6 +79,7 @@ keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
 keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
 keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
 keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
+keymap('x', '<C-b>', 'ge', opts)
 
 ---------------------------------- Terminal ----------------------------------
 -- Better terminal navigation
