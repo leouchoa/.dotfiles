@@ -519,7 +519,7 @@ require('lazy').setup({
   require 'cfg.plugins.lualine',
   require 'cfg.plugins.navic',
   require 'cfg.plugins.incline',
-  require 'cfg.plugins.toggleterm',
+  -- require 'cfg.plugins.toggleterm',
   require 'cfg.plugins.maximizer',
   require 'cfg.plugins.telescope',
   require 'cfg.plugins.harpoon',
