@@ -40,25 +40,29 @@ keymap('n', '<S-h>', ':bprevious<CR>', opts)
 keymap('n', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
 keymap('n', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 
-keymap('n', '<leader>v', ':vnew <CR>', opts)
-keymap('n', '<leader>V', ':split <CR>', opts)
+-- I'm using the old C-w + v and C-w + s
+-- keymap('n', '<leader>v', ':vnew <CR>', opts)
+-- keymap('n', '<leader>V', ':split <CR>', opts)
+keymap('n', '<C-w><C-w>', '<cmd>vnew<CR>', opts)
 
 -- close current buffer. Attention! It will close it regardless of it being saved or not
-keymap('n', 'vv', ':bd!<CR>', opts)
+keymap('n', '<Tab><Tab>', '<cmd>bd!<CR>', opts)
+-- keymap('n', 'vv', '<cmd>bd!<CR>', opts)
+keymap('n', 'vv', '<cmd>q<CR>', opts)
 keymap('n', '<C-q>', '%', opts)
 keymap('n', '<C-b>', 'ge', opts)
 keymap('n', 'z;', 'zO', opts)
 -- close quickfix list
-keymap('n', 'xz', ':close<CR>', opts)
+keymap('n', 'xz', '<cmd>close<CR>', opts)
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 -- needs vim.opt.hlsearch = true
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 -- Press qq fast to save file
 -- :update writes the file to disk only when there are changes. So, it could be really helpful especially if the file is huge.
-keymap('n', 'qq', ':update<cr>', opts)
-keymap('n', '<C-w>d', ':windo diffthis<CR>', opts)
+keymap('n', 'qq', '<cmd>update<cr>', { desc = 'Save file with update cmd' })
+keymap('n', '<C-w>d', '<cmd>windo diffthis<CR>', { desc = 'Diffthis' })
 ---------------------------------- Insert ----------------------------------
-keymap('i', 'qq', '<Esc>:update<cr>gi', opts)
+-- keymap('i', 'qq', '<Esc><cmd>update<cr>gi', { desc = 'Save file with update cmd' })
 -- vim.keymap.set({ 'n', 'v' }, 'qq', ':update<cr>', opts)
 -- <Esc>:update<cr>gi
 ---------------------------------- Visual ----------------------------------
