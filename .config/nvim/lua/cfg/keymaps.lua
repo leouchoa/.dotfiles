@@ -46,9 +46,9 @@ keymap('n', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 keymap('n', '<C-w><C-w>', '<cmd>vnew<CR>', opts)
 
 -- close current buffer. Attention! It will close it regardless of it being saved or not
-keymap('n', '<Tab><Tab>', '<cmd>bd!<CR>', opts)
+keymap('n', 'vv', '<cmd>bd!<CR>', opts)
 -- keymap('n', 'vv', '<cmd>bd!<CR>', opts)
-keymap('n', 'vv', '<cmd>q<CR>', opts)
+keymap('n', '<Tab><Tab>', '<cmd>q<CR>', opts)
 keymap('n', '<C-q>', '%', opts)
 keymap('n', '<C-b>', 'ge', opts)
 keymap('n', 'z;', 'zO', opts)
