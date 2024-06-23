@@ -43,6 +43,7 @@ alias untargz='tar -xvzf'
 alias reload='exec zsh'
 alias restow_dotfiles="stow -R -d ~/.dotfiles -t ~ -v ."
 alias tmks="tmux list-sessions | cut -d ":" -f 1 | fzf --multi | xargs -L 1 tmux kill-session -t "
+alias mkpyenv="python -m venv .venv && . .venv/bin/activate"
 
 
 # ls
