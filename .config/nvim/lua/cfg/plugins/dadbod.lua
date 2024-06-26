@@ -14,4 +14,7 @@ return {
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
   end,
+  keys = {
+    { mode = 'n', '<leader>dd', ':DBUI<cr>', { desc = 'Dadbod UI' } },
+  },
 }

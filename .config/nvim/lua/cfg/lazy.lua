@@ -253,6 +253,7 @@ require('lazy').setup({
         css = { 'prettier' },
         javascript = { 'prettier' },
         typescrip = { 'prettier' },
+        sql = { 'sql-formatter' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -309,6 +310,10 @@ require('lazy').setup({
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      cmp.setup.filetype({ 'sql' }, { sources = {
+        { name = 'buffer' },
+        { name = 'vim-dadbod-completion' },
+      } })
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -489,6 +494,7 @@ require('lazy').setup({
   require 'cfg.plugins.git_conflict',
   require 'cfg.plugins.no_neck_pain',
   require 'cfg.plugins.which_key',
+  require 'cfg.plugins.dadbod',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
