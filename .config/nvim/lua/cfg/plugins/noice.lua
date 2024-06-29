@@ -55,7 +55,8 @@ return {
     }
   end,
   keys = {
-    { '<leader>no', '<cmd>NoiceTelescope<cr>', mode = { 'n', 'v' }, desc = 'NoiceTelescope' },
-    { '<leader>ne', '<cmd>Noice<cr>', mode = { 'n', 'v' }, desc = 'NoiceErrors' },
+    { '<leader>nn', '<cmd>NoiceTelescope<cr>', mode = { 'n', 'v' }, desc = 'Noice Telescope' },
+    { '<leader>no', '<cmd>Noice<cr>', mode = { 'n', 'v' }, desc = 'Noice' },
+    { '<leader>ne', '<cmd>NoiceErrors<cr>', mode = { 'n', 'v' }, desc = 'Noice Errors' },
   },
 }
