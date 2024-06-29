@@ -10,6 +10,7 @@ return {
         python = { 'flake8' },
         javascript = { 'eslint' },
         typescript = { 'eslint' },
+        sql = { 'sqlfluff' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

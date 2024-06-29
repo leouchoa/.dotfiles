@@ -201,6 +201,7 @@ require('lazy').setup({
         'eslint-lsp',
         'prettier',
         'biome',
+        'sqlls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -240,7 +241,7 @@ require('lazy').setup({
         -- languages here or re-enable it for the disabled ones.
         local disable_filetypes = { c = true, cpp = true }
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000, -- because of sqlfluff
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
@@ -253,13 +254,37 @@ require('lazy').setup({
         css = { 'prettier' },
         javascript = { 'prettier' },
         typescrip = { 'prettier' },
-        sql = { 'sql-formatter' },
+        sql = { 'sqlfluff' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
       },
     },
+    config = function(_, opts)
+      require('conform').setup(opts)
+      -- require('conform.formatters.yamlfix').env = {
+      --   YAMLFIX_WHITELINES = 1,
+      -- }
+      require('conform').formatters.sqlfluff = {
+        command = 'sqlfluff',
+        stdin = false,
+        args = {
+          'format',
+          '--dialect',
+          'postgres',
+          '--exclude-rules',
+          'RF04,LT05',
+          -- '--show-lint-violations',
+        },
+      }
+      -- require('conform').formatters.sql_formatter = {
+      --   prepend_args = { '-c', vim.fn.expand '~/.config/sql_formatter.json' },
+      -- }
+      -- require('conform').formatters.markdownlint = {
+      --   prepend_args = { '-c', vim.fn.expand '~/.config/markdownlint.json' },
+      -- }
+    end,
   },
 
   { -- Autocompletion
