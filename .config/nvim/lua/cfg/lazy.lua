@@ -1,4 +1,4 @@
---    See https://github.com/folke/lazy.nvim for more info
+--    See https://github.com/folke/lazy.nvim for more infolazy
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -328,6 +328,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp-signature-help',
       -- 'dmitmel/cmp-vim-lsp',
       'hrsh7th/cmp-nvim-lua',
+      'davidsierradz/cmp-conventionalcommits',
     },
     config = function()
       -- See `:help cmp`
@@ -409,6 +410,7 @@ require('lazy').setup({
           { name = 'cmdline' },
           { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lua' },
+          { name = 'conventionalcommits' },
           { name = 'lazydev', group_index = 0 },
           -- { name = 'vim_lsp' },
         },
