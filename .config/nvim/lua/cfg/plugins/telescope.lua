@@ -4,7 +4,7 @@ return {
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    { -- If encountering errors, see telescope-fzf-native README for installation instructions
+    {
       'nvim-telescope/telescope-fzf-native.nvim',
 
       -- `build` is used to run some command when the plugin is installed/updated.
@@ -19,23 +19,42 @@ return {
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
-    -- Useful for getting pretty icons, but requires a Nerd Font.
+    -- requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
-    -- maybe:
-    -- https://github.com/folke/trouble.nvim#telescope
+    local actions = require 'telescope.actions'
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        mappings = {
+          i = {
+            -- ['<C-h>'] = actions.cycle_history_prev,
+            -- ['<C-l>'] = actions.cycle_history_next,
+            -- ['<C-K>'] = actions.move_selection_previous,
+            -- ['<C-J>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.preview_scrolling_up,
+            ['<C-j>'] = actions.preview_scrolling_down,
+
+            ['<C-s>'] = actions.which_key,
+          },
+
+          n = {
+            ['<C-k>'] = actions.preview_scrolling_up,
+            ['<C-j>'] = actions.preview_scrolling_down,
+            -- ['<C-K>'] = actions.move_selection_previous,
+            -- ['<C-J>'] = actions.move_selection_next,
+
+            ['<C-s>'] = actions.which_key,
+
+            -- ['?'] = actions.which_key,
+          },
+        },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
@@ -43,8 +62,6 @@ return {
         },
       },
     }
-
-    -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
@@ -102,7 +119,7 @@ return {
     end, { desc = '[F]ind [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>sn', function()
+    vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[F]ind [N]eovim files' })
   end,
