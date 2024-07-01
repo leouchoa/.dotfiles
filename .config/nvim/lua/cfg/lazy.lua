@@ -160,11 +160,26 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local util = require 'lspconfig.util'
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        pyright = {},
-        -- basedpyright = {},
+        gopls = {
+          filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+          root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+          settings = {
+            gopls = {
+              -- for more config, check this link
+              -- https://github.com/golang/tools/blob/master/gopls/README.md
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
+        -- pyright = {},
+        basedpyright = {},
         tsserver = {},
         html = {},
         cssls = {},
@@ -202,6 +217,7 @@ require('lazy').setup({
         'prettier',
         'biome',
         'sqlls',
+        'gopls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -255,6 +271,7 @@ require('lazy').setup({
         javascript = { 'prettier' },
         typescrip = { 'prettier' },
         sql = { 'sqlfluff' },
+        go = { 'goimports' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -522,6 +539,7 @@ require('lazy').setup({
   require 'cfg.plugins.no_neck_pain',
   require 'cfg.plugins.which_key',
   require 'cfg.plugins.dadbod',
+  require 'cfg.plugins.gopher',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

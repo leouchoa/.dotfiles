@@ -28,6 +28,7 @@ return { -- Highlight, edit, and navigate code
       'query',
       'css',
       'sql',
+      'go',
     },
     -- Autoinstall languages that are not installed
 
