@@ -115,6 +115,7 @@ plugins=(
     gh
     # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws
     aws
+    golang
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
@@ -163,7 +164,6 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 source $HOME/.cargo/env
-
 # https://unix.stackexchange.com/a/469851
 autoload -U zmv
 
