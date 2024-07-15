@@ -15,6 +15,6 @@ return {
     vim.g.db_ui_use_nerd_fonts = 1
   end,
   keys = {
-    { mode = 'n', '<leader>dd', ':enew | DBUI<cr>', { desc = 'Dadbod UI' } },
+    { mode = 'n', '<leader>dd', ':enew | DBUI<cr>', desc = 'Dadbod UI' },
   },
 }

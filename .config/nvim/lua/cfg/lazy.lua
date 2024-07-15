@@ -272,6 +272,7 @@ require('lazy').setup({
         typescrip = { 'prettier' },
         sql = { 'sqlfluff' },
         go = { 'goimports' },
+        -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -294,6 +295,18 @@ require('lazy').setup({
           'RF04,LT05',
           -- '--show-lint-violations',
         },
+      }
+      require('conform').formatters.zigfmt = {
+        command = 'zig fmt',
+        stdin = true,
+        -- args = {
+        --   'format',
+        --   '--dialect',
+        --   'postgres',
+        --   '--exclude-rules',
+        --   'RF04,LT05',
+        --   -- '--show-lint-violations',
+        -- },
       }
       -- require('conform').formatters.sql_formatter = {
       --   prepend_args = { '-c', vim.fn.expand '~/.config/sql_formatter.json' },
@@ -507,7 +520,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  require 'cfg.plugins.debug',
+  -- require 'cfg.plugins.debug',
   -- require 'cfg.plugins.indent_line',
   require 'cfg.plugins.lint',
   require 'cfg.plugins.autopairs',
@@ -522,13 +535,13 @@ require('lazy').setup({
   require 'cfg.plugins.neogit',
   require 'cfg.plugins.octo',
   require 'cfg.plugins.diff_view',
-  require 'cfg.plugins.gen',
-  require 'cfg.plugins.neogen',
+  -- require 'cfg.plugins.gen',
+  -- require 'cfg.plugins.neogen',
   require 'cfg.plugins.treesitter',
   require 'cfg.plugins.noice',
   require 'cfg.plugins.lualine',
-  require 'cfg.plugins.navic',
-  require 'cfg.plugins.incline',
+  -- require 'cfg.plugins.navic',
+  -- require 'cfg.plugins.incline',
   -- require 'cfg.plugins.toggleterm',
   require 'cfg.plugins.maximizer',
   require 'cfg.plugins.telescope',
@@ -540,6 +553,7 @@ require('lazy').setup({
   require 'cfg.plugins.which_key',
   require 'cfg.plugins.dadbod',
   require 'cfg.plugins.gopher',
+  require 'cfg.plugins.undo_tree',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

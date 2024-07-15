@@ -116,6 +116,9 @@ plugins=(
     # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws
     aws
     golang
+    # dbt
+    # https://github.com/ziglang/shell-completions
+    zig-shell-completions
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")

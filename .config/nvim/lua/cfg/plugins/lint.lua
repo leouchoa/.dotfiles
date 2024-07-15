@@ -11,6 +11,7 @@ return {
         javascript = { 'eslint' },
         typescript = { 'eslint' },
         sql = { 'sqlfluff' },
+        -- go = { 'golangci-lint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
