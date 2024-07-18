@@ -162,7 +162,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local util = require 'lspconfig.util'
       local servers = {
-        -- clangd = {},
+        clangd = {},
         gopls = {
           filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
           root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
@@ -272,6 +272,8 @@ require('lazy').setup({
         typescrip = { 'prettier' },
         sql = { 'sqlfluff' },
         go = { 'goimports' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
         -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
