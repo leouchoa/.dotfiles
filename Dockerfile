@@ -36,7 +36,7 @@ RUN apt-get update && \
   nnn \
   ripgrep \
   tmux \
-  exa \
+  eza \
   bat \
   fd-find \
   stow \

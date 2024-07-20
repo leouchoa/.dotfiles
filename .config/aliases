@@ -49,7 +49,7 @@ alias mkpyenv="python -m venv .venv && . .venv/bin/activate"
 # ls
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 
-alias ls=' exa -l -g --git --icons --group-directories-first'
+alias ls=' eza -l -g --git --icons --group-directories-first'
 alias l='ls'
 alias la=' ls -a'
 alias ll=' ls -a'
