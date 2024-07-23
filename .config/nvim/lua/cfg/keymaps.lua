@@ -102,3 +102,5 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>lr', ':LspRestart<cr>')
 -- za to fold/unfold is not cool, zp is better
 vim.api.nvim_set_keymap('n', 'zp', 'za', { noremap = true })
+-- thanks prime https://youtu.be/fIp-cWEHaCk?si=yjEYhJmuoUvH9Ss8&t=1433
+vim.keymap.set('n', '<leader>q', 'oif err != nil {<CR>}<ESC>Oreturn err<ESC>')
