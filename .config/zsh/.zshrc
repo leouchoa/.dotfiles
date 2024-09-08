@@ -119,6 +119,7 @@ plugins=(
     # dbt
     # https://github.com/ziglang/shell-completions
     zig-shell-completions
+    rust
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")

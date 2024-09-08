@@ -183,7 +183,12 @@ require('lazy').setup({
         tsserver = {},
         html = {},
         cssls = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {
+          capabilities = capabilities,
+          settings = {
+            allFeatures = true,
+          },
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -274,6 +279,7 @@ require('lazy').setup({
         go = { 'goimports' },
         c = { 'clang-format' },
         cpp = { 'clang-format' },
+        rust = { 'rustfmt' },
         -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
@@ -556,6 +562,8 @@ require('lazy').setup({
   require 'cfg.plugins.dadbod',
   require 'cfg.plugins.gopher',
   require 'cfg.plugins.undo_tree',
+  require 'cfg.plugins.render_markdown',
+  require 'cfg.plugins.autotag',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
