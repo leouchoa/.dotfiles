@@ -12,6 +12,7 @@ end
 -- Settings
 -- config.color_scheme = "iTerm2 Dark Background"
 config.color_scheme = "Tokyo Night"
+config.default_cursor_style = "SteadyUnderline"
 config.font = wezterm.font_with_fallback({
 	{ family = "Hack Nerd Font Mono" },
 })
