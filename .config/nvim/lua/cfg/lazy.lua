@@ -180,7 +180,8 @@ require('lazy').setup({
         },
         -- pyright = {},
         basedpyright = {},
-        tsserver = {},
+        -- tsserver = {},
+        ts_ls = {},
         html = {},
         cssls = {},
         rust_analyzer = {
