@@ -564,6 +564,7 @@ require('lazy').setup({
   require 'cfg.plugins.undo_tree',
   require 'cfg.plugins.render_markdown',
   require 'cfg.plugins.autotag',
+  require 'cfg.plugins.codesnap',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
