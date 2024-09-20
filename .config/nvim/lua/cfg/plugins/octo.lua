@@ -13,7 +13,7 @@ return {
     }
   end,
   keys = {
-    { '<leader>o', '<cmd>Octo<cr>', mode = { 'n', 'v' }, desc = 'Octo' },
+    { '<leader>oo', '<cmd>Octo<cr>', mode = { 'n', 'v' }, desc = 'Octo' },
     -- { '<leader>op', '<cmd>Octo pr list<cr>', mode = { 'n', 'v' }, desc = 'Octo PR List' },
     -- { '<leader>oi', '<cmd>Octo issue list<cr>', mode = { 'n', 'v' }, desc = 'Octo Issue List' },
   },
