@@ -545,7 +545,7 @@ require('lazy').setup({
   require 'cfg.plugins.octo',
   require 'cfg.plugins.diff_view',
   -- require 'cfg.plugins.gen',
-  -- require 'cfg.plugins.neogen',
+  require 'cfg.plugins.neogen',
   require 'cfg.plugins.treesitter',
   require 'cfg.plugins.noice',
   require 'cfg.plugins.lualine',
