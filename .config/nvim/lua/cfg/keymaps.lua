@@ -60,7 +60,7 @@ keymap('n', 'xz', '<cmd>close<CR>', opts)
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 -- Press qq fast to save file
 -- :update writes the file to disk only when there are changes. So, it could be really helpful especially if the file is huge.
-keymap('n', 'qq', '<cmd>update<cr>', { desc = 'Save file with update cmd' })
+keymap('n', 'mm', '<cmd>update<cr>', { desc = 'Save file with update cmd' })
 keymap('n', '<C-w>d', '<cmd>windo diffthis<CR>', { desc = 'Diffthis' })
 ---------------------------------- Insert ----------------------------------
 -- keymap('i', 'qq', '<Esc><cmd>update<cr>gi', { desc = 'Save file with update cmd' })
