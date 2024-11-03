@@ -4,17 +4,17 @@ return {
   cmd = 'Trouble',
   keys = {
     {
-      '<leader>xo',
+      '<leader>vs',
       '<cmd>Trouble<cr>',
       desc = 'Find Trouble Mode',
     },
     {
-      '<leader>xx',
+      '<leader>vv',
       '<cmd>Trouble diagnostics toggle<cr>',
       desc = 'Diagnostics (Trouble)',
     },
     {
-      '<leader>xX',
+      '<leader>vX',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
       desc = 'Buffer Diagnostics (Trouble)',
     },
@@ -23,28 +23,23 @@ return {
       '<cmd>Trouble symbols toggle focus=false<cr>',
       desc = 'Symbols (Trouble)',
     },
+    -- {
+    --   '<leader>vl',
+    --   '<cmd>Trouble loclist toggle<cr>',
+    --   desc = 'Location List (Trouble)',
+    -- },
+    -- {
+    --   '<leader>vq',
+    --   '<cmd>Trouble qflist toggle<cr>',
+    --   desc = 'Quickfix List (Trouble)',
+    -- },
+    -- {
+    --   '<leader>vr',
+    --   '<cmd>Trouble lsp_references toggle<cr>',
+    --   desc = 'LSP References (Trouble)',
+    -- },
     {
-      '<leader>cl',
-      '<cmd> Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right <cr>',
-      desc = 'LSP Definitions / references / ... (Trouble)',
-    },
-    {
-      '<leader>xl',
-      '<cmd>Trouble loclist toggle<cr>',
-      desc = 'Location List (Trouble)',
-    },
-    {
-      '<leader>xq',
-      '<cmd>Trouble qflist toggle<cr>',
-      desc = 'Quickfix List (Trouble)',
-    },
-    {
-      '<leader>xr',
-      '<cmd>Trouble lsp_references toggle<cr>',
-      desc = 'LSP References (Trouble)',
-    },
-    {
-      '<leader>xt',
+      '<leader>vo',
       '<cmd>Trouble todo toggle<cr>',
       desc = 'Todo (Trouble)',
     },
