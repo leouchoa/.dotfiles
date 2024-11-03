@@ -21,12 +21,6 @@ to
 namespace
 Initializer
 objects
-objects
-objects
-objects
-objects
-objects
-objects
 public
 Polymorphism
 polymorphism
@@ -48,3 +42,10 @@ struct
 workspace
 timestamp
 metadata
+validator
+sql
+cli
+preflight
+unfollow
+performant
+Redis
