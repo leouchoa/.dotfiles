@@ -120,6 +120,10 @@ plugins=(
     # https://github.com/ziglang/shell-completions
     zig-shell-completions
     rust
+    # https://github.com/jeffreytse/zsh-vi-mode
+    # some problems with entering the execute mode when pasting 
+    # text with `:`
+    # zsh-vi-mode
 )
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
@@ -166,8 +170,11 @@ eval "$(pyenv virtualenv-init -)"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 source $HOME/.cargo/env
 # https://unix.stackexchange.com/a/469851
 autoload -U zmv
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
