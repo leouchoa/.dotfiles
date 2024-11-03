@@ -281,6 +281,7 @@ require('lazy').setup({
         c = { 'clang-format' },
         cpp = { 'clang-format' },
         rust = { 'rustfmt' },
+        tmpl = { 'djlint' },
         -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
@@ -561,9 +562,9 @@ require('lazy').setup({
   require 'cfg.plugins.no_neck_pain',
   require 'cfg.plugins.which_key',
   require 'cfg.plugins.dadbod',
-  require 'cfg.plugins.gopher',
+  require 'cfg.plugins.go',
   require 'cfg.plugins.undo_tree',
-  require 'cfg.plugins.render_markdown',
+  -- require 'cfg.plugins.render_markdown',
   require 'cfg.plugins.autotag',
   require 'cfg.plugins.codesnap',
   require 'cfg.plugins.outline',
