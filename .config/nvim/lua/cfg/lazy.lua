@@ -224,6 +224,7 @@ require('lazy').setup({
         'biome',
         'sqlls',
         'gopls',
+        'buf',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -282,6 +283,8 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         rust = { 'rustfmt' },
         tmpl = { 'djlint' },
+        protobuf = { 'buf' },
+        proto = { 'buf' },
         -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter

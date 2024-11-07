@@ -11,6 +11,7 @@ return {
         javascript = { 'eslint' },
         typescript = { 'eslint' },
         sql = { 'sqlfluff' },
+        proto = { 'buf_lint' },
         -- go = { 'golangci-lint' },
       }
 
