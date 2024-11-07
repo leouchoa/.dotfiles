@@ -4,22 +4,27 @@ return {
   cmd = 'Trouble',
   keys = {
     {
-      '<leader>vs',
-      '<cmd>Trouble<cr>',
-      desc = 'Find Trouble Mode',
-    },
-    {
       '<leader>vv',
       '<cmd>Trouble diagnostics toggle<cr>',
       desc = 'Diagnostics (Trouble)',
     },
     {
-      '<leader>vX',
+      '<leader>vs',
+      '<cmd>Trouble<cr>',
+      desc = 'Find Trouble Mode',
+    },
+    {
+      '<leader>ve',
+      '<cmd>Trouble diagnostics filter = { severity=vim.diagnostic.severity.ERROR }<cr>',
+      desc = 'Buffer Error Diagnostics (Trouble)',
+    },
+    {
+      '<leader>vb',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
       desc = 'Buffer Diagnostics (Trouble)',
     },
     {
-      '<leader>cs',
+      '<leader>vm',
       '<cmd>Trouble symbols toggle focus=false<cr>',
       desc = 'Symbols (Trouble)',
     },
@@ -39,7 +44,7 @@ return {
     --   desc = 'LSP References (Trouble)',
     -- },
     {
-      '<leader>vo',
+      '<leader>vt',
       '<cmd>Trouble todo toggle<cr>',
       desc = 'Todo (Trouble)',
     },
