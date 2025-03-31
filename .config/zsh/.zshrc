@@ -120,6 +120,7 @@ plugins=(
     # https://github.com/ziglang/shell-completions
     zig-shell-completions
     rust
+    terraform
     # https://github.com/jeffreytse/zsh-vi-mode
     # some problems with entering the execute mode when pasting 
     # text with `:`
