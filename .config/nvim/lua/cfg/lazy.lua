@@ -190,6 +190,7 @@ require('lazy').setup({
             allFeatures = true,
           },
         },
+        terraformls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -225,6 +226,7 @@ require('lazy').setup({
         'sqlls',
         'gopls',
         'buf',
+        'terraform-ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -285,6 +287,7 @@ require('lazy').setup({
         tmpl = { 'djlint' },
         protobuf = { 'buf' },
         proto = { 'buf' },
+        -- terraform = { 'terraform' },
         -- go = { 'prettier' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
@@ -311,6 +314,18 @@ require('lazy').setup({
       }
       require('conform').formatters.zigfmt = {
         command = 'zig fmt',
+        stdin = true,
+        -- args = {
+        --   'format',
+        --   '--dialect',
+        --   'postgres',
+        --   '--exclude-rules',
+        --   'RF04,LT05',
+        --   -- '--show-lint-violations',
+        -- },
+      }
+      require('conform').formatters.terraform = {
+        command = 'terraform fmt',
         stdin = true,
         -- args = {
         --   'format',
