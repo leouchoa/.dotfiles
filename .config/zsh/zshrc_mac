@@ -14,20 +14,27 @@ export PATH="/usr/local/mysql/bin:${PATH}"
 # ---------- END CUSTOM EXPORTS ----------
 
 # ---------- NODEJS SETTINGS START ----------
-
 local brew_path="/opt/homebrew/bin"
 local brew_opt_path="/opt/homebrew/opt"
 local nvm_path="$HOME/.nvm"
 
-export PATH="${brew_path}:${PATH}"
 export NVM_DIR="${nvm_path}"
 
+# Make sure nvm is initialized first
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# Continue with other path exports after NVM setup
+export PATH="${brew_path}:${PATH}"
 
 # ---------- NODEJS SETTINGS END ---------
 
+# ---------- START CUSTOM EXPORTS ----------
+export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="/usr/local/mysql/bin:${PATH}"
+# ---------- END CUSTOM EXPORTS ----------
+
+# Add more paths at the end
 export PATH="/Users/leonardopedreira/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 

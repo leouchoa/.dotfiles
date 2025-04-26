@@ -177,5 +177,14 @@ source $HOME/.cargo/env
 # https://unix.stackexchange.com/a/469851
 autoload -U zmv
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/leonardopedreira/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+#
+# export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Auto-select the default Node version for all new shells
+nvm use default &> /dev/null
