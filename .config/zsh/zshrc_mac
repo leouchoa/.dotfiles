@@ -42,3 +42,9 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 source <(kubectl completion zsh)
+
+# NOTE: automated install only available using brew.
+# For linux the recommended approach is to install from source with make or go runtime.
+source <(glab completion -s zsh); compdef _glab glab
+
+
