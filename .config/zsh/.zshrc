@@ -151,6 +151,8 @@ if [ -f ~/custom_script/custom_cmds ]; then
 fi
 # Alias to attach to the last used tmux session
 alias tt='$XDG_CONFIG_HOME/custom_scripts/tmux_attach_last_session.sh'
+# alias podman_init='$XDG_CONFIG_HOME/custom_scripts/podman_init.sh'
+source $XDG_CONFIG_HOME/custom_scripts/podman_init.sh
 source $XDG_CONFIG_HOME/custom_scripts/global_rg.sh
 
 
