@@ -62,6 +62,8 @@ keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 -- :update writes the file to disk only when there are changes. So, it could be really helpful especially if the file is huge.
 keymap('n', 'mm', '<cmd>update<cr>', { desc = 'Save file with update cmd' })
 keymap('n', '<C-w>d', '<cmd>windo diffthis<CR>', { desc = 'Diffthis' })
+
+keymap('n', '<leader>R', ':source $MYVIMRC<CR>', { desc = 'Reloads config' })
 ---------------------------------- Insert ----------------------------------
 -- keymap('i', 'qq', '<Esc><cmd>update<cr>gi', { desc = 'Save file with update cmd' })
 -- vim.keymap.set({ 'n', 'v' }, 'qq', ':update<cr>', opts)
