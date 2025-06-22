@@ -181,10 +181,10 @@ autoload -U zmv
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/leonardopedreira/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-#
+fpath=(~/.config/stripe $fpath)
+
+autoload -Uz compinit && compinit
+
 # export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
