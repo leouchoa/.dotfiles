@@ -187,7 +187,12 @@ require('lazy').setup({
         rust_analyzer = {
           capabilities = capabilities,
           settings = {
-            allFeatures = true,
+            ['rust-analyzer'] = {
+              cargo = {
+                -- features = { 'cloud-tests' }, -- ⬅️ explicitly enable your feature
+                allFeatures = true, -- optional: keep false to be explicit
+              },
+            },
           },
         },
         terraformls = {},
