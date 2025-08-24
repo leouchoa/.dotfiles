@@ -1,0 +1,38 @@
+# NOTE: i'm mostly using ubuntu here!
+export PATH="$HOME/.local/bin:$PATH"
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use default &> /dev/null
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# zoxide
+export PATH="$HOME/.local/bin:$PATH"
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+
+# direnv (optional)
+# command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# cargo
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# fzf (optional)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Start SSH agent if not already running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)"
+fi
+
+# Automatically add key if it exists and isn't loaded
+SSH_KEY="$HOME/.ssh/id_rsa"
+if [ -f "$SSH_KEY" ] && ! ssh-add -l | grep -q "$SSH_KEY"; then
+    ssh-add "$SSH_KEY" > /dev/null 2>&1
+fi
+
+alias fd=fdfind

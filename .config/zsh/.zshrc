@@ -132,10 +132,13 @@ ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
 source $ZSH/oh-my-zsh.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "OSTYPE is $OSTYPE, sourcing zsh mac config" 
+    echo "OSTYPE is $OSTYPE, sourcing zsh mac config"
     source ~/.config/zsh/zshrc_mac
+elif [[ "$OSTYPE" == "(microsoft|wsl)" ]]; then
+    echo "OSTYPE is $OSTYPE, sourcing zsh wsl config"
+    source ~/.config/zsh/zshrc_wsl
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo "OSTYPE is $OSTYPE, sourcing zsh linux config" 
+    echo "OSTYPE is $OSTYPE, sourcing zsh linux config"
     source ~/.config/zsh/zshrc_linux
 else
     echo "Unsupported operating system."
