@@ -1,0 +1,34 @@
+// Custom dark theme - ported from tmux config
+// Based on tmux status colors: bg=#333333, active border=yellow
+
+themes {
+    custom-dark {
+        // Foreground and background colors
+        fg "#ffffff"
+        bg "#333333"
+        black "#1e1e1e"
+        red "#e06c75"
+        green "#98c379"
+        yellow "#e5c07b"
+        blue "#61afef"
+        magenta "#c678dd"
+        cyan "#56b6c2"
+        white "#abb2bf"
+        orange "#d19a66"
+
+        // UI colors
+        bg "#333333"
+        fg "#ffffff"
+
+        // Pane frames
+        // Active pane border is yellow (like tmux config)
+        orange "#e5c07b"  // Active border color (yellow from tmux)
+
+        // Tab colors
+        // Using darker tones for inactive, brighter for active
+        tab_active_fg "#ffffff"
+        tab_active_bg "#555555"
+        tab_inactive_fg "#999999"
+        tab_inactive_bg "#333333"
+    }
+}

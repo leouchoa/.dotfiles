@@ -1,0 +1,328 @@
+// Zellij configuration - ported from tmux config
+// Main config file for Zellij terminal multiplexer
+
+// Theme
+theme "custom-dark"
+
+// General settings
+default_shell "zsh"
+pane_frames false
+simplified_ui true
+default_mode "normal"
+mouse_mode true
+scroll_buffer_size 10000
+copy_on_select true
+scrollback_editor "nvim"
+session_name "main"
+
+// Layout configuration
+default_layout "default"
+
+// Session configuration
+session_serialization true
+pane_viewport_serialization true
+scrollback_lines_to_serialize 10000
+
+// Copy command (for clipboard integration)
+copy_command "pbcopy"  // macOS - change to "xclip -selection clipboard" for Linux
+
+// UI configuration
+styled_underlines true
+
+// Keybindings
+keybinds clear-defaults=true {
+    // Normal mode is the default mode
+    normal {
+        // Prefix key: Ctrl+e (like your tmux config)
+        bind "Ctrl e" { SwitchToMode "tmux"; }
+    }
+
+    // Tmux mode (equivalent to prefix mode in tmux)
+    tmux {
+        // Send prefix key through
+        bind "Ctrl e" { Write 5; SwitchToMode "normal"; }
+
+        // Pane splitting
+        bind "|" { NewPane "Right"; SwitchToMode "normal"; }
+        bind "-" { NewPane "Down"; SwitchToMode "normal"; }
+
+        // Reload config
+        bind "r" {
+            MessagePlugin "load_config";
+            SwitchToMode "normal";
+        }
+
+        // Pane navigation (vim-like)
+        bind "h" { MoveFocus "Left"; SwitchToMode "normal"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "normal"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "normal"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "normal"; }
+
+        // Pane maximize/fullscreen
+        bind "m" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+
+        // Last window/tab
+        bind "^" { GoToPreviousTab; SwitchToMode "normal"; }
+
+        // Close pane
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
+
+        // New tab
+        bind "c" { NewTab; SwitchToMode "normal"; }
+
+        // Tab navigation
+        bind "n" { GoToNextTab; SwitchToMode "normal"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
+        bind "1" { GoToTab 1; SwitchToMode "normal"; }
+        bind "2" { GoToTab 2; SwitchToMode "normal"; }
+        bind "3" { GoToTab 3; SwitchToMode "normal"; }
+        bind "4" { GoToTab 4; SwitchToMode "normal"; }
+        bind "5" { GoToTab 5; SwitchToMode "normal"; }
+        bind "6" { GoToTab 6; SwitchToMode "normal"; }
+        bind "7" { GoToTab 7; SwitchToMode "normal"; }
+        bind "8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "9" { GoToTab 9; SwitchToMode "normal"; }
+
+        // Rename tab
+        bind "," { SwitchToMode "RenameTab"; }
+
+        // Detach session
+        bind "d" { Detach; }
+
+        // Session management (fzf-like session switcher)
+        bind "e" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "normal";
+        }
+
+        // Switch to last session (approximate - Zellij doesn't have direct equivalent)
+        bind "i" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "normal";
+        }
+
+        // Swap window left/right
+        bind "Left" { MoveTab "Left"; SwitchToMode "normal"; }
+        bind "Right" { MoveTab "Right"; SwitchToMode "normal"; }
+
+        // Pane resizing mode
+        bind "R" { SwitchToMode "resize"; }
+
+        // Scratchpad (floating terminal like tmux)
+        bind "a" {
+            Run "zsh" {
+                floating true
+                close_on_exit false
+            }
+            SwitchToMode "normal";
+        }
+
+        // Cycle through panes
+        bind "q" { FocusNextPane; SwitchToMode "normal"; }
+
+        // Search mode
+        bind "/" { SwitchToMode "search"; }
+
+        // Floating tool launchers (with auto-close and full screen)
+        bind "g" {
+            Run "lazygit" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "f" {
+            Run "/Users/leonardopedreira/.local/bin/win" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "w" {
+            Run "/Users/leonardopedreira/.local/bin/win" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "y" {
+            Run "yazi" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "u" {
+            Run "lazydocker" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "b" {
+            Run "htop" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind ";" {
+            Run "gh" "dash" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "t" {
+            Run "taskwarrior-tui" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        bind "v" {
+            Run "glow" {
+                floating true
+                close_on_exit true
+            }
+            SwitchToMode "normal";
+        }
+
+        // Swap panes
+        bind "s" { SwitchToMode "move"; }
+
+        // Exit tmux mode
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "normal"; }
+    }
+
+    // Resize mode
+    resize {
+        bind "h" "Left" { Resize "Increase Left"; }
+        bind "j" "Down" { Resize "Increase Down"; }
+        bind "k" "Up" { Resize "Increase Up"; }
+        bind "l" "Right" { Resize "Increase Right"; }
+        bind "H" { Resize "Decrease Left"; }
+        bind "J" { Resize "Decrease Down"; }
+        bind "K" { Resize "Decrease Up"; }
+        bind "L" { Resize "Decrease Right"; }
+        bind "=" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "normal"; }
+    }
+
+    // Move/Pane mode
+    move {
+        bind "h" "Left" { MovePane "Left"; }
+        bind "j" "Down" { MovePane "Down"; }
+        bind "k" "Up" { MovePane "Up"; }
+        bind "l" "Right" { MovePane "Right"; }
+        bind "n" { MovePane; }
+        bind "p" { MovePaneBackwards; }
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "normal"; }
+    }
+
+    // Search mode (like tmux copy mode)
+    search {
+        bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "n" { Search "down"; }
+        bind "N" { Search "up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+        bind "Esc" { ScrollToBottom; SwitchToMode "normal"; }
+    }
+
+    // Copy mode (vi-like)
+    scroll {
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "/" { SwitchToMode "search"; }
+        bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "Esc" { ScrollToBottom; SwitchToMode "normal"; }
+    }
+
+    // Rename tab mode
+    renametab {
+        bind "Esc" { UndoRenameTab; SwitchToMode "normal"; }
+    }
+
+    // Session mode
+    session {
+        bind "d" { Detach; }
+        bind "w" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+        }
+        bind "Esc" { SwitchToMode "normal"; }
+    }
+
+    // Shared bindings across all modes
+    shared_except "tmux" "locked" {
+        bind "Ctrl e" { SwitchToMode "tmux"; }
+    }
+
+    shared_except "normal" "locked" {
+        bind "Enter" "Esc" { SwitchToMode "normal"; }
+    }
+
+    shared_except "locked" {
+        bind "Ctrl q" { Quit; }
+        bind "Alt n" { NewPane; }
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+    }
+}
+
+// Plugins
+plugins {
+    // Built-in plugins
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
+}
+
+// Environment variables
+env {
+    ZELLIJ_AUTO_ATTACH "true"
+    ZELLIJ_AUTO_EXIT "true"
+}
