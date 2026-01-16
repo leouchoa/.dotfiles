@@ -1,0 +1,21 @@
+# Python dependencies for quarto-nvim
+# Install with: python3 -m pip install -r quarto-requirements.txt
+
+# Core Neovim and Jupyter integration
+pynvim>=0.5.0
+jupyter-client>=8.0.0
+ipykernel>=6.0.0
+nbformat>=5.0.0
+
+# Image and output conversion
+cairosvg>=2.7.0
+plotly>=5.0.0
+kaleido>=0.2.0
+pnglatex>=0.1.0
+pyperclip>=1.8.0
+
+# Data science stack (for analysis and testing)
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
