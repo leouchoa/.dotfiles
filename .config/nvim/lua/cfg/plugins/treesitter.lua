@@ -23,12 +23,14 @@ return { -- Highlight, edit, and navigate code
       'python',
       'javascript',
       'typescript',
+      'tsx',
       'dockerfile',
       'gitignore',
       'query',
       'css',
       'sql',
       'go',
+      'json',
     },
     -- Autoinstall languages that are not installed
 

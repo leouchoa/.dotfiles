@@ -280,10 +280,13 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
         markdown = { 'markdownlint' },
+        mdx = { 'prettier' },
         html = { 'prettier' },
         css = { 'prettier' },
         javascript = { 'prettier' },
-        typescrip = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
         sql = { 'sqlfluff' },
         go = { 'goimports' },
         c = { 'clang-format' },
@@ -594,6 +597,7 @@ require('lazy').setup({
   -- require 'cfg.plugins.neoscroll',
   require 'cfg.plugins.avante',
   require 'cfg.plugins.quarto',
+  require 'cfg.plugins.mdx',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
