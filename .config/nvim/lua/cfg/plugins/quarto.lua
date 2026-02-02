@@ -224,8 +224,8 @@ return {
       vim.g.molten_auto_open_html_in_browser = false
       vim.g.molten_tick_rate = 200 -- Slightly slower to reduce extmark race conditions
 
-      -- Cover all window borders
-      vim.g.molten_output_win_border = { '', '─', '', '' }
+      -- Window borders (needs all 8 elements: top-left, top, top-right, right, bottom-right, bottom, bottom-left, left)
+      vim.g.molten_output_win_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
       vim.g.molten_output_show_more = true
       vim.g.molten_output_virt_lines = false -- More stable, less extmark errors
 

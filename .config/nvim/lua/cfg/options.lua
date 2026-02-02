@@ -44,7 +44,7 @@ local options = {
   foldlevel = 99, -- fixes fold bugs in plugins like telescope
   conceallevel = 2, -- the text concealing option. See :h conceallevel for more info
   -- https://youtu.be/KoL-2WTlr04?si=EspKwLXnsDfG17fI
-  spelllang = 'en_us',
+  spelllang = 'pt_br,en_us',
   spell = true,
 }
 
