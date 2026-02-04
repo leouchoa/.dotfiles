@@ -1,0 +1,159 @@
+# ================================
+# Ghostty Terminal Configuration
+# ================================
+# Ported from WezTerm configuration
+# See: ~/.config/wezterm/wezterm.lua
+#
+# Ghostty documentation:
+# https://ghostty.org/docs
+# ================================
+
+# ================================
+# Font Configuration
+# ================================
+font-family = "Hack Nerd Font Mono"
+font-size = 19
+
+# Font features
+font-feature = -calt
+font-feature = -liga
+
+# ================================
+# Theme & Colors
+# ================================
+# Using a dark theme similar to iTerm2 Dark Background
+theme = dark
+
+# Custom colors (approximating iTerm2 Dark Background)
+background = 000000
+foreground = ffffff
+
+# Cursor
+cursor-color = ffffff
+cursor-style = bar
+cursor-style-blink = false
+
+# ================================
+# Window Settings
+# ================================
+window-decoration = false
+window-padding-x = 2
+window-padding-y = 2
+window-padding-balance = true
+window-padding-color = background
+
+# Start maximized (macOS)
+window-save-state = always
+window-inherit-working-directory = true
+window-inherit-font-size = true
+
+# ================================
+# Scrollback
+# ================================
+scrollback-limit = 10000
+
+# ================================
+# Visual Settings
+# ================================
+# Dim unfocused windows/panes
+unfocused-split-opacity = 0.5
+
+# Background opacity (if desired, uncomment)
+# background-opacity = 0.95
+
+# ================================
+# Shell Integration
+# ================================
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# ================================
+# Mouse & Selection
+# ================================
+mouse-hide-while-typing = true
+copy-on-select = true
+clipboard-read = allow
+clipboard-write = allow
+
+# ================================
+# macOS Specific
+# ================================
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+macos-non-native-fullscreen = true
+
+# ================================
+# Keybindings
+# ================================
+# Note: Ghostty uses different keybinding syntax than WezTerm
+# Most terminal multiplexer keybindings (tmux/zellij) will work as-is
+
+# macOS-specific: Open tmux session manager with Cmd+J
+# Sends Ctrl-b (tmux prefix) + T (uppercase)
+keybind = cmd+j=text:\x02\x54
+
+# Ghostty window management (if not using tmux/zellij)
+keybind = cmd+t=new_tab
+keybind = cmd+w=close_surface
+keybind = cmd+n=new_window
+keybind = cmd+shift+n=new_split:right
+keybind = cmd+shift+m=new_split:down
+
+# Navigate splits (vim-style)
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:bottom
+keybind = cmd+k=goto_split:top
+keybind = cmd+l=goto_split:right
+
+# Tab navigation
+keybind = cmd+shift+[=previous_tab
+keybind = cmd+shift+]=next_tab
+
+# Font size
+keybind = cmd+plus=increase_font_size:1
+keybind = cmd+minus=decrease_font_size:1
+keybind = cmd+0=reset_font_size
+
+# ================================
+# Performance
+# ================================
+# Ghostty is built for performance, these are good defaults
+resize-overlay = never
+resize-overlay-position = center
+resize-overlay-duration = 0
+
+# ================================
+# Advanced
+# ================================
+# Auto-update (if installed via official methods)
+auto-update = check
+
+# Terminal type
+term = xterm-ghostty
+
+# ================================
+# Status Bar / UI
+# ================================
+# Ghostty has minimal UI by default
+# For workspace/time info similar to WezTerm status bar,
+# use your shell prompt (starship, oh-my-zsh theme, etc.)
+# or tmux/zellij status bars
+
+# Window title format
+window-title-font-family = "Hack Nerd Font Mono"
+
+# ================================
+# Additional Notes
+# ================================
+# 1. Ghostty is minimal and fast by design
+# 2. Most multiplexer workflows (tmux/zellij) work unchanged
+# 3. For custom status bars, use your multiplexer or shell prompt
+# 4. Nerd Font icons should work out of the box
+# 5. GPU-accelerated rendering enabled by default
+#
+# Migration from WezTerm:
+# - Leader key: Use tmux/zellij instead of terminal leader
+# - Tab/pane management: Use tmux/zellij for advanced features
+# - Status bar: Use shell prompt or multiplexer status line
+# - Workspaces: Use tmux sessions or zellij sessions
+# ================================
