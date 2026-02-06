@@ -101,7 +101,6 @@ plugins=(
     git
     vi-mode
     docker
-    fd
     docker-compose
     fzf-tab
     zsh-autosuggestions
@@ -117,8 +116,6 @@ plugins=(
     aws
     golang
     # dbt
-    # https://github.com/ziglang/shell-completions
-    zig-shell-completions
     rust
     terraform
     gcloud
@@ -127,6 +124,13 @@ plugins=(
     # text with `:`
     # zsh-vi-mode
 )
+
+# Optional plugins: enable only when installed (macOS/Linux compatible).
+for optional_plugin in fd zig-shell-completions; do
+    if [[ -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/${optional_plugin}" || -d "${ZSH}/plugins/${optional_plugin}" ]]; then
+        plugins+=("${optional_plugin}")
+    fi
+done
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
 source $ZSH/oh-my-zsh.sh
@@ -176,14 +180,18 @@ bindkey -v
 # requires installation via git clone
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# fzf-zellij: Make fzf open in Zellij floating panes
+# fzf-zellij: open in a floating pane when running inside Zellij.
 fzf() {
    case "$1" in
       --bash|--zsh|--fish|--version|-h|--help|--man)
          command fzf "$@"
          ;;
       *)
-         fzf-zellij "$@"
+         if [[ -n "${ZELLIJ:-}" ]] && command -v fzf-zellij >/dev/null 2>&1; then
+            fzf-zellij "$@"
+         else
+            command fzf "$@"
+         fi
          ;;
    esac
 }
@@ -223,3 +231,13 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 
 
 if command -v win >/dev/null 2>&1; then eval "$(command win config shell init zsh)"; fi
+eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
+source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+source $(brew --prefix)/opt/fzf/shell/completion.zsh
+
+# Keep Ctrl-r/Ctrl-t from fzf but use fzf-tab for Tab completion.
+if (( $+functions[fzf-tab-complete] )); then
+   bindkey '^I' fzf-tab-complete
+   bindkey -M viins '^I' fzf-tab-complete
+fi

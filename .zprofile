@@ -20,7 +20,6 @@ eval "$(pyenv init --path)"
 # setup go and cargo
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # Enable image rendering in Neovim (image.nvim) even in tmux/zellij
 export NVIM_IMAGE_ENABLE=1

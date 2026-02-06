@@ -14,17 +14,20 @@
 font-family = "Hack Nerd Font Mono"
 font-size = 19
 
-# Font features
+# Font features (disabled for no-ligature coding style).
+# To enable any one of these, remove the leading '-' for that feature.
 font-feature = -calt
 font-feature = -liga
+font-feature = -dlig
+font-feature = -hlig
 
 # ================================
 # Theme & Colors
 # ================================
-# Using a dark theme similar to iTerm2 Dark Background
-theme = dark
+# Use built-in iTerm2 dark theme (available in Ghostty theme list).
+theme = "iTerm2 Dark Background"
 
-# Custom colors (approximating iTerm2 Dark Background)
+# Optional color overrides (keep/remove to taste).
 background = 000000
 foreground = ffffff
 

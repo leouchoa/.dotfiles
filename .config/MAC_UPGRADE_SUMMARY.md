@@ -86,33 +86,19 @@ I've prepared everything you need for a smooth transition to your new Mac. Here'
 ## Quick Start on New Mac
 
 ```bash
-# 1. Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# 1. Install Xcode Command Line Tools
+xcode-select --install
+# Wait for install to finish, then:
 
 # 2. Clone dotfiles
 git clone https://github.com/leouchoa/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# 3. Install everything
-brew bundle --file ~/.dotfiles/.config/Brewfile --v
+# 3. Run the bootstrap (idempotent)
+./install.sh
 
-# 4. Deploy dotfiles
-stow -d ~/.dotfiles -t ~ -v .
-
-# 5. Setup tmux plugins
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-# Then open tmux and press: <prefix> + I
-
-# 6. Install GitHub extensions
-gh auth login
-gh extension install dlvhdr/gh-dash
-
-# 7. Install Oh-My-Zsh plugins
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# 8. Open Ghostty and test!
-open -a Ghostty
+# Optional: run health checks only
+./install.sh --doctor
 ```
 
 ## Important Notes
@@ -140,11 +126,10 @@ brew install joshmedeski/sesh/sesh
 
 ### What's NOT in the Brewfile
 
-These require manual installation:
-- ✅ **gh-dash**: `gh extension install dlvhdr/gh-dash`
-- ✅ **t-smart-tmux-session-manager**: Installed via TPM
-- ✅ **zellij-sessionizer**: Already in `~/.local/bin` (from dotfiles)
-- ✅ **fzf-zellij**: Already in `~/.local/bin` (from dotfiles)
+These may still require manual setup:
+- ✅ **gh-dash**: `gh auth login` first, then `gh extension install dlvhdr/gh-dash` (or rerun `./install.sh`)
+- ✅ **Node default**: `nvm install 22 && nvm alias default 22`
+- ✅ **Python default**: `pyenv install 3.12 && pyenv global 3.12`
 
 All documented in `NEW_MAC_SETUP.md`.
 

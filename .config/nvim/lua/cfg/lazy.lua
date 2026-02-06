@@ -606,6 +606,12 @@ require('lazy').setup({
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
 }, {
+  rocks = {
+    enabled = true,
+    -- Fresh macOS/Linux installs often only have Lua 5.4 globally.
+    -- Force a local Lua 5.1 toolchain for rockspec-based plugins like image.nvim.
+    hererocks = true,
+  },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

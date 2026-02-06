@@ -211,8 +211,15 @@ return {
     ft = { 'quarto', 'markdown', 'python' },
     init = function()
       -- Molten configuration
-      -- Try to use image.nvim if available, otherwise fall back to none
-      local has_image = pcall(require, 'image')
+      -- Try to use image.nvim if available, otherwise fall back to none.
+      -- Avoid requiring image providers in headless sessions.
+      local has_ui = #vim.api.nvim_list_uis() > 0
+      local in_multiplexer = vim.env.TMUX ~= nil or vim.env.ZELLIJ ~= nil
+      local image_enabled = (not in_multiplexer and vim.env.NVIM_IMAGE_ENABLE ~= '0') or vim.env.NVIM_IMAGE_ENABLE == '1'
+      local has_image = false
+      if has_ui and image_enabled then
+        has_image = pcall(require, 'image')
+      end
       vim.g.molten_image_provider = has_image and 'image.nvim' or 'none'
 
       -- Output window settings (smaller to avoid "too long" issue)
@@ -277,23 +284,32 @@ return {
   -- In tmux/zellij: requires passthrough enabled (see instructions below)
   {
     '3rd/image.nvim',
-    enabled = function()
+    cond = function()
+      -- Avoid loading this plugin in headless Neovim (e.g. health checks, CI).
+      if #vim.api.nvim_list_uis() == 0 then
+        return false
+      end
+
       -- Only enable if not in tmux/zellij, or if user explicitly enables it
       local tmux = vim.env.TMUX
       local zellij = vim.env.ZELLIJ
+      local explicit = vim.env.NVIM_IMAGE_ENABLE
 
-      -- If not in multiplexer, enable by default
-      if not tmux and not zellij then
+      -- Explicit override first.
+      if explicit == '0' then
+        return false
+      end
+      if explicit == '1' then
         return true
       end
 
-      -- If in multiplexer, check for explicit enable via env var
-      -- User can set: export NVIM_IMAGE_ENABLE=1
-      return vim.env.NVIM_IMAGE_ENABLE == '1'
+      -- If not in multiplexer, enable by default.
+      return not tmux and not zellij
     end,
     lazy = true,
     opts = {
       backend = 'kitty', -- Use Kitty graphics protocol (WezTerm compatible)
+      processor = 'magick_cli',
       integrations = {
         markdown = {
           enabled = true,

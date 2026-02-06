@@ -23,6 +23,19 @@ return {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
+    -- Compatibility for telescope 0.1.x with newer nvim-treesitter APIs.
+    local ok_ts_parsers, ts_parsers = pcall(require, 'nvim-treesitter.parsers')
+    if ok_ts_parsers and type(ts_parsers.ft_to_lang) ~= 'function' then
+      ts_parsers.ft_to_lang = function(ft)
+        return vim.treesitter.language.get_lang(ft) or ft
+      end
+    end
+    if ok_ts_parsers and type(ts_parsers.get_parser) ~= 'function' then
+      ts_parsers.get_parser = function(bufnr, lang)
+        return vim.treesitter.get_parser(bufnr, lang)
+      end
+    end
+
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
     local actions = require 'telescope.actions'

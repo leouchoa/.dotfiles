@@ -1,8 +1,22 @@
-return { -- Highlight, edit, and navigate code
-
+return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   event = { 'BufReadPre', 'BufNewFile' },
+  init = function(plugin)
+    local ts_runtime = plugin.dir .. '/runtime'
+    if not vim.tbl_contains(vim.opt.runtimepath:get(), ts_runtime) then
+      vim.opt.runtimepath:append(ts_runtime)
+    end
+
+    -- Force-load bundled parsers early (before lazy plugin load) so we don't
+    -- accidentally cache an older parser from plugin runtime.
+    for _, lang in ipairs { 'vim', 'vimdoc' } do
+      local parser = vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false)[1]
+      if parser and parser:find('[\\/]lib[\\/]nvim[\\/]parser[\\/]') then
+        pcall(vim.treesitter.language.add, lang, { path = parser })
+      end
+    end
+  end,
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
@@ -13,7 +27,6 @@ return { -- Highlight, edit, and navigate code
       'c',
       'html',
       'regex',
-      'bash',
       'vim',
       'lua',
       'luadoc',
@@ -32,72 +45,31 @@ return { -- Highlight, edit, and navigate code
       'go',
       'json',
     },
-    -- Autoinstall languages that are not installed
-
     auto_install = true,
-
-    highlight = {
-      enable = true,
-      -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-      --  If you are experiencing weird indenting issues, add the language to
-      --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-      additional_vim_regex_highlighting = { 'ruby' },
-    },
-
-    indent = { enable = true, disable = { 'ruby' } },
-
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<C-space>', -- set to `false` to disable one of the mappings
-        node_incremental = '<C-space>',
-        -- scope_incremental = "grc",
-        scope_incremental = false,
-        node_decremental = '<bs>',
-      },
-    },
-
+    additional_vim_regex_highlighting = { 'ruby' },
+    disable_indent = { 'ruby' },
     textobjects = {
-      lsp_interop = {
-        enable = true,
-        border = 'rounded',
-        floating_preview_opts = {},
-        peek_definition_code = {
-          ['<leader>lc'] = { query = '@class.outer', desc = 'Peek class', silent = true },
-          ['<leader>ll'] = { query = '@function.outer', desc = 'Peek function', silent = true },
-        },
-      },
       select = {
-        enable = true,
-        -- Automatically jump forward to textobj, similar to targets.vim
         lookahead = true,
-
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
           ['af'] = { query = '@function.outer', desc = 'Select outer part of a function region' },
           ['if'] = { query = '@function.inner', desc = 'Select inner part of a function region' },
           ['ac'] = { query = '@class.outer', desc = 'Select outer part of a class region' },
           ['ic'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
-          ['as'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
-          -- ["is"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+          ['as'] = { query = '@local.scope', query_group = 'locals', desc = 'Select language scope' },
           ['a='] = { query = '@assignment.outer', desc = 'Select outer part of an assignment' },
           ['i='] = { query = '@assignment.inner', desc = 'Select inner part of an assignment' },
           ['L='] = { query = '@assignment.lhs', desc = 'Select left-hand side of an assignment' },
           ['R='] = { query = '@assignment.rhs', desc = 'Select right-hand side of an assignment' },
-
           ['aa'] = { query = '@parameter.outer', desc = 'Select outer part of a parameter/argument' },
           ['ia'] = { query = '@parameter.inner', desc = 'Select inner part of a parameter/argument' },
-
           ['ai'] = { query = '@conditional.outer', desc = 'Select outer part of a conditional' },
           ['ii'] = { query = '@conditional.inner', desc = 'Select inner part of a conditional' },
-
           ['al'] = { query = '@loop.outer', desc = 'Select outer part of a loop' },
           ['il'] = { query = '@loop.inner', desc = 'Select inner part of a loop' },
         },
       },
-
       swap = {
-        enable = true,
         swap_next = {
           ['<leader>sna'] = { query = '@parameter.inner', desc = 'Swap parameters/argument with next' },
           ['<leader>snp'] = { query = '@property.outer', desc = 'Swap object property with next' },
@@ -110,7 +82,6 @@ return { -- Highlight, edit, and navigate code
         },
       },
       move = {
-        enable = true,
         set_jumps = true,
         goto_previous_start = {
           ['[f'] = { query = '@function.outer', desc = 'Previous method/function definition start' },
@@ -123,9 +94,6 @@ return { -- Highlight, edit, and navigate code
           [']c'] = { query = '@class.outer', desc = 'Next class definition start' },
           [']i'] = { query = '@conditional.outer', desc = 'Next conditional start' },
           [']l'] = { query = '@loop.outer', desc = 'Next loop start' },
-          -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
-          -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
-          -- [']s'] = { query = '@scope', query_group = 'locals', desc = 'Next scope' },
           [']z'] = { query = '@fold', query_group = 'folds', desc = 'Next fold' },
         },
         goto_previous_end = {
@@ -145,30 +113,129 @@ return { -- Highlight, edit, and navigate code
   },
 
   config = function(_, opts)
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    local ts = require 'nvim-treesitter'
+    local ts_parsers = require 'nvim-treesitter.parsers'
+    local ts_select = require 'nvim-treesitter-textobjects.select'
+    local ts_move = require 'nvim-treesitter-textobjects.move'
+    local ts_swap = require 'nvim-treesitter-textobjects.swap'
+    local ts_repeat_move = require 'nvim-treesitter-textobjects.repeatable_move'
 
-    -- Prefer git instead of curl in order to improve connectivity in some environments
-    require('nvim-treesitter.install').prefer_git = true
-    ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup(opts)
-    local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
+    local function prefer_builtin_parser(lang)
+      local parser_glob = 'parser/' .. lang .. '.*'
+      local candidates = vim.api.nvim_get_runtime_file(parser_glob, true)
+      if #candidates < 2 then
+        return
+      end
 
-    -- Repeat movement with ; and ,
-    -- ensure ; goes forward and , goes backward regardless of the last direction
+      local builtin = nil
+      for _, path in ipairs(candidates) do
+        if path:find('[\\/]lib[\\/]nvim[\\/]parser[\\/]') then
+          builtin = path
+          break
+        end
+      end
+
+      if builtin then
+        pcall(vim.treesitter.language.add, lang, { path = builtin })
+      end
+    end
+
+    -- Prefer bundled parsers for vim/vimdoc to avoid ABI/query mismatches.
+    prefer_builtin_parser 'vim'
+    prefer_builtin_parser 'vimdoc'
+
+    ts.setup({})
+
+    local runtime_group = vim.api.nvim_create_augroup('cfg-treesitter-runtime', { clear = true })
+    vim.api.nvim_create_autocmd('FileType', {
+      group = runtime_group,
+      callback = function(event)
+        local ft = vim.bo[event.buf].filetype
+        local bt = vim.bo[event.buf].buftype
+
+        -- Skip utility/scratch buffers (noice, notify, quickfix, terminal, etc.)
+        -- to avoid noisy query errors and unsupported language warnings.
+        if bt ~= '' and bt ~= 'acwrite' then
+          return
+        end
+
+        local lang = vim.treesitter.language.get_lang(ft) or ft
+
+        if not lang or lang == '' or ts_parsers[lang] == nil then
+          return
+        end
+
+        local ok = pcall(vim.treesitter.start, event.buf)
+        if not ok then
+          return
+        end
+
+        if vim.tbl_contains(opts.additional_vim_regex_highlighting, ft) then
+          vim.bo[event.buf].syntax = ft
+        end
+
+        if vim.tbl_contains(opts.disable_indent, ft) then
+          return
+        end
+
+        if pcall(vim.treesitter.get_parser, event.buf) then
+          vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
+
+    require('nvim-treesitter-textobjects').setup {
+      select = {
+        lookahead = opts.textobjects.select.lookahead,
+      },
+      move = {
+        set_jumps = opts.textobjects.move.set_jumps,
+      },
+    }
+
+    for keymap, map in pairs(opts.textobjects.select.keymaps) do
+      vim.keymap.set({ 'x', 'o' }, keymap, function()
+        ts_select.select_textobject(map.query, map.query_group)
+      end, { desc = map.desc, silent = true })
+    end
+
+    for keymap, map in pairs(opts.textobjects.swap.swap_next) do
+      vim.keymap.set('n', keymap, function()
+        ts_swap.swap_next(map.query, map.query_group)
+      end, { desc = map.desc, silent = true })
+    end
+
+    for keymap, map in pairs(opts.textobjects.swap.swap_previous) do
+      vim.keymap.set('n', keymap, function()
+        ts_swap.swap_previous(map.query, map.query_group)
+      end, { desc = map.desc, silent = true })
+    end
+
+    local move_mappings = {
+      goto_previous_start = ts_move.goto_previous_start,
+      goto_next_start = ts_move.goto_next_start,
+      goto_previous_end = ts_move.goto_previous_end,
+      goto_next_end = ts_move.goto_next_end,
+    }
+
+    for group_name, move_fn in pairs(move_mappings) do
+      for keymap, map in pairs(opts.textobjects.move[group_name]) do
+        vim.keymap.set({ 'n', 'x', 'o' }, keymap, function()
+          move_fn(map.query, map.query_group)
+        end, { desc = map.desc, silent = true })
+      end
+    end
+
     vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move_next)
     vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_previous)
 
-    -- vim way: ; goes to the direction you were moving.
-    -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-    -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
-    -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
     vim.keymap.set({ 'n', 'x', 'o' }, 'f', ts_repeat_move.builtin_f_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 'F', ts_repeat_move.builtin_F_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
+
+    local telescope = require 'telescope.builtin'
+    vim.keymap.set('n', '<leader>lc', telescope.lsp_type_definitions, { desc = 'Peek class/type', silent = true })
+    vim.keymap.set('n', '<leader>ll', telescope.lsp_definitions, { desc = 'Peek function/definition', silent = true })
   end,
-  -- keys = {
-  --   { '<leader>g', '<cmd>Neogit<cr>', mode = { 'n', 'v' }, desc = 'Yank git link' },
-  -- },
 }

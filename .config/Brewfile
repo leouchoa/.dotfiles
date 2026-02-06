@@ -252,35 +252,17 @@ brew "yt-dlp"           # YouTube downloader (modern youtube-dl)
 brew "mutt"             # Email client
 
 # ================================
-# Post-Installation Instructions
+# Post-Installation
 # ================================
 #
-# 1. Install GitHub CLI extension (gh-dash):
-#    gh extension install dlvhdr/gh-dash
+# Prefer running from repo root:
+#   ./install.sh
 #
-# 2. Install tmux plugin manager (TPM):
-#    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-#    Then open tmux and press: <prefix> + I
+# It handles stow, Oh My Zsh plugins, TPM plugins,
+# gh-dash installation (if authenticated), and basic post-checks.
 #
-# 3. Install t-smart-tmux-session-manager:
-#    Already installed via TPM in ~/.config/tmux/plugins/
-#    Or install sesh (modern Go rewrite):
-#    brew install joshmedeski/sesh/sesh
-#
-# 4. Install zellij-sessionizer:
-#    Already in your dotfiles at ~/.local/bin/zellij-sessionizer
-#    Make sure ~/.local/bin is in your PATH
-#
-# 5. Configure Ghostty:
-#    Copy settings from wezterm.lua to Ghostty config
-#    See GHOSTTY_MIGRATION.md for details
-#
-# 6. Install Oh-My-Zsh plugins:
-#    git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-#    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#
-# 7. Set up pyenv (if needed):
-#    pyenv install 3.12
-#    pyenv global 3.12
+# Manual runtime setup still needed (if desired):
+#   nvm install 22 && nvm alias default 22
+#   pyenv install 3.12 && pyenv global 3.12
 #
 # ================================

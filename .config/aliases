@@ -42,6 +42,10 @@ alias untargz='tar -xvzf'
 # alias weather='function _weather() {curl wttr.in/$1;} _weather'
 alias reload='exec zsh'
 alias restow_dotfiles="stow -R -d ~/.dotfiles -t ~ -v ."
+alias keyrepeat-status='${XDG_CONFIG_HOME:-$HOME/.config}/custom_scripts/mac_key_repeat.sh status'
+alias keyrepeat-snappy='${XDG_CONFIG_HOME:-$HOME/.config}/custom_scripts/mac_key_repeat.sh apply --profile snappy'
+alias keyrepeat-teleport='${XDG_CONFIG_HOME:-$HOME/.config}/custom_scripts/mac_key_repeat.sh apply --profile teleport'
+alias keyrepeat-reset='${XDG_CONFIG_HOME:-$HOME/.config}/custom_scripts/mac_key_repeat.sh reset'
 alias tmks="tmux list-sessions | cut -d ":" -f 1 | fzf --multi | xargs -L 1 tmux kill-session -t "
 alias mkpyenv="python -m venv .venv && . .venv/bin/activate"
 alias podman-up="podman machine start podman-machine-default && podman system connection default podman-machine-default"
@@ -59,6 +63,5 @@ alias lt=' ls --tree -L 2 -I ${TREE_IGNORE}'
 alias ltt=' ls --tree -L 3 -I ${TREE_IGNORE}'
 alias ldt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ldtt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
-
 
 
