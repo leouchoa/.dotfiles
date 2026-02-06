@@ -1,0 +1,286 @@
+# ================================
+# Homebrew Bundle File
+# ================================
+# Install all packages by running:
+#   brew bundle --v
+#
+# Or from anywhere:
+#   brew bundle --file ~/.dotfiles/.config/Brewfile --v
+#
+# ================================
+
+# ================================
+# Taps
+# ================================
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+
+# ================================
+# Essential CLI Tools
+# ================================
+
+# Core utilities
+brew "coreutils"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "make"
+brew "wget"
+brew "curl"
+brew "tree"
+brew "watch"
+
+# Shell & Terminal
+brew "zsh"
+brew "bash"
+brew "tmux"
+brew "zellij"           # Modern terminal multiplexer (primary)
+
+# File Management & Navigation
+brew "fzf"              # Fuzzy finder
+brew "zoxide"           # Smart directory jumper
+brew "fd"               # Modern find replacement
+brew "ripgrep"          # Fast grep replacement
+brew "eza"              # Modern ls replacement
+brew "bat"              # Cat with syntax highlighting
+brew "nnn"              # Terminal file manager
+brew "yazi"             # Modern terminal file manager
+
+# Git & Version Control
+brew "git"
+brew "gh"               # GitHub CLI
+brew "glab"             # GitLab CLI
+brew "lazygit"          # Terminal UI for git
+brew "git-delta"        # Better git diff
+brew "git-filter-repo"  # Git history rewriting
+
+# ================================
+# Development Tools
+# ================================
+
+# Editors
+brew "neovim"
+
+# Programming Languages & Runtimes
+brew "python@3.14"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "node"
+brew "nvm"
+brew "go"
+brew "rust-analyzer"
+brew "lua"
+brew "luajit"
+brew "luarocks"
+brew "ruby"
+brew "r"
+brew "zig"
+
+# Build Tools & Package Managers
+brew "cmake"
+brew "autoconf"
+brew "libtool"
+brew "pkgconf"
+brew "maven"
+brew "cocoapods"
+brew "pnpm"
+brew "uv"               # Fast Python package installer
+
+# Language Servers & Tools
+brew "tree-sitter"
+brew "shellcheck"       # Shell script linter
+
+# ================================
+# Cloud & Infrastructure
+# ================================
+
+brew "awscli"
+brew "aws-iam-authenticator"
+brew "gcloud-cli"
+brew "terraform"
+brew "opentofu"
+brew "kubernetes-cli"
+brew "kubectl"
+brew "helm"
+brew "k9s"              # Kubernetes TUI
+brew "minikube"
+brew "argocd"
+brew "eksctl"
+
+# Docker & Containers
+brew "dive"             # Docker image explorer
+brew "lazydocker"       # Docker TUI
+brew "podman-tui"
+
+# ================================
+# Database Tools
+# ================================
+
+brew "mysql"
+brew "duckdb"
+brew "csvq"             # SQL on CSV files
+
+# ================================
+# Media & Document Processing
+# ================================
+
+brew "ffmpeg"
+brew "imagemagick"
+brew "graphicsmagick"
+brew "pandoc"           # Document converter
+brew "typst"            # Modern LaTeX alternative
+brew "tesseract"        # OCR engine
+
+# Audio
+brew "mpd"              # Music player daemon
+brew "libmpdclient"
+
+# ================================
+# System Monitoring & Utilities
+# ================================
+
+brew "htop"
+brew "glances"          # Advanced system monitor
+brew "procs"            # Modern ps replacement
+brew "duf"              # Modern df replacement
+brew "dust"             # Modern du replacement
+
+# File System Tools
+brew "stow"             # Symlink farm manager (for dotfiles)
+brew "direnv"           # Directory-based env vars
+
+# ================================
+# Network & API Tools
+# ================================
+
+brew "xh"               # Modern HTTPie replacement
+brew "grpcui"           # gRPC web UI
+brew "grpcurl"          # cURL for gRPC
+brew "navi"             # Interactive cheat sheet
+
+# ================================
+# Data & Text Processing
+# ================================
+
+brew "jq"               # JSON processor
+brew "awk"
+brew "z"                # Directory jumper (legacy)
+brew "glow"             # Markdown renderer
+brew "lynx"             # Text-based web browser
+brew "ansifilter"       # ANSI escape code filter
+brew "tidy-viewer"      # Pretty CSV viewer
+brew "sloc"             # Source lines of code counter
+
+# ================================
+# Security & Privacy
+# ================================
+
+brew "gnupg"
+brew "gpgme"
+brew "pinentry"
+
+# ================================
+# Documentation & Help
+# ================================
+
+brew "tldr"             # Simplified man pages
+
+# ================================
+# Development Utilities
+# ================================
+
+brew "watchman"         # File watching service
+# brew "jj"               # Jujutsu VCS (Git alternative)
+# brew "showkey"          # Show key presses
+brew "stripe"           # Stripe CLI
+brew "posting"          # API testing tool
+brew "golang-migrate"   # Database migrations
+brew "golangci-lint"    # Go linter
+
+# ================================
+# Task Management
+# ================================
+
+brew "task"             # Taskwarrior
+brew "taskwarrior-tui"  # Taskwarrior TUI
+
+# ================================
+# Testing & Development
+# ================================
+
+brew "k6"               # Load testing
+
+# ================================
+# Fonts
+# ================================
+
+brew "fontconfig"
+cask "font-hack-nerd-font"
+cask "font-iosevka"
+
+# ================================
+# Cask Applications
+# ================================
+
+# Terminal Emulators
+cask "iterm2"
+cask "ghostty"          # New terminal emulator (replacing WezTerm)
+
+# Productivity
+cask "rectangle"        # Window management
+
+# Security & VPN
+cask "keepassxc"        # Password manager
+cask "tunnelblick"      # OpenVPN client
+
+# Development
+cask "ngrok"            # Secure tunnels
+cask "quarto"           # Scientific publishing
+
+# Cloud Tools
+cask "google-cloud-sdk"
+
+# ================================
+# YouTube & Media Download
+# ================================
+
+brew "yt-dlp"           # YouTube downloader (modern youtube-dl)
+
+# ================================
+# Additional Tools
+# ================================
+
+brew "mutt"             # Email client
+
+# ================================
+# Post-Installation Instructions
+# ================================
+#
+# 1. Install GitHub CLI extension (gh-dash):
+#    gh extension install dlvhdr/gh-dash
+#
+# 2. Install tmux plugin manager (TPM):
+#    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+#    Then open tmux and press: <prefix> + I
+#
+# 3. Install t-smart-tmux-session-manager:
+#    Already installed via TPM in ~/.config/tmux/plugins/
+#    Or install sesh (modern Go rewrite):
+#    brew install joshmedeski/sesh/sesh
+#
+# 4. Install zellij-sessionizer:
+#    Already in your dotfiles at ~/.local/bin/zellij-sessionizer
+#    Make sure ~/.local/bin is in your PATH
+#
+# 5. Configure Ghostty:
+#    Copy settings from wezterm.lua to Ghostty config
+#    See GHOSTTY_MIGRATION.md for details
+#
+# 6. Install Oh-My-Zsh plugins:
+#    git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+#    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#
+# 7. Set up pyenv (if needed):
+#    pyenv install 3.12
+#    pyenv global 3.12
+#
+# ================================

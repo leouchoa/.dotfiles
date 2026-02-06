@@ -18,6 +18,19 @@ return {
   },
   config = function()
     require('noice').setup {
+      routes = {
+        -- Filter out deprecation warnings from LSP
+        {
+          filter = {
+            event = 'msg_show',
+            any = {
+              { find = 'get_active_clients' },
+              { find = 'deprecated' },
+            },
+          },
+          opts = { skip = true },
+        },
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

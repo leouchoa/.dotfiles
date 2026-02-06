@@ -1,5 +1,6 @@
 return {
   'windwp/nvim-ts-autotag',
+  ft = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'tsx', 'jsx', 'mdx' },
   config = function()
     require('nvim-ts-autotag').setup {
       opts = {
@@ -14,6 +15,10 @@ return {
       per_filetype = {
         ['html'] = {
           enable_close = false,
+        },
+        ['mdx'] = {
+          enable_close = true,
+          enable_rename = true,
         },
       },
     }

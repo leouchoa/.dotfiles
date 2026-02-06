@@ -1,0 +1,9 @@
+// Htop floating layout
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+    pane {
+        command "htop"
+    }
+}

@@ -8,3 +8,5 @@
 .config/zsh/.zcompdump
 .config/zsh/.zcompdump-Leonardo’s MacBook Air-5.9
 .config/zsh/.zsh_history
+.config/.env
+.config/alarm-clock

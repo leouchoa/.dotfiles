@@ -155,6 +155,15 @@ if [ -f ~/custom_script/custom_cmds ]; then
 fi
 # Alias to attach to the last used tmux session
 alias tt='$XDG_CONFIG_HOME/custom_scripts/tmux_attach_last_session.sh'
+# Alias to attach to the last used zellij session
+alias zz='$XDG_CONFIG_HOME/custom_scripts/zellij_attach_last_session.sh'
+# Alias for zellij-sessionizer (like tmux sessionizer)
+alias zl='zellij-sessionizer'
+
+# Zellij sessionizer configuration
+export ZELLIJ_SESSIONIZER_SEARCH_PATHS="$HOME/code $HOME/work $HOME/Projects"
+export ZELLIJ_SESSIONIZER_SPECIFIC_PATHS="$HOME/.dotfiles $HOME/.config"
+
 # alias podman_init='$XDG_CONFIG_HOME/custom_scripts/podman_init.sh'
 source $XDG_CONFIG_HOME/custom_scripts/podman_init.sh
 source $XDG_CONFIG_HOME/custom_scripts/global_rg.sh
@@ -166,6 +175,18 @@ bindkey -v
 
 # requires installation via git clone
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf-zellij: Make fzf open in Zellij floating panes
+fzf() {
+   case "$1" in
+      --bash|--zsh|--fish|--version|-h|--help|--man)
+         command fzf "$@"
+         ;;
+      *)
+         fzf-zellij "$@"
+         ;;
+   esac
+}
 
 # t-smart-tmux-session-manager
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
@@ -186,6 +207,7 @@ autoload -U zmv
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/leonardopedreira/.docker/completions $fpath)
 fpath=(~/.config/stripe $fpath)
+fpath=(${XDG_CONFIG_HOME:-~/.config}/certavia $fpath)
 
 autoload -Uz compinit && compinit
 
@@ -194,3 +216,10 @@ autoload -Uz compinit && compinit
 
 # Auto-select the default Node version for all new shells
 nvm use default &> /dev/null
+
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+
+
+if command -v win >/dev/null 2>&1; then eval "$(command win config shell init zsh)"; fi
