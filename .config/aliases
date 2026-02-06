@@ -29,6 +29,7 @@ alias c='clear'
 alias qwe="nvim"
 alias qwed="nvim -d"
 alias asd="bat"
+alias mutt="neomutt"
 alias xc='xclip -selection clipboard'
 alias zc="z -c"
 alias zt="z -t"
@@ -63,5 +64,4 @@ alias lt=' ls --tree -L 2 -I ${TREE_IGNORE}'
 alias ltt=' ls --tree -L 3 -I ${TREE_IGNORE}'
 alias ldt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ldtt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
-
 

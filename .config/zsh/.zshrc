@@ -153,6 +153,11 @@ if [ -f ~/.config/aliases ]; then
         . ~/.config/aliases
 fi
 
+# Local mail credentials for mutt (not committed).
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/.env" ]; then
+    . "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/.env"
+fi
+
 # Custom commands
 if [ -f ~/custom_script/custom_cmds ]; then
 	. ~/custom_script/custom_cmds

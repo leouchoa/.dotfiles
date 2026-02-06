@@ -1,0 +1,2 @@
+text/html; lynx -dump -force_html "%s"; copiousoutput
+image/*; ~/.config/custom_scripts/mutt_view_image.sh "%s"; copiousoutput

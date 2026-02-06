@@ -1,0 +1,54 @@
+# Gmail account configuration for Mutt.
+#
+# Expected environment variables:
+#   MUTT_GMAIL_ADDRESS
+#   MUTT_GMAIL_APP_PASSWORD
+#   MUTT_GMAIL_REALNAME (optional)
+#
+# Put them in ~/.config/mutt/.env (ignored by git) and reload shell.
+
+set my_gmail_user = "$MUTT_GMAIL_ADDRESS"
+set my_gmail_pass = "$MUTT_GMAIL_APP_PASSWORD"
+
+set realname = "$MUTT_GMAIL_REALNAME"
+set from = "$my_gmail_user"
+set use_from = yes
+set envelope_from = yes
+
+set imap_user = "$my_gmail_user"
+set imap_pass = "$my_gmail_pass"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+set move = no
+
+set smtp_url = "smtps://$my_gmail_user@smtp.gmail.com:465/"
+set smtp_pass = "$my_gmail_pass"
+
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set ssl_verify_dates = yes
+set ssl_verify_host = yes
+set certificate_file = "~/.config/mutt/certificates"
+set mailcap_path = "~/.config/mutt/mailcap"
+set implicit_autoview = yes
+
+set mbox_type = Maildir
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+set mark_old = no
+set timeout = 15
+
+auto_view text/html image/*
+alternative_order text/plain text/enriched text/html image/*
+
+mailboxes +INBOX +[Gmail]/Sent\ Mail +[Gmail]/Drafts +[Gmail]/All\ Mail
+
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:

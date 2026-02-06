@@ -11,4 +11,6 @@
 .config/zsh/.zcompdump-*.zwc
 .config/zsh/.zsh_history
 .config/.env
+.config/mutt/.env
 .config/alarm-clock
+.config/mutt/.env.example

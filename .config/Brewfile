@@ -166,6 +166,7 @@ brew "awk"
 brew "z"                # Directory jumper (legacy)
 brew "glow"             # Markdown renderer
 brew "lynx"             # Text-based web browser
+brew "chafa"            # Terminal image preview (used by mutt mailcap)
 brew "ansifilter"       # ANSI escape code filter
 brew "tidy-viewer"      # Pretty CSV viewer
 brew "sloc"             # Source lines of code counter
@@ -249,7 +250,7 @@ brew "yt-dlp"           # YouTube downloader (modern youtube-dl)
 # Additional Tools
 # ================================
 
-brew "mutt"             # Email client
+brew "neomutt"          # Email client (preferred over mutt)
 
 # ================================
 # Post-Installation
