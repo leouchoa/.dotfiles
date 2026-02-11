@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+SRC_DIR="${CONFIG_HOME}/fclear"
+BIN_DIR="${CACHE_HOME}/fclear/bin"
+BIN_PATH="${BIN_DIR}/fclear"
+
+if [[ ! -d "${SRC_DIR}" ]]; then
+  echo "fclear source not found at ${SRC_DIR}" >&2
+  exit 1
+fi
+
+needs_build=0
+if [[ ! -x "${BIN_PATH}" ]]; then
+  needs_build=1
+else
+  for dep in "${SRC_DIR}/main.go" "${SRC_DIR}/go.mod" "${SRC_DIR}/main_test.go"; do
+    if [[ -f "${dep}" && "${dep}" -nt "${BIN_PATH}" ]]; then
+      needs_build=1
+      break
+    fi
+  done
+fi
+
+if (( needs_build )); then
+  if ! command -v go >/dev/null 2>&1; then
+    echo "go is required to build fclear. Install go and retry." >&2
+    exit 1
+  fi
+
+  mkdir -p "${BIN_DIR}"
+  (
+    cd "${SRC_DIR}"
+    go build -o "${BIN_PATH}" .
+  )
+fi
+
+exec "${BIN_PATH}" "$@"

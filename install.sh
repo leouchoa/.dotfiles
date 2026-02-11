@@ -7,6 +7,8 @@ BREWFILE="${DOTFILES_DIR}/.config/Brewfile"
 TPM_DIR="${HOME}/.config/tmux/plugins/tpm"
 ZSH_CUSTOM_DIR="${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}"
 MAC_KEY_REPEAT_SCRIPT="${DOTFILES_DIR}/.config/custom_scripts/mac_key_repeat.sh"
+PREFERRED_POSTGRES_FORMULA="postgresql@18"
+POSTGRES_FORMULA_CANDIDATES=("postgresql@18" "postgresql@17" "postgresql@16" "postgresql@15" "postgresql@14" "postgresql")
 
 DRY_RUN=0
 DOCTOR_ONLY=0
@@ -198,6 +200,17 @@ configure_macos_key_repeat() {
   run "${MAC_KEY_REPEAT_SCRIPT}" apply --profile "${profile}"
 }
 
+detect_postgres_formula() {
+  local formula
+  for formula in "${POSTGRES_FORMULA_CANDIDATES[@]}"; do
+    if brew list --versions "${formula}" >/dev/null 2>&1; then
+      echo "${formula}"
+      return 0
+    fi
+  done
+  return 1
+}
+
 run_postflight_checks() {
   local zsh_check
   local issues=0
@@ -242,6 +255,31 @@ run_postflight_checks() {
   if ! command -v fzf >/dev/null 2>&1; then
     warn "fzf is not available."
     issues=$((issues + 1))
+  fi
+
+  if [[ ! -x "${HOME}/.local/bin/fclear" ]]; then
+    warn "fclear wrapper missing at ${HOME}/.local/bin/fclear"
+    issues=$((issues + 1))
+  elif ! "${HOME}/.local/bin/fclear" --version >/dev/null 2>&1; then
+    warn "fclear is not runnable (check Go installation and ~/.config/fclear)."
+    issues=$((issues + 1))
+  fi
+
+  local postgres_formula=""
+  if ! postgres_formula="$(detect_postgres_formula)"; then
+    warn "No Homebrew PostgreSQL formula installed. Preferred: ${PREFERRED_POSTGRES_FORMULA}"
+    issues=$((issues + 1))
+  else
+    local postgres_bin
+    postgres_bin="$(brew --prefix "${postgres_formula}" 2>/dev/null || true)/bin/psql"
+    if [[ ! -x "${postgres_bin}" ]]; then
+      warn "Expected PostgreSQL client not found at ${postgres_bin}"
+      issues=$((issues + 1))
+    fi
+
+    if [[ "${postgres_formula}" != "${PREFERRED_POSTGRES_FORMULA}" ]]; then
+      warn "Detected ${postgres_formula}. Preferred formula for new installs is ${PREFERRED_POSTGRES_FORMULA}."
+    fi
   fi
 
   if ! command -v zsh >/dev/null 2>&1; then
@@ -301,8 +339,9 @@ Next steps:
 2. Authenticate GitHub CLI if needed: gh auth login
 3. Install Node default if needed: nvm install 22 && nvm alias default 22
 4. Install Python default if needed: pyenv install 3.12 && pyenv global 3.12
-5. Open Neovim once and let plugins sync: nvim
-6. Log out and back in once so key repeat tuning is applied everywhere.
+5. Start PostgreSQL if needed: brew services start postgresql@18
+6. Open Neovim once and let plugins sync: nvim
+7. Log out and back in once so key repeat tuning is applied everywhere.
 EOF
 }
 

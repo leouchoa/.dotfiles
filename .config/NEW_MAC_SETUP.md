@@ -28,7 +28,8 @@ cd ~/.dotfiles
 6. Installs TPM + tmux plugins.
 7. Installs `gh-dash` when `gh` is authenticated.
 8. Applies macOS key repeat profile (`snappy` by default).
-9. Runs post-install checks for:
+9. Verifies PostgreSQL install (`postgresql@18` from Homebrew).
+10. Runs post-install checks for:
    - `Ctrl-r` -> `fzf-history-widget`
    - `Tab` -> `fzf-tab-complete`
    - Ghostty config validation
@@ -55,6 +56,9 @@ which nvim
 which lazygit
 which gh
 ghostty +validate-config --config-file ~/.config/ghostty/config
+brew services info postgresql@18
+psql --version
+fclear --help
 ```
 
 Expected keybinding output includes:
@@ -67,8 +71,11 @@ Expected keybinding output includes:
 gh auth login
 nvm install 22 && nvm alias default 22
 pyenv install 3.12 && pyenv global 3.12
+brew services start postgresql@18
 nvim
 ```
+
+Homebrew already initializes a default PostgreSQL data directory for `postgresql@18`.
 
 ## Key Repeat Commands
 

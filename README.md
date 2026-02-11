@@ -13,6 +13,7 @@ This bootstrap is idempotent and handles:
 - Oh My Zsh install (if missing)
 - Required Oh My Zsh plugins (`fzf-tab`, `zsh-autosuggestions`)
 - TPM install + tmux plugin install
+- PostgreSQL install via Homebrew (`postgresql@18`)
 - macOS key repeat tuning (`snappy` profile by default)
 - Dotfiles stow + post-install checks (`Ctrl-r`, tab completion)
 
@@ -33,6 +34,18 @@ Quick key repeat commands after setup:
 - `keyrepeat-snappy`
 - `keyrepeat-teleport`
 - `keyrepeat-reset`
+
+PostgreSQL quick commands:
+- `pg-start`
+- `pg-status`
+- `psql --version`
+
+Filename cleaner CLI:
+- `fclear --help`
+- `fclear --dry-run "My File (1).JPG"`
+- `fclear --dir ~/Downloads --overwrite --rm-punct`
+
+`fclear` source lives in `.config/fclear/`, and the wrapper command is stowed to `.local/bin/fclear`.
 
 To make your changes take effect after edits, restow your config:
 

@@ -116,6 +116,7 @@ brew "podman-tui"
 # ================================
 
 brew "mysql"
+brew "postgresql@18"    # PostgreSQL (pinned major for reproducible setup)
 brew "duckdb"
 brew "csvq"             # SQL on CSV files
 
