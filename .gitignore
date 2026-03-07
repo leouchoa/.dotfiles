@@ -15,3 +15,4 @@
 .config/alarm-clock
 .config/mutt/.env.example
 fcleaner
+.config/stripe/config.toml
