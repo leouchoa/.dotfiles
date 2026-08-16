@@ -125,6 +125,12 @@ plugins=(
     # zsh-vi-mode
 )
 
+# These Oh My Zsh plugins are only valid on macOS. They must be selected
+# before Oh My Zsh is sourced; appending them from zshrc_mac is too late.
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    plugins+=(macos brew)
+fi
+
 # Optional plugins: enable only when installed (macOS/Linux compatible).
 for optional_plugin in fd zig-shell-completions; do
     if [[ -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/${optional_plugin}" || -d "${ZSH}/plugins/${optional_plugin}" ]]; then
@@ -133,10 +139,18 @@ for optional_plugin in fd zig-shell-completions; do
 done
 
 ZSH_WEB_SEARCH_ENGINES=(yt "https://www.youtube.com/results?search_query=")
+
+# Completion directories must be on fpath before Oh My Zsh runs compinit.
+fpath=(
+    "$HOME/.docker/completions"
+    "$HOME/.config/stripe"
+    "${XDG_CONFIG_HOME:-$HOME/.config}/certavia"
+    $fpath
+)
+
 source $ZSH/oh-my-zsh.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "OSTYPE is $OSTYPE, sourcing zsh mac config"
     source ~/.config/zsh/zshrc_mac
 elif [[ "$OSTYPE" == "(microsoft|wsl)" ]]; then
     echo "OSTYPE is $OSTYPE, sourcing zsh wsl config"
@@ -224,12 +238,10 @@ fzf() {
 # t-smart-tmux-session-manager
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Oh My Zsh's pyenv plugin owns interactive pyenv and pyenv-virtualenv setup.
+# ~/.zprofile owns the login-shell PATH setup.
 
-eval "$(fzf --zsh)"
+# ~/.fzf.zsh is the single owner of fzf shell integration.
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
@@ -237,18 +249,10 @@ source $HOME/.cargo/env
 # https://unix.stackexchange.com/a/469851
 autoload -U zmv
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/leonardopedreira/.docker/completions $fpath)
-fpath=(~/.config/stripe $fpath)
-fpath=(${XDG_CONFIG_HOME:-~/.config}/certavia $fpath)
-
-autoload -Uz compinit && compinit
-
-# export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Auto-select the default Node version for all new shells
-nvm use default &> /dev/null
+# Load NVM exactly once. There is currently no installed default NVM version,
+# so do not run a failing `nvm use default` in every new shell.
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
@@ -256,10 +260,6 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 
 
 if command -v win >/dev/null 2>&1; then eval "$(command win config shell init zsh)"; fi
-eval "$(zoxide init zsh)"
-eval "$(zoxide init zsh)"
-source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
-source $(brew --prefix)/opt/fzf/shell/completion.zsh
 
 # Keep Ctrl-r/Ctrl-t from fzf but use fzf-tab for Tab completion.
 if (( $+functions[fzf-tab-complete] )); then

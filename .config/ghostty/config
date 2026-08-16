@@ -92,8 +92,8 @@ macos-non-native-fullscreen = true
 # Most terminal multiplexer keybindings (tmux/zellij) will work as-is
 
 # macOS-specific: Open tmux session manager with Cmd+J
-# Sends Ctrl-b (tmux prefix) + T (uppercase)
-keybind = cmd+j=text:\x02\x54
+# Sends Ctrl-e (tmux prefix) + T (uppercase)
+keybind = cmd+j=text:\x05\x54
 
 # Ghostty window management (if not using tmux/zellij)
 keybind = cmd+t=new_tab
